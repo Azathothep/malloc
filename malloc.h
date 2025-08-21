@@ -1,8 +1,12 @@
-#ifndef MYLIBMEM_H
-# define MYLIBMEM_H
+#ifndef MALLOC_H
+# define MALLOC_H
 
-# include <stdlib.h>
+# include "libft.h"
+
+//# include <stdlib.h>
 # include <unistd.h>
+
+void	*malloc(size_t size);
 
 typedef struct 	s_header {
 	size_t			p_size; //previous size
