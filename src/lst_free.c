@@ -1,84 +1,51 @@
 #include "malloc.h"
 #include "utils.h"
 
-void	*lst_free_get_slot(void *blockAddr) {
-	void *current = blockAddr;	
-
-	while (((t_free *)current)->Size != 0) {
-		current += sizeof(t_free);
-	}
-
-	return current;
+void	*get_free_addr(t_free *Slot) {
+	return (void *)GET_HEADER(Slot);
 }
 
-t_free	*lst_free_new(int size, void *addr) {
-	t_memchunks *MemZone = &MemoryLayout.InternZone;
-			
-	if (MemZone->StartingBlockAddr == NULL) {
-		//PRINT("Allocating page for free lists\n");
-		void *ptr = map_memory(INTERN_CHUNK);
-		if (ptr == NULL)
-			return NULL;
+void	*lst_free_add(t_free **BeginList, int Size, void *Addr) {
+//	it_free *slot = lst_free_new(size, addr);
 
-		MemZone->StartingBlockAddr = ptr;
+	t_free *Slot = (t_free *)Addr;
+	Slot->Size = Size;
+	Slot->Prev = NULL;
+	Slot->Next = NULL;
+
+	if (*BeginList == NULL) {
+		*BeginList = Slot;
+		return Slot;
 	}
 
-	t_free *slot = lst_free_get_slot(MemZone->StartingBlockAddr);
-	
-	slot->Size = size;
-	slot->Addr = addr;
-	slot->Prev = NULL;
-	slot->Next = NULL;
-
-	return slot;
-}
-
-void	clear_slot(t_free *slot) {
-	slot->Size = 0;
-	slot->Next = NULL;
-}
-
-void	*lst_free_add(t_free **begin_lst, int size, void *addr) {
-	t_free *slot = lst_free_new(size, addr);
-
-	if (*begin_lst == NULL) {
-		*begin_lst = slot;
-		return slot;
+	t_free *List = *BeginList;
+	while (List->Next != NULL && List->Next < Slot) {
+		List = List->Next;
 	}
 
-	t_free *lst = *begin_lst;
-	while (lst->Next != NULL && lst->Next->Addr < addr) {
-		lst = lst->Next;
-	}
-
-	if (lst->Next != NULL) {
-		slot->Next = lst->Next;
-		lst->Next->Prev = slot;
+	if (List->Next != NULL) {
+		Slot->Next = List->Next;
+		List->Next->Prev = Slot;
 	}
 	
-	slot->Prev = lst;
-	lst->Next = slot;
-	return slot;
+	Slot->Prev = List;
+	List->Next = Slot;
+	
+	return Slot;
 }
 
-void	lst_free_remove(t_free **begin_lst, t_free *slot) {
-	if (*begin_lst == slot) {
-		*begin_lst = slot->Next;
-		clear_slot(slot);
+void	lst_free_remove(t_free **BeginList, t_free *Slot) {
+	if (*BeginList == Slot) {
+		*BeginList = Slot->Next;
 		return;
 	}
 
-	t_free *lst = *begin_lst;
-	while (lst->Next != slot && lst->Next != NULL)
-		lst = lst->Next;
-
-	if (lst->Next == NULL) {
-		PRINT("Couldn't find slot to remove in free list\n");
-		return;
-	}
-
-	lst->Next = slot->Next;
-	slot->Prev = lst;
-	clear_slot(slot);
+	t_free *Prev = Slot->Prev;
+	t_free *Next = Slot->Next;
+	if (Prev != NULL)
+		Prev->Next = Next;
+	if (Next != NULL)
+		Next->Prev = Prev;	
+	
 	return;
 }

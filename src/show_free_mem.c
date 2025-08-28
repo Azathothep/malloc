@@ -8,7 +8,7 @@ void	show_free_zone(t_memchunks *Zone) {
 	t_free *lst = Zone->FreeList;	
 	
 	while (lst) {
-		PRINT_ADDR(lst->Addr); PRINT(": "); PRINT_UINT64(lst->Size); PRINT(" bytes\n");
+		PRINT_ADDR(get_free_addr(lst)); PRINT(": "); PRINT_UINT64(lst->Size); PRINT(" bytes\n");
 		lst = lst->Next;
 	}
 }

@@ -6,9 +6,6 @@
 #include "malloc.h"
 #include "lst_free.h"
 
-//TODO(felix): infinite free lists
-//TODO(felix): replace t_free by t_list ? Check when content is being checked or not
-
 t_memlayout MemoryLayout;
 
 // TODO(felix): change this to support multithreaded programs
@@ -36,7 +33,7 @@ t_free	*get_free_slot(t_free **begin_lst, size_t size) {
 		return NULL;
 
 	while (lst != NULL && lst->Size < size) {
-		lst = lst->Next;
+    lst = lst->Next;
 	}
 
 	return lst;
@@ -99,26 +96,28 @@ void	*malloc_block(size_t size) {
 		if (NewChunk == NULL)
 			return NULL;
 
-		Slot = lst_free_add(&MemZone->FreeList,
+    void *ChunkStartingAddr = CHUNK_STARTING_ADDR(NewChunk);
+		void *FirstAddr = ChunkStartingAddr + HEADER_SIZE;
+    Slot = lst_free_add(&MemZone->FreeList,
 					CHUNK_USABLE_SIZE(ChunkSize),
-					CHUNK_STARTING_ADDR(NewChunk));
+					FirstAddr);
 	}
 
-	void *Addr = Slot->Addr;
-	int AllocatedSize = RequestedSize;
+	void *Addr = get_free_addr(Slot);
+  int AllocatedSize = RequestedSize;
 	if (Slot->Size >= (RequestedSize + MinSlotSize)) { // if there is enough space to make another slot
 		Slot->Size -= RequestedSize;
-		Addr += Slot->Size;
+    Addr += Slot->Size;
 	} else {
 		AllocatedSize = Slot->Size;
 		lst_free_remove(&MemZone->FreeList, Slot);
 	}
 	
 	t_header *hdr = (t_header *)Addr;
-	if (Slot->Addr != Addr)
-		hdr->PrevSlot = Slot->Addr;
+	if (get_free_addr(Slot) != Addr)
+		hdr->PrevSlot = get_free_addr(Slot);
 	else
-		hdr->PrevSlot = NULL;
+		hdr->PrevSlot = NULL; // TODO(felix): replace NULL with real previous slot
 
 	hdr->NextSlot = Addr + AllocatedSize;
 

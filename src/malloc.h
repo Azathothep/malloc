@@ -10,7 +10,6 @@ typedef struct 	s_header {
 
 typedef struct	s_free {
 	size_t	Size;
-	void	*Addr;
 	struct s_free	*Prev;
 	struct s_free	*Next;
 }		t_free;
@@ -21,7 +20,6 @@ typedef struct	s_memchunks {
 }		t_memchunks;
 
 typedef struct	s_memlayout {
-	t_memchunks	InternZone;
 	t_memchunks	TinyZone;
 	t_memchunks	SmallZone;
 	t_memchunks	LargeZone;	
@@ -29,15 +27,14 @@ typedef struct	s_memlayout {
 
 extern	t_memlayout MemoryLayout;
 
-
-# define TINY_ALLOC	24 	// + overhead = + 16 = 40, * 100 = 4000
-# define SMALL_ALLOC	256 	// + overhead = + 16 = 272, * 100 = 27200 
+# define TINY_ALLOC	sizeof(t_free) 	// + overhead = + 16 = 40, * 100 = 4000
+# define SMALL_ALLOC	256 		// + overhead = + 16 = 272, * 100 = 27200 
 # define MIN_ENTRY	100
 
 # define PAGE_SIZE		getpagesize()
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
-# define HEADER_SIZE		sizeof(t_header)
+# define HEADER_SIZE		  sizeof(t_header)
 # define CHUNK_NEXT_SLOT	sizeof(void *)
 # define CHUNK_SIZE_SLOT	sizeof(size_t)
 # define CHUNK_OVERHEAD		(CHUNK_NEXT_SLOT + CHUNK_SIZE_SLOT)
@@ -50,7 +47,7 @@ extern	t_memlayout MemoryLayout;
 # define LARGE_CHUNK(s)		CHUNK_ALIGN(s + HEADER_SIZE + CHUNK_OVERHEAD)
 # define INTERN_CHUNK		CHUNK_ALIGN(sizeof(t_free) * 100 + CHUNK_OVERHEAD)
 
-# define CHUNK_USABLE_SIZE(s)	(s - CHUNK_OVERHEAD)
+# define CHUNK_USABLE_SIZE(s)	(size_t)(s - CHUNK_OVERHEAD)
 # define GET_CHUNK_SIZE(p)	*((size_t *)(p))
 # define SET_CHUNK_SIZE(p, s)	*((size_t *)p) = s
 # define GET_NEXT_CHUNK(p)	*((void **)(p + GET_CHUNK_SIZE(p) - CHUNK_NEXT_SLOT))
@@ -63,7 +60,7 @@ extern	t_memlayout MemoryLayout;
 # define SMALL_SPACE_MIN	(SIZE_ALIGN(TINY_ALLOC + 1) + HEADER_SIZE)
 # define LARGE_SPACE_MIN	(SIZE_ALIGN(SMALL_ALLOC + 1) + HEADER_SIZE) 
 
-# define GET_HEADER(p)		(t_header *)(p - HEADER_SIZE)	
+# define GET_HEADER(p)		(t_header *)((void *)p - HEADER_SIZE)	
 # define GET_SLOT(p)		(void *)(p + HEADER_SIZE)
 
 # define SLOT_USABLE_SIZE(p) 	(void *)((t_header *)(GET_HEADER(p))->NextSlot) - p

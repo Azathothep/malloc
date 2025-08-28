@@ -14,8 +14,8 @@ int main(int argc, char** argv)
 	int i = 0;
 	while (i < 150){
 		//size_t size = (i % 5 * 70) + 1;
-		a[i] = malloc(24);
-		i++;
+    a[i] = malloc(24);
+    i++;
 	}
 
   	i = 0;
