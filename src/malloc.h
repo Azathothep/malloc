@@ -4,8 +4,8 @@
 # include <unistd.h>
 
 typedef struct 	s_header {
-	void	*Prev;
-	void	*Next;
+	struct s_header	*Prev;
+	struct s_header *Next;
 	size_t	Size;
 }		t_header;
 
@@ -35,7 +35,7 @@ extern	t_memlayout MemoryLayout;
 # define PAGE_SIZE		getpagesize()
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
-# define HEADER_SIZE		  sizeof(t_header)
+# define HEADER_SIZE		sizeof(t_header)
 # define CHUNK_NEXT_SLOT	sizeof(void *)
 # define CHUNK_SIZE_SLOT	sizeof(size_t)
 # define CHUNK_OVERHEAD		(CHUNK_NEXT_SLOT + CHUNK_SIZE_SLOT)
@@ -64,8 +64,8 @@ extern	t_memlayout MemoryLayout;
 # define GET_HEADER(p)		(t_header *)((void *)p - HEADER_SIZE)	
 # define GET_SLOT(p)		(void *)(p + HEADER_SIZE)
 
-# define SLOT_USABLE_SIZE(p) 	(void *)((t_header *)(GET_HEADER(p))->Next) - p
-# define SLOT_FULL_SIZE(p)  	(void *)((t_header *)(GET_HEADER(p))->Next) - (void *)GET_HEADER(p)
+# define SLOT_USABLE_SIZE(p) 	(void *)((GET_HEADER(p))->Next) - p
+# define SLOT_FULL_SIZE(p)  	(void *)((GET_HEADER(p))->Next) - (void *)GET_HEADER(p)
 
 void	*map_memory(int size);
 
