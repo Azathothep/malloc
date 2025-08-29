@@ -113,9 +113,21 @@ void	*malloc_block(size_t size) {
 	if (GET_FREE_SIZE(Slot) >= (RequestedSize + MinSlotSize)) { // if there is enough space to make another slot
 		size_t NewSize = GET_FREE_SIZE(Slot) - RequestedSize;
 		SET_FREE_SIZE(Slot, NewSize);
+		
+		t_header *PrevHdr = (t_header *)Addr;
+		t_header *NextHdr = PrevHdr->Next;		
+
 		Addr += NewSize;
 		t_header *Hdr = (t_header *)Addr;
+		
 		Hdr->Size = RequestedSize;
+		Hdr->Prev = PrevHdr;
+		PrevHdr->Next = Hdr;
+		
+		Hdr->Next = NextHdr;
+		
+		if (NextHdr != NULL)
+			NextHdr->Prev = Hdr;
 	} else {
 		t_header *Hdr = (t_header *)Addr;
 		Hdr->Size = GET_FREE_SIZE(Slot);

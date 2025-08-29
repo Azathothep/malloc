@@ -4,6 +4,19 @@
 #include "utils.h"
 #include "lst_free.h"
 
+size_t	coalesce_with_prev(t_header *MiddleHdr) {
+	t_header *PrevHdr = MiddleHdr->Prev;
+	t_header *NextHdr = MiddleHdr->Next;
+
+	PrevHdr->Next = NextHdr;
+	if (NextHdr != NULL)
+		NextHdr->Prev = PrevHdr;
+
+	size_t NewSize = PrevHdr->Size + MiddleHdr->Size;
+	PrevHdr->Size = NewSize;
+	return NewSize;
+}
+
 void	free(void *Ptr) {
 	//PRINT("Freeing address "); PRINT_ADDR(Ptr); NL();
 
@@ -30,20 +43,18 @@ void	free(void *Ptr) {
 	//Coalesce
 	if (Prev != NULL
 	&& get_free_addr(Prev) + GET_FREE_SIZE(Prev) == get_free_addr(Slot)) {
-		size_t NewSize = GET_FREE_SIZE(Prev) + GET_FREE_SIZE(Slot);
+		size_t NewSize = coalesce_with_prev(GET_HEADER(Slot));
 		PRINT("Coalescing with previous slot for total size "); PRINT_UINT64(NewSize); NL();
-		SET_FREE_SIZE(Prev, NewSize);
 		lst_free_remove(&MemBlock->FreeList, Slot);
-		Slot = Prev;
+		Slot = Prev;	
 	}
 
 	t_free *Next = Slot->Next;
 	
 	if (Next != NULL
 	&& get_free_addr(Slot) + GET_FREE_SIZE(Slot) == get_free_addr(Next)) {
-		size_t NewSize = GET_FREE_SIZE(Slot) + GET_FREE_SIZE(Slot->Next);
+		size_t NewSize = coalesce_with_prev(GET_HEADER(Next));
 		PRINT("Coalescing with following slot for total size "); PRINT_UINT64(NewSize); NL();
-		SET_FREE_SIZE(Slot, NewSize);
 		lst_free_remove(&MemBlock->FreeList, Slot->Next);
 	}
 
