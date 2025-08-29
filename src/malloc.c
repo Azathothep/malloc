@@ -33,7 +33,7 @@ t_free	*get_free_slot(t_free **begin_lst, size_t size) {
 		return NULL;
 
 	while (lst != NULL && lst->Size < size) {
-    lst = lst->Next;
+        lst = lst->Next;
 	}
 
 	return lst;
@@ -115,11 +115,11 @@ void	*malloc_block(size_t size) {
 	
 	t_header *hdr = (t_header *)Addr;
 	if (get_free_addr(Slot) != Addr)
-		hdr->PrevSlot = get_free_addr(Slot);
+		hdr->Prev = get_free_addr(Slot);
 	else
-		hdr->PrevSlot = NULL; // TODO(felix): replace NULL with real previous slot
+		hdr->Prev = NULL; // TODO(felix): replace NULL with real previous slot
 
-	hdr->NextSlot = Addr + AllocatedSize;
+	hdr->Next = Addr + AllocatedSize;
 
 	PRINT("Allocated "); PRINT_UINT64(AlignedSize); PRINT(" bytes at address "); PRINT_ADDR(GET_SLOT(Addr)); NL();
 

@@ -4,8 +4,9 @@
 # include <unistd.h>
 
 typedef struct 	s_header {
-	void	*PrevSlot;
-	void	*NextSlot;
+	void	*Prev;
+	void	*Next;
+	size_t	Size;
 }		t_header;
 
 typedef struct	s_free {
@@ -63,8 +64,8 @@ extern	t_memlayout MemoryLayout;
 # define GET_HEADER(p)		(t_header *)((void *)p - HEADER_SIZE)	
 # define GET_SLOT(p)		(void *)(p + HEADER_SIZE)
 
-# define SLOT_USABLE_SIZE(p) 	(void *)((t_header *)(GET_HEADER(p))->NextSlot) - p
-# define SLOT_FULL_SIZE(p)  	(void *)((t_header *)(GET_HEADER(p))->NextSlot) - (void *)GET_HEADER(p)
+# define SLOT_USABLE_SIZE(p) 	(void *)((t_header *)(GET_HEADER(p))->Next) - p
+# define SLOT_FULL_SIZE(p)  	(void *)((t_header *)(GET_HEADER(p))->Next) - (void *)GET_HEADER(p)
 
 void	*map_memory(int size);
 
