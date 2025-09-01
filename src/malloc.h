@@ -34,11 +34,13 @@ extern	t_memlayout MemoryLayout;
 # define PAGE_SIZE		getpagesize()
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
-# define HEADER_SIZE		sizeof(t_header)
-# define CHUNK_NEXT_SLOT	sizeof(void *)
-# define CHUNK_SIZE_SLOT	sizeof(size_t)
-# define CHUNK_OVERHEAD		(CHUNK_NEXT_SLOT + CHUNK_SIZE_SLOT)
-# define CHUNK_STARTING_ADDR(p) (p + CHUNK_SIZE_SLOT)
+# define HEADER_SIZE		  sizeof(t_header)
+# define CHUNK_FOOTER	    sizeof(void *) // pointer to next chunk
+# define CHUNK_HEADER     sizeof(size_t) + sizeof(void *) // size of chunk + pointer to first allocatable block
+# define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
+# define CHUNK_STARTING_ADDR(p) (p + CHUNK_HEADER)
+# define CHUNK_SET_POINTER_TO_FIRST_ALLOC(c, p) (*((void **)c + sizeof(size_t)) = p)
+# define CHUNK_GET_POINTER_TO_FIRST_ALLOC(c) ((t_header *)(*((void **)c + sizeof(size_t))))
 
 # define MIN_CHUNK_SIZE(s)	((s + HEADER_SIZE) * MIN_ENTRY + CHUNK_OVERHEAD)
 
@@ -50,7 +52,7 @@ extern	t_memlayout MemoryLayout;
 # define CHUNK_USABLE_SIZE(s)	(size_t)(s - CHUNK_OVERHEAD)
 # define GET_CHUNK_SIZE(p)	*((size_t *)(p))
 # define SET_CHUNK_SIZE(p, s)	*((size_t *)p) = s
-# define GET_NEXT_CHUNK(p)	*((void **)(p + GET_CHUNK_SIZE(p) - CHUNK_NEXT_SLOT))
+# define GET_NEXT_CHUNK(p)	(*((void **)(p + GET_CHUNK_SIZE(p) - sizeof(void *))))
 # define SET_NEXT_CHUNK(p, n)	(GET_NEXT_CHUNK(p) = n)
 
 # define ALIGNMENT		16
@@ -61,7 +63,7 @@ extern	t_memlayout MemoryLayout;
 # define LARGE_SPACE_MIN	(SIZE_ALIGN(SMALL_ALLOC + 1) + HEADER_SIZE) 
 
 # define GET_HEADER(p)		((t_header *)((void *)p - HEADER_SIZE))	
-# define GET_SLOT(p)		((void *)(p + HEADER_SIZE))
+# define GET_SLOT(p)		  ((t_free *)((void *)p + HEADER_SIZE))
 
 # define SLOT_USABLE_SIZE(p) 	(((GET_HEADER(p))->Size) - HEADER_SIZE)
 # define SLOT_FULL_SIZE(p)  	((GET_HEADER(p))->Size) 

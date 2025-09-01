@@ -4,7 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 
-# define INDEX	16
+# define INDEX	150
 
 int main(int argc, char** argv)
 {
@@ -41,17 +41,25 @@ int main(int argc, char** argv)
 	void *p = malloc(5000);
 	free(p);
 
-	show_free_mem();
+  show_alloc_mem();
 
-	/*
-	void *p = malloc(7);
+	show_free_mem();
+  
+
+  /*
+  void *p = malloc(7);
 	(void)p;
 	void *p2 = malloc(7);
 	(void)p2;
 	void *p3 = malloc(7);
 	(void)p3;
 
-	free(p3);	
+  show_alloc_mem();
+
+  show_free_mem();
+
+	free(p3);
+  show_free_mem();
 	free(p);
 	free(p2);
 	*/

@@ -12,10 +12,9 @@ void	show_alloc_zone(t_memchunks *Zone) {
 	void *Chunk = Zone->StartingBlockAddr;
 
 	while (Chunk) {
-		void *StartingAddr = CHUNK_STARTING_ADDR(Chunk);	
-		t_header *Hdr = (t_header *)StartingAddr;	
+		t_header *Hdr = CHUNK_GET_POINTER_TO_FIRST_ALLOC(Chunk);	
 
-		while (Hdr != NULL) {
+		while (UNFLAG(Hdr) != NULL) {
 			char *color = NULL;
 			if (IS_FLAGGED(Hdr) == 1)
 				color = ANSI_COLOR_RED;

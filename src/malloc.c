@@ -97,8 +97,9 @@ void	*malloc_block(size_t size) {
 		if (NewChunk == NULL)
 			return NULL;
 
-    		void *ChunkStartingAddr = CHUNK_STARTING_ADDR(NewChunk);
-		
+    void *ChunkStartingAddr = CHUNK_STARTING_ADDR(NewChunk);
+    CHUNK_SET_POINTER_TO_FIRST_ALLOC(NewChunk, ChunkStartingAddr); 
+
 		t_header *Hdr = (t_header *)ChunkStartingAddr;
 		Hdr->Prev = NULL;
 		Hdr->Next = NULL;
@@ -106,7 +107,7 @@ void	*malloc_block(size_t size) {
 
 		void *FirstAddr = ChunkStartingAddr + HEADER_SIZE;  
 
-  		Slot = lst_free_add(&MemZone->FreeList, FirstAddr);
+  	Slot = lst_free_add(&MemZone->FreeList, FirstAddr);
 	}
 
 	void *Addr = get_free_addr(Slot);	
@@ -135,21 +136,31 @@ void	*malloc_block(size_t size) {
 		// flag next header block's previous
 	} else {
 		t_header *Hdr = (t_header *)Addr;
-		Hdr->Size = GET_FREE_SIZE(Slot);
+		Hdr->Size = RequestedSize; //GET_FREE_SIZE(Slot);
 		lst_free_remove(&MemZone->FreeList, Slot);
 
-		if (Hdr->Prev != NULL) {
-			Hdr->Prev->Next = Hdr; // FLAG(Hdr);
-		}
+		if ((UNFLAG(Hdr->Prev)) != NULL) {
+			(UNFLAG(Hdr->Prev))->Next = FLAG(Hdr);
+		} else {
+        void *ChunkPtr = MemZone->StartingBlockAddr;
+        while (ChunkPtr != NULL && CHUNK_STARTING_ADDR(ChunkPtr) != Hdr) {
+          ChunkPtr = GET_NEXT_CHUNK(ChunkPtr);
+        }
 
-		if (Hdr->Next != NULL) {
-			Hdr->Next->Prev = Hdr; //FLAG(Hdr);
+        if (ChunkPtr != NULL)
+          CHUNK_SET_POINTER_TO_FIRST_ALLOC(ChunkPtr, FLAG(Hdr));
+    }
+
+		if ((UNFLAG(Hdr->Next)) != NULL) {
+			(UNFLAG(Hdr->Next))->Prev = FLAG(Hdr);
 		}
 	}
-	
-	PRINT("Allocated "); PRINT_UINT64(AlignedSize); PRINT(" ["); PRINT_UINT64(RequestedSize); PRINT("] bytes at address "); PRINT_ADDR(GET_SLOT(Addr)); NL();
 
-	return GET_SLOT(Addr);
+  void *AllocatedPtr = GET_SLOT(Addr);
+
+	PRINT("Allocated "); PRINT_UINT64(AlignedSize); PRINT(" ["); PRINT_UINT64(RequestedSize); PRINT("] bytes at address "); PRINT_ADDR(AllocatedPtr); NL();
+
+	return AllocatedPtr;
 }
 
 void	*malloc(size_t size) {

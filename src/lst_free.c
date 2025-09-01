@@ -11,13 +11,20 @@ void	*lst_free_add(t_free **BeginList, void *Addr) {
 	Slot->Prev = NULL;
 	Slot->Next = NULL;
 
-	if (*BeginList == NULL) {
+	/*if (*BeginList == NULL) {
 		*BeginList = Slot;
 		return Slot;
-	}
+	}*/
 
 	t_free *List = *BeginList;
-	while (List->Next != NULL && List->Next < Slot) {
+	
+	*BeginList = Slot;
+	Slot->Next = List;
+	
+	if (List != NULL)
+		List->Prev = Slot;
+	
+	/*while (List->Next != NULL && List->Next < Slot) {
 		List = List->Next;
 	}
 
@@ -28,7 +35,7 @@ void	*lst_free_add(t_free **BeginList, void *Addr) {
 	
 	Slot->Prev = List;
 	List->Next = Slot;
-	
+	*/
 	return Slot;
 }
 
@@ -42,7 +49,8 @@ void	lst_free_remove(t_free **BeginList, t_free *Slot) {
 	t_free *Next = Slot->Next;
 	if (Prev != NULL)
 		Prev->Next = Next;
-	if (Next != NULL)
+
+  if (Next != NULL)
 		Next->Prev = Prev;	
 	
 	return;
