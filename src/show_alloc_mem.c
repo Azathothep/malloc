@@ -22,6 +22,8 @@ void	show_alloc_zone(t_memchunks *Zone) {
 	void *Chunk = Zone->StartingBlockAddr;
 
 	while (Chunk) {
+		PRINT("CHUNK: "); PRINT_ADDR(Chunk); NL();	
+
 		t_header *Hdr = CHUNK_GET_POINTER_TO_FIRST_ALLOC(Chunk);	
 		
 		print_block(Hdr);
@@ -42,17 +44,17 @@ void	show_alloc_mem() {
 	PRINT("\n---- full mem ----\n");
 
 	t_memchunks *Zone = &MemoryLayout.TinyZone;
-	PRINT("TINY ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
+	PRINT("TINY ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();
 
 	Zone = &MemoryLayout.SmallZone;
-	PRINT("SMALL ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
+	PRINT("SMALL ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();
 
 	Zone = &MemoryLayout.LargeZone;
-	PRINT("LARGE ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
+	PRINT("LARGE ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();
 

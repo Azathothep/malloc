@@ -10,17 +10,15 @@
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
 size_t	coalesce_with_prev(t_header *MiddleHdr) {
-	t_header *PrevHdr = (UNFLAG(MiddleHdr))->Prev;
-	t_header *NextHdr = (UNFLAG(MiddleHdr))->Next;
+	t_header *PrevHdr = UNFLAG(MiddleHdr->Prev);
+	t_header *NextHdr = UNFLAG(MiddleHdr->Next);
+	
+	PrevHdr->Next = MiddleHdr->Next;
+	if (!IS_LAST_HDR(NextHdr))
+		NextHdr->Prev = MiddleHdr->Prev;
 
-	(UNFLAG(PrevHdr))->Next = NextHdr;
-	if (!IS_LAST_HDR(UNFLAG(NextHdr)))
-		(UNFLAG(NextHdr))->Prev = PrevHdr;
-
-  	size_t MiddleHdrSize = ((void *)(UNFLAG(MiddleHdr->Next))) - ((void *)(UNFLAG(MiddleHdr))); //MiddleHdr->Size;
-  	size_t PrevHdrSize = ((void *)(UNFLAG(MiddleHdr))) - ((void *)(UNFLAG(PrevHdr)));
-	size_t NewSize = MiddleHdrSize + PrevHdrSize;//(UNFLAG(PrevHdr))->Size + (UNFLAG(MiddleHdr))->Size;
-	(UNFLAG(PrevHdr))->Size = NewSize;
+	size_t NewSize = (void *)NextHdr - (void *)PrevHdr;
+	PrevHdr->Size = NewSize;
 	return NewSize;
 }
 
@@ -44,35 +42,38 @@ void	free(void *Ptr) {
 	t_free *Slot = lst_free_add(&MemBlock->FreeList, (void *)Ptr);
 
 	t_header *Hdr = GET_HEADER(Slot);
+	t_header *PrevHdr = UNFLAG(Hdr->Prev);
+	t_header *NextHdr = UNFLAG(Hdr->Next);
 
 	//Coalesce
-	if (UNFLAG(Hdr->Prev) != NULL && IS_FLAGGED(Hdr->Prev) == 0) {
-    lst_free_remove(&MemBlock->FreeList, GET_SLOT(Hdr));
+	if (PrevHdr != NULL && IS_FLAGGED(Hdr->Prev) == 0) {
+    		lst_free_remove(&MemBlock->FreeList, GET_SLOT(Hdr));
 		size_t NewSize = coalesce_with_prev(Hdr);
 		(void)NewSize;
 		//PRINT("Coalesced with previous slot for total size "); PRINT_UINT64(NewSize); NL();
 		Hdr = UNFLAG(Hdr->Prev);
+		PrevHdr = UNFLAG(Hdr->Prev);
   	}
 
-	if (!IS_LAST_HDR(UNFLAG(Hdr->Next)) && IS_FLAGGED(Hdr->Next) == 0) {
-    t_free *NextSlot = GET_SLOT(UNFLAG(Hdr->Next));
-    lst_free_remove(&MemBlock->FreeList, NextSlot);
-    		size_t NewSize = coalesce_with_prev(UNFLAG(Hdr->Next));
+	if (!IS_LAST_HDR(NextHdr) && IS_FLAGGED(Hdr->Next) == 0) {
+		t_free *NextSlot = GET_SLOT(NextHdr);
+    		lst_free_remove(&MemBlock->FreeList, NextSlot);
+    		size_t NewSize = coalesce_with_prev(NextHdr);
 		(void)NewSize;
-		PRINT("Coalesced with following slot for total size "); PRINT_UINT64(NewSize); NL();
+		NextHdr = UNFLAG(Hdr->Next);
+		//PRINT("Coalesced with following slot for total size "); PRINT_UINT64(NewSize); NL();
 	}
 
-	if (UNFLAG(Hdr->Prev) != NULL) {
-		(UNFLAG(Hdr->Prev))->Next = UNFLAG(Hdr);
+	if (PrevHdr != NULL) {
+		PrevHdr->Next = Hdr;
   	} else {
-    		void **HdrPtr = (void **)(((void *)(UNFLAG(Hdr))) - sizeof(void *)); 
-    		*HdrPtr = UNFLAG(Hdr);
+		// Sets the First Allocation Pointer
+    		void *HdrPtr = (void *)Hdr - sizeof(void *); 
+    		*(void **)HdrPtr = Hdr;
   	}
 
-	if (!IS_LAST_HDR(UNFLAG(Hdr->Next)))
-		(UNFLAG(Hdr->Next))->Prev = UNFLAG(Hdr);
-
-  	Hdr = UNFLAG(Hdr);
+	if (!IS_LAST_HDR(NextHdr))
+		NextHdr->Prev = Hdr;
 
 	//Unmap
   	void *PrevChunk = NULL;

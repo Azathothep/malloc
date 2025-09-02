@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	void *a[INDEX];
 	int i = 0;
 	while (i < INDEX){
-		size_t size = (i % 5 * 70) + 1;
+		size_t size =(i % 5 * 70) + 1;
     		a[i] = malloc(size);
     		i++;
 	}
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	show_free_mem();
 
 	i = 0;
-	while (i < INDEX/2) {
+	while (i < INDEX / 2) {
     		free(a[i]);
     		i++;
   	}

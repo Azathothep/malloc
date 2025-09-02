@@ -22,8 +22,7 @@ void	*map_memory(int ZoneSize) {
 		return NULL;
 	}
 
-	PRINT("Successfully mapped "); PRINT_UINT64(ZoneSize); PRINT(" bytes of memory to addr ");
-	PRINT_ADDR(ptrToMappedMemory); NL();
+	PRINT("Successfully mapped "); PRINT_UINT64(ZoneSize); PRINT(" bytes of memory to addr "); PRINT_ADDR(ptrToMappedMemory); NL();
 	return ptrToMappedMemory;
 }
 
@@ -110,49 +109,46 @@ void	*malloc_block(size_t size) {
  		Slot = lst_free_add(&MemZone->FreeList, FirstAddr);
 	}
 
-	void *Addr = get_free_addr(Slot);	
+	void *Addr = get_free_addr(Slot);	 
+	t_header *Hdr = (t_header *)Addr;
+
 	if (GET_FREE_SIZE(Slot) >= (RequestedSize + MinSlotSize)) { // if there is enough space to make another slot
 		size_t NewSize = GET_FREE_SIZE(Slot) - RequestedSize;
 		SET_FREE_SIZE(Slot, NewSize);
 		
-		t_header *PrevHdr = (t_header *)Addr;
-		t_header *NextHdr = (UNFLAG(PrevHdr))->Next;		
+		t_header *PrevHdr = Hdr;
+		t_header *NextHdr = Hdr->Next;
 
 		Addr += NewSize;
-		t_header *Hdr = (t_header *)Addr;
+		Hdr = (t_header *)Addr;
 		
-		(UNFLAG(Hdr))->Size = RequestedSize;
-		(UNFLAG(Hdr))->Prev = PrevHdr;
-		(UNFLAG(PrevHdr))->Next = FLAG(Hdr);
-	
-		(UNFLAG(Hdr))->Next = NextHdr;
-		
-		if (!IS_LAST_HDR(UNFLAG(NextHdr))) {
-			(UNFLAG(NextHdr))->Prev = FLAG(Hdr);
-		}
+		Hdr->Size = RequestedSize;
+		Hdr->Prev = PrevHdr; 
+		Hdr->Next = NextHdr;
+
+		PrevHdr->Next = FLAG(Hdr);
 	} else {
-		t_header *Hdr = (t_header *)Addr;
 		Hdr->Size = RequestedSize;
 		lst_free_remove(&MemZone->FreeList, Slot);
 
-		if ((UNFLAG(Hdr->Prev)) != NULL) {
-			(UNFLAG(Hdr->Prev))->Next = FLAG(Hdr);
+		t_header *PrevHdr = UNFLAG(Hdr->Prev);
+		if (PrevHdr != NULL) {
+			PrevHdr->Next = FLAG(Hdr);
 		} else {
-        	void *ChunkPtr = MemZone->StartingBlockAddr;
-        	while (ChunkPtr != NULL && CHUNK_STARTING_ADDR(ChunkPtr) != Hdr) {
-          	ChunkPtr = GET_NEXT_CHUNK(ChunkPtr);
-        	}
+          		void *ChunkPtr = (void *)Hdr - CHUNK_HEADER;
 
-        	if (ChunkPtr != NULL)
-			CHUNK_SET_POINTER_TO_FIRST_ALLOC(ChunkPtr, FLAG(Hdr));
-    		}
-
-		if (!IS_LAST_HDR(UNFLAG(Hdr->Next))) {
-			(UNFLAG(Hdr->Next))->Prev = FLAG(Hdr);
+        		if (ChunkPtr != NULL) {
+				CHUNK_SET_POINTER_TO_FIRST_ALLOC(ChunkPtr, FLAG(Hdr));
+    			}
 		}
 	}
 
-  void *AllocatedPtr = GET_SLOT(Addr);
+	t_header *NextHdr = UNFLAG(Hdr->Next);		
+	if (!IS_LAST_HDR(NextHdr)) {
+		NextHdr->Prev = FLAG(Hdr);
+	}
+
+	void *AllocatedPtr = GET_SLOT(Addr);
 
 	PRINT("Allocated "); PRINT_UINT64(AlignedSize); PRINT(" ["); PRINT_UINT64(RequestedSize); PRINT("] bytes at address "); PRINT_ADDR(AllocatedPtr); NL();
 
