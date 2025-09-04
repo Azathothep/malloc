@@ -9,7 +9,7 @@
 #define	ANSI_COLOR_GREEN	"\x1b[32m"
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
-//#define PRINT_FREE
+#define PRINT_FREE
 
 size_t	coalesce_with_prev(t_header *MiddleHdr) {
 	t_header *PrevHdr = UNFLAG(MiddleHdr->Prev);
@@ -67,38 +67,27 @@ void	free(void *Ptr) {
 		NextHdr = UNFLAG(Hdr->Next);
 		//PRINT("Coalesced with following slot for total size "); PRINT_UINT64(NewSize); NL();
 	}
-
-	if (PrevHdr != NULL) {
-		PrevHdr->Next = Hdr;
-  	} else {
-		// Sets the First Allocation Pointer
-    		void *HdrPtr = (void *)Hdr - sizeof(void *); 
-    		*(void **)HdrPtr = Hdr;
-  	}
-
+	
 	if (!IS_LAST_HDR(NextHdr))
 		NextHdr->Prev = Hdr;
 
-
-	//Unmap
-  	void *PrevChunk = NULL;
-	void *CurrentChunk = MemBlock->StartingBlockAddr;
-	void *CurrentChunkStartingAddr = CHUNK_STARTING_ADDR(CurrentChunk);
-	
-  	while (CurrentChunk != NULL)
-	{
-		size_t ChunkSize = GET_CHUNK_SIZE(CurrentChunk);		
-		size_t ChunkUsableSize = CHUNK_USABLE_SIZE(ChunkSize);
-
-		if (Hdr == CurrentChunkStartingAddr && Hdr->Size == ChunkUsableSize) {
+	if (PrevHdr != NULL) {
+		PrevHdr->Next = Hdr;
+	} else {
+    		void *CurrentChunk = ((void *)Hdr - CHUNK_HEADER);	
+		
+		// Unmap ?
+		size_t ChunkSize = GET_CHUNK_SIZE(CurrentChunk);
+		if (Hdr->Size != CHUNK_USABLE_SIZE(ChunkSize)) {
+			CHUNK_SET_POINTER_TO_FIRST_ALLOC(CurrentChunk, Hdr);
+		} else {
 			lst_free_remove(&MemBlock->FreeList, GET_SLOT(Hdr));
-
 #ifdef PRINT_FREE
       			PRINT(ANSI_COLOR_RED);
- 			PRINT("Unmapping chunk at address "); PRINT_ADDR(CurrentChunk); PRINT(" and size "); PRINT_UINT64(GET_CHUNK_SIZE(CurrentChunk)); NL();
+ 			PRINT("Unmapping chunk at address "); PRINT_ADDR(CurrentChunk); PRINT(" and size "); PRINT_UINT64(ChunkSize); NL();
       			PRINT(ANSI_COLOR_RESET);
 #endif
-
+			void *PrevChunk = GET_PREV_CHUNK(CurrentChunk);
       			void *NextChunk = GET_NEXT_CHUNK(CurrentChunk);
       			if (munmap(CurrentChunk, GET_CHUNK_SIZE(CurrentChunk)) < 0)
       			{
@@ -106,16 +95,13 @@ void	free(void *Ptr) {
 				return;
 			}
 
-			if (PrevChunk == NULL)	
-				MemBlock->StartingBlockAddr = NextChunk;
-      			else
-				SET_NEXT_CHUNK(PrevChunk, NextChunk);
-			
-			break;
-		} else {
-      			PrevChunk = CurrentChunk;
-			      CurrentChunk = GET_NEXT_CHUNK(CurrentChunk);
-		}
-	}
+			if (NextChunk != NULL)
+				SET_PREV_CHUNK(NextChunk, PrevChunk);
 
+			if (PrevChunk != NULL)	
+				SET_NEXT_CHUNK(PrevChunk, NextChunk);		
+      			else
+				MemBlock->StartingBlockAddr = NextChunk;
+		}	
+  	}
 }

@@ -6,7 +6,7 @@
 #include "malloc.h"
 #include "lst_free.h"
 
-//#define PRINT_MALLOC
+#define PRINT_MALLOC
 
 t_memlayout MemoryLayout;
 
@@ -66,6 +66,7 @@ void	*alloc_chunk(t_memchunks *MemZone, size_t ChunkSize) {
 
 	SET_CHUNK_SIZE(NewChunk, ChunkSize);
 	SET_NEXT_CHUNK(NewChunk, NULL);	
+	SET_PREV_CHUNK(NewChunk, NULL);
 
 	if (MemZone->StartingBlockAddr == NULL) {
 		MemZone->StartingBlockAddr = NewChunk;
@@ -80,6 +81,7 @@ void	*alloc_chunk(t_memchunks *MemZone, size_t ChunkSize) {
 	}
 
 	SET_NEXT_CHUNK(LastChunk, NewChunk);
+	SET_PREV_CHUNK(NewChunk, LastChunk);
 	return NewChunk;	
 }
 

@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdio.h>
-//#include "ft_malloc.h"
+#include "ft_malloc.h"
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -11,7 +11,7 @@
 void process_allocation(void *a[], int index) {	
 	int i = 0;
 	while (i < index - 1){
-		size_t size = (i % 5 * 70) + 1;
+		size_t size = (i % 20 * 64) + 1;
     		a[i] = malloc(size);
     		i++;
 	}
@@ -36,14 +36,15 @@ int main(int argc, char** argv)
 	if (argc > 1)
 		n = atoi(argv[1]);
 
-  //char *buffer = NULL;
-  //read(0, &buffer, 1);
+ 	//char *buffer = NULL;
+	//read(0, &buffer, 1);
 
 	struct timeval t0, t1;
 	float mallocTotalTime = 0;
 	float freeTotalTime = 0;
 
 	void *a[INDEX];
+	(void)a;
 
 	int i = 0;
 	while (i < n) {
@@ -53,6 +54,8 @@ int main(int argc, char** argv)
 	
 		float deltaTime = t1.tv_sec - t0.tv_sec + 1E-6 * (t1.tv_usec - t0.tv_usec);
 		mallocTotalTime += deltaTime;		
+
+		//show_alloc_mem();
 
 		gettimeofday(&t0, NULL);
 		process_free(a, INDEX);
@@ -70,9 +73,9 @@ int main(int argc, char** argv)
 	printf("MALLOC - Total time: %.2g seconds (%f)\n", mallocTotalTime, mallocAverageTime);
 	printf("FREE - Total time: %.2g seconds (%f)\n", freeTotalTime, freeAverageTime);
 
-	//show_alloc_mem();
+	show_alloc_mem();
 
-	//show_free_mem();
+	show_free_mem();
   
 	return 0;
 }

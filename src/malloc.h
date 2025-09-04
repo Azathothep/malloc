@@ -27,15 +27,15 @@ typedef struct	s_memlayout {
 
 extern	t_memlayout MemoryLayout;
 
-# define TINY_ALLOC	sizeof(t_free) 	// + overhead = + 16 = 40, * 100 = 4000
-# define SMALL_ALLOC	256 		// + overhead = + 16 = 272, * 100 = 27200 
+# define TINY_ALLOC	64	//sizeof(t_free) 	// + overhead = + 16 = 40, * 100 = 4000
+# define SMALL_ALLOC	1024 	//128 		// + overhead = + 16 = 272, * 100 = 27200 
 # define MIN_ENTRY	100
 
 # define PAGE_SIZE		getpagesize()
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
 # define HEADER_SIZE		sizeof(t_header)
-# define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *)) // size of chunk + pointer to first allocatable block
+# define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *) + sizeof(void *)) // size of chunk + pointer to first allocatable block
 # define CHUNK_FOOTER	    	(sizeof(void *) + sizeof(void *)) // last header pointer + pointer to next chunk
 # define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
 # define CHUNK_STARTING_ADDR(p) (p + CHUNK_HEADER)
@@ -52,8 +52,10 @@ extern	t_memlayout MemoryLayout;
 # define CHUNK_USABLE_SIZE(s)	(size_t)(s - CHUNK_OVERHEAD)
 # define GET_CHUNK_SIZE(p)	*((size_t *)(p))
 # define SET_CHUNK_SIZE(p, s)	*((size_t *)p) = s
-# define GET_NEXT_CHUNK(p)	(*((void **)(p + GET_CHUNK_SIZE(p) - sizeof(void *))))
+# define GET_NEXT_CHUNK(p)	(*((void **)(p + GET_CHUNK_SIZE(p) - sizeof(void *)))) // go to the end, then backtrack to previous
 # define SET_NEXT_CHUNK(p, n)	(GET_NEXT_CHUNK(p) = n)
+# define GET_PREV_CHUNK(p)	(*((void **)(p + sizeof(size_t) + sizeof(void *)))) // go to the chunk's third slot
+# define SET_PREV_CHUNK(p, n)	(GET_PREV_CHUNK(p) = n)
 
 # define ALIGNMENT		16
 # define SIZE_ALIGN(s)		(((s) + (ALIGNMENT-1)) & ~(ALIGNMENT-1))
