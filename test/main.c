@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdio.h>
-#include "ft_malloc.h"
+//#include "ft_malloc.h"
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -36,8 +36,8 @@ int main(int argc, char** argv)
 	if (argc > 1)
 		n = atoi(argv[1]);
 
- 	//char *buffer = NULL;
-	//read(0, &buffer, 1);
+ 	char *buffer = NULL;
+	read(0, &buffer, 1);
 
 	struct timeval t0, t1;
 	float mallocTotalTime = 0;
@@ -73,9 +73,9 @@ int main(int argc, char** argv)
 	printf("MALLOC - Total time: %.2g seconds (%f)\n", mallocTotalTime, mallocAverageTime);
 	printf("FREE - Total time: %.2g seconds (%f)\n", freeTotalTime, freeAverageTime);
 
-	show_alloc_mem();
+//	show_alloc_mem();
 
-	show_free_mem();
+//	show_free_mem();
   
 	return 0;
 }

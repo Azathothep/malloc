@@ -27,11 +27,13 @@ typedef struct	s_memlayout {
 
 extern	t_memlayout MemoryLayout;
 
-# define TINY_ALLOC	64	//sizeof(t_free) 	// + overhead = + 16 = 40, * 100 = 4000
-# define SMALL_ALLOC	1024 	//128 		// + overhead = + 16 = 272, * 100 = 27200 
+# define PAGE_SIZE		getpagesize()
+
+# define TINY_ALLOC	64	//sizeof(t_free)
+# define SMALL_ALLOC	1024 	//128 	
+# define LARGE_ALLOC	(PAGE_SIZE * 20)
 # define MIN_ENTRY	100
 
-# define PAGE_SIZE		getpagesize()
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
 # define HEADER_SIZE		sizeof(t_header)

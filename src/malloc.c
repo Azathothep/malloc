@@ -6,14 +6,14 @@
 #include "malloc.h"
 #include "lst_free.h"
 
-#define PRINT_MALLOC
+//#define PRINT_MALLOC
 
 t_memlayout MemoryLayout;
 
 // TODO(felix): change this to support multithreaded programs
-void	*map_memory(int ZoneSize) {
+void	*map_memory(int ChunkSize) {
 	void *ptrToMappedMemory = mmap(NULL,
-					ZoneSize,
+					ChunkSize,
 					PROT_READ | PROT_WRITE,
 					MAP_ANON | MAP_ANONYMOUS | MAP_PRIVATE, 
 					-1, //fd
@@ -25,7 +25,7 @@ void	*map_memory(int ZoneSize) {
 	}
 
 #ifdef PRINT_MALLOC
-	PRINT("Successfully mapped "); PRINT_UINT64(ZoneSize); PRINT(" bytes of memory to addr "); PRINT_ADDR(ptrToMappedMemory); NL();
+	PRINT("Successfully mapped "); PRINT_UINT64(ChunkSize); PRINT(" bytes of memory to addr "); PRINT_ADDR(ptrToMappedMemory); NL();
 #endif	
 
 	return ptrToMappedMemory;
@@ -109,6 +109,8 @@ void	*malloc_block(size_t size) {
 		int ChunkSize = 0;
 	   	if (size > SMALL_ALLOC) {
 			ChunkSize = LARGE_CHUNK(size);
+			if (ChunkSize < LARGE_ALLOC)
+				ChunkSize = LARGE_ALLOC;
 		} else if (size > TINY_ALLOC) {
 			ChunkSize = SMALL_CHUNK;
     		} else {
@@ -157,6 +159,7 @@ void	*malloc_block(size_t size) {
 		lst_free_remove(&MemZone->FreeList, Slot);
 
 		t_header *PrevHdr = UNFLAG(Hdr->Prev);
+    PrevHdr = UNFLAG(Hdr->Prev);
 		if (PrevHdr != NULL) {
 			PrevHdr->Next = FLAG(Hdr);
 		} else {
@@ -170,7 +173,8 @@ void	*malloc_block(size_t size) {
 
 	// UNFLAG operation are expensive ??
 	t_header *NextHdr = UNFLAG(Hdr->Next);		
-	// IS_LAST_HDR seems expensive too
+	NextHdr = UNFLAG(Hdr->Next);
+  // IS_LAST_HDR seems expensive too
 	if (!IS_LAST_HDR(NextHdr)) {
 		// here seems to be ok
 		NextHdr->Prev = FLAG(Hdr);

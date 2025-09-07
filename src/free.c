@@ -9,7 +9,7 @@
 #define	ANSI_COLOR_GREEN	"\x1b[32m"
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
-#define PRINT_FREE
+//#define PRINT_FREE
 
 size_t	coalesce_with_prev(t_header *MiddleHdr) {
 	t_header *PrevHdr = UNFLAG(MiddleHdr->Prev);
@@ -74,17 +74,18 @@ void	free(void *Ptr) {
 	if (PrevHdr != NULL) {
 		PrevHdr->Next = Hdr;
 	} else {
-    		void *CurrentChunk = ((void *)Hdr - CHUNK_HEADER);	
-		
+    	void *CurrentChunk = ((void *)Hdr - CHUNK_HEADER);	
+	
 		// Unmap ?
 		size_t ChunkSize = GET_CHUNK_SIZE(CurrentChunk);
-		if (Hdr->Size != CHUNK_USABLE_SIZE(ChunkSize)) {
+		if (Hdr->Size != CHUNK_USABLE_SIZE(ChunkSize)
+			|| CurrentChunk == MemBlock->StartingBlockAddr) {
 			CHUNK_SET_POINTER_TO_FIRST_ALLOC(CurrentChunk, Hdr);
 		} else {
 			lst_free_remove(&MemBlock->FreeList, GET_SLOT(Hdr));
 #ifdef PRINT_FREE
       			PRINT(ANSI_COLOR_RED);
- 			PRINT("Unmapping chunk at address "); PRINT_ADDR(CurrentChunk); PRINT(" and size "); PRINT_UINT64(ChunkSize); NL();
+ 				PRINT("Unmapping chunk at address "); PRINT_ADDR(CurrentChunk); PRINT(" and size "); PRINT_UINT64(ChunkSize); NL();
       			PRINT(ANSI_COLOR_RESET);
 #endif
 			void *PrevChunk = GET_PREV_CHUNK(CurrentChunk);
