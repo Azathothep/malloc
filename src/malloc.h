@@ -57,7 +57,7 @@ extern	t_memlayout MemoryLayout;
 # define GET_PREV_CHUNK(p)	(*((void **)(p + sizeof(size_t)))) // go to the chunk's second slot
 # define SET_PREV_CHUNK(p, n)	(GET_PREV_CHUNK(p) = n)
 
-# define ALIGNMENT		16
+# define ALIGNMENT		8
 # define SIZE_ALIGN(s)		(((s) + (ALIGNMENT-1)) & ~(ALIGNMENT-1))
 
 # define TINY_SPACE_MIN		(ALIGNMENT + HEADER_SIZE)
