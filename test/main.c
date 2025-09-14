@@ -82,6 +82,7 @@ void random_allocations(int maxAlloc, size_t maxAllocSize) {
 	printf("MAX ALLOCATION...\n");
 	show_alloc_mem();
 
+
 	// freeing two-third of allocations, goes to 1-third
 	i = 0;
 	while (i < twoThird) {
@@ -120,11 +121,12 @@ void random_allocations(int maxAlloc, size_t maxAllocSize) {
 	while (i < maxAlloc) {
 		size_t size = (rand() % maxAllocSize) + 1;
 		lst_alloc(&begin_lst, size);
+	//	show_alloc_mem();
 		i++;
 	}
 
 	printf("RE-ALLOCATED TO MAX...\n");
-	show_alloc_mem();
+//	show_alloc_mem();
 
 	// freeing everything
 	ft_lstclear(&begin_lst, &free);
@@ -139,8 +141,8 @@ int main(int argc, char** argv)
 	(void)argv;	
 
 	int 	n = 1;
-	int	maxAlloc = 10;
-	size_t 	maxAllocSize = 4096;
+	int	maxAlloc = 100; // 10
+	size_t 	maxAllocSize = 64; // 4096
 
 	if (argc > 1)
 		n = atoi(argv[1]);

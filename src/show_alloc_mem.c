@@ -25,7 +25,7 @@ void	print_block(t_header *Hdr) {
 		PRINT(" ");
 	}
 	
-	PRINT("["); PRINT_UINT64(Hdr->RealSize); PRINT("] "); PRINT(ANSI_COLOR_RESET); NL();
+	PRINT("["); PRINT_UINT64(Hdr->RealSize); PRINT("] "); PRINT(", Prev: "); PRINT_ADDR(Hdr->Prev); PRINT(", Next:"); PRINT_ADDR(Hdr->Next); PRINT(ANSI_COLOR_RESET); NL();
 }
 
 void	show_alloc_zone(t_memchunks *Zone) {
@@ -36,20 +36,21 @@ void	show_alloc_zone(t_memchunks *Zone) {
 
 		t_header *Hdr = CHUNK_STARTING_ADDR(Chunk);//CHUNK_GET_POINTER_TO_FIRST_ALLOC(Chunk);
 	
-		//if (UNFLAG(Hdr) == NULL)
-		//	continue;				
-	
 		print_block(Hdr);
 		
 		Hdr = UNFLAG(Hdr);
 		Hdr = Hdr->Next;
 
 		t_header *HdrClean = UNFLAG(Hdr);
-		//while (!IS_LAST_HDR(UNFLAG(Hdr))) {
 		while (HdrClean != NULL) {
 			print_block(Hdr);
+			t_header *Prev = HdrClean;
 			Hdr = HdrClean->Next;
 			HdrClean = UNFLAG(Hdr);
+			if (HdrClean != NULL && (uint64_t)HdrClean < (uint64_t)Prev) {
+				PRINT("CIRCULAR HEADER !!!\n");
+				break;
+			}
 		}
 		
 		Chunk = GET_NEXT_CHUNK(Chunk);

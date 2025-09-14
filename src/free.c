@@ -2,12 +2,13 @@
 #include <errno.h>
 #include "malloc.h"
 #include "utils.h"
+#include "../ft_malloc.h"
 
 #define ANSI_COLOR_RED		"\x1b[31m"
 #define	ANSI_COLOR_GREEN	"\x1b[32m"
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
-//#define PRINT_FREE
+#define PRINT_FREE
 
 void	lst_free_add(t_header **BeginList, t_header *Hdr) {
 	
@@ -50,6 +51,154 @@ size_t	coalesce_with_prev(t_header *MiddleHdr) {
 	return PrevHdr->RealSize;
 }
 
+// --------- TINY BIN ---------- //
+
+void	show_tiny_bins() {
+	PRINT("TINY BINS\n");
+
+	t_header **TinyBins = MemoryLayout.TinyBins;
+
+	int i = 0;
+	while (i < 9) {
+		PRINT("["); PRINT_UINT64(i); PRINT("] (");
+		if (i < 8)
+			PRINT_UINT64((i + 1) * 8);
+		else
+			PRINT("+");
+
+		PRINT(")"); NL();
+		
+		t_header *Ptr = TinyBins[i];
+		while (Ptr != NULL) {
+			PRINT_ADDR(Ptr); NL();
+			Ptr = Ptr->NextFree;
+		}
+		NL();
+		
+		i++;
+	}
+}
+
+int	get_tiny_bin_index(size_t AlignedSize) {
+	if (AlignedSize > TINY_ALLOC_MAX)
+		return 8;
+
+	return (AlignedSize / 8) - 1;
+}
+
+void	put_tiny_slot_in_bin(t_header *Hdr) {
+	int BinSize = Hdr->RealSize - HEADER_SIZE;
+
+	int Index = get_tiny_bin_index(BinSize);
+
+//	PRINT("Put tiny slot "); PRINT_ADDR(Hdr); PRINT(" in bin, size: "); PRINT_UINT64(BinSize); PRINT(", bin index: "); PRINT_UINT64(Index); NL();
+	
+	t_header **TinyBins = MemoryLayout.TinyBins;
+	t_header *NextHdrInBin = TinyBins[Index];
+
+	TinyBins[Index] = Hdr;
+	Hdr->PrevFree = NULL;
+	Hdr->NextFree = NextHdrInBin;
+
+	if (NextHdrInBin != NULL)
+		NextHdrInBin->PrevFree = Hdr;
+}
+
+void	remove_tiny_slot_from_bin(t_header *Hdr) {
+	if (Hdr->PrevFree != NULL)
+		Hdr->PrevFree->NextFree = Hdr->NextFree;
+	else {
+		int index = get_tiny_bin_index(Hdr->RealSize);
+		MemoryLayout.TinyBins[index] = Hdr->NextFree;	
+	}
+
+	if (Hdr->NextFree != NULL)
+		Hdr->NextFree->PrevFree = Hdr->PrevFree;
+
+	Hdr->PrevFree = NULL;
+	Hdr->NextFree = NULL;
+}
+
+t_header	*try_coalesce_tiny_slot(t_header *Hdr) {
+	PRINT("TRYING TO COALESCE "); PRINT_ADDR(Hdr); NL();
+	t_header *NextFree = Hdr->NextFree;
+
+	t_header *Base = Hdr;
+	t_header *Prev = UNFLAG(Base->Prev);
+	size_t BaseSize = Base->RealSize;
+
+	while (Prev != NULL && IS_FLAGGED(Base->Prev) == 0) {
+		Base = Prev;
+		Prev = UNFLAG(Base->Prev);
+	}
+
+	PRINT("BACKTRACKED TO "); PRINT_ADDR(Base); PRINT(", PREV: "); PRINT_ADDR(Base->Prev); NL();
+
+	t_header *Current = Base;
+	t_header *Next = UNFLAG(Current->Next);
+	
+	while (Next != NULL && IS_FLAGGED(Current->Next) == 0) {
+		if (Current == NextFree)
+			NextFree = NextFree->NextFree;
+
+		Current = Next;
+		PRINT("Merging "); PRINT_ADDR(Base); PRINT(" and "); PRINT_ADDR(Current); NL();
+		remove_tiny_slot_from_bin(Current);
+		Base->RealSize += Current->RealSize;
+		Next = UNFLAG(Current->Next);
+	}
+
+	if (Base->RealSize != BaseSize) {
+		Base->Size = Base->RealSize;
+		Base->Next = Next;
+		
+		if (Next != NULL)
+			Next->Prev = Base;
+
+		remove_tiny_slot_from_bin(Base);
+		put_tiny_slot_in_bin(Base);
+	}
+
+	return NextFree;
+}
+
+void	coalesce_tiny_slots() {
+	int i = 0;
+
+	//show_alloc_mem();
+
+	while (i < 9) {
+		t_header *Hdr = MemoryLayout.TinyBins[i];
+
+		while (Hdr != NULL) {
+			Hdr = try_coalesce_tiny_slot(Hdr);
+		}	
+
+		i++;
+	}
+}
+
+void	free_tiny_slot(t_header *Hdr) {
+#ifdef PRINT_FREE
+	//PRINT("Freeing tiny slot "); PRINT_ADDR(GET_SLOT(Hdr)); NL();
+#endif
+	t_header *HdrPrev = UNFLAG(Hdr->Prev);
+	t_header *HdrNext = UNFLAG(Hdr->Next);
+
+	if (HdrNext != NULL)
+		HdrNext->Prev = Hdr;
+
+	if (HdrPrev != NULL)
+		HdrPrev->Next = Hdr;	
+
+	put_tiny_slot_in_bin(Hdr);	
+#ifdef PRINT_FREE	
+//	show_tiny_bins();
+#endif
+}
+
+// ----------- FREE ------------ //
+
 void	free(void *Ptr) {
 
 	//TODO(felix): verify if block need to be freed beforehand	
@@ -67,7 +216,10 @@ void	free(void *Ptr) {
 	} else if (BlockSize > TINY_ALLOC_MAX) {
 		MemBlock = &MemoryLayout.SmallZone;
  	} else {
-  		MemBlock = &MemoryLayout.TinyZone;
+  		//MemBlock = &MemoryLayout.TinyZone;
+		free_tiny_slot(Hdr);
+		scan_memory_integrity();
+		return;
 	}
 
 	lst_free_add(&MemBlock->FreeList, Hdr);
@@ -130,4 +282,6 @@ void	free(void *Ptr) {
 				MemBlock->StartingBlockAddr = NextChunk;
 		}	
   	}
+
+	scan_memory_integrity();
 }

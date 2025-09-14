@@ -45,12 +45,12 @@ void	write_uint64_hex(int fd, uint64_t n) {
   str[1] = 'x';
 
   int i = 2;
-  while (i < UINT64_MAX_CHAR_HEX) {
+  while (i < UINT64_MAX_CHAR_HEX + 2) {
 	  str[i] = '0';
     i++;
   }
 
-	i = UINT64_MAX_CHAR_HEX - 1;
+	i = UINT64_MAX_CHAR_HEX + 2 - 1;
 	int d = 0;
 	while (n > 0) {
 		d = n;
@@ -60,5 +60,5 @@ void	write_uint64_hex(int fd, uint64_t n) {
 		i--;
 	}
 
-	write(fd, str, UINT64_MAX_CHAR_HEX);
+	write(fd, str, UINT64_MAX_CHAR_HEX + 2);
 }

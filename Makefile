@@ -10,6 +10,7 @@ SRC =		malloc.c \
 		utils.c \
 		show_free_mem.c \
 		show_alloc_mem.c \
+		scan_memory.c \
 
 SRC_DIR =	src
 

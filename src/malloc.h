@@ -6,8 +6,8 @@
 typedef struct 	s_header {
 	struct s_header	*Prev;
 	struct s_header *Next;
-	size_t Size;
-	size_t RealSize;
+	size_t		Size;
+	size_t		RealSize;
 
 	// Only used when block is freed
 	struct s_header *PrevFree;
@@ -15,14 +15,17 @@ typedef struct 	s_header {
 }		t_header;
 
 typedef struct	s_memchunks {
-	void	*StartingBlockAddr;
-	t_header *FreeList;
+	void		*StartingBlockAddr;
+	t_header	*FreeList;
 }		t_memchunks;
 
 typedef struct	s_memlayout {
 	t_memchunks	TinyZone;
+	t_header	*TinyBins[9];	
+	
 	t_memchunks	SmallZone;
-	t_memchunks	LargeZone;	
+	
+	t_memchunks	LargeZone;
 }		t_memlayout;
 
 extern	t_memlayout MemoryLayout;
@@ -38,6 +41,7 @@ extern	t_memlayout MemoryLayout;
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
 # define HEADER_SIZE		32
+# define MIN_ALLOC		16
 # define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *)) // size of chunk + pointer to previous chunk
 # define CHUNK_FOOTER	    	(sizeof(void *) + sizeof(void *)) // last header pointer + pointer to next chunk
 # define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
@@ -74,5 +78,12 @@ extern	t_memlayout MemoryLayout;
 
 void lst_free_add(t_header **BeginList, t_header *Hdr);
 void lst_free_remove(t_header **BeginList, t_header *Hdr);
+
+int get_tiny_bin_index(size_t AlignedSize);
+void put_tiny_slot_in_bin(t_header *Hdr);
+
+void coalesce_tiny_slots();
+
+void scan_memory_integrity();
 
 #endif
