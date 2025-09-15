@@ -91,15 +91,15 @@ void	put_tiny_slot_in_bin(t_header *Hdr) {
 
 	int Index = get_tiny_bin_index(BinSize);
 
-//	PRINT("Put tiny slot "); PRINT_ADDR(Hdr); PRINT(" in bin, size: "); PRINT_UINT64(BinSize); PRINT(", bin index: "); PRINT_UINT64(Index); NL();
-	
+	PRINT("put_tiny_slot_in_bin: Hdr = "); PRINT_ADDR(Hdr); NL();
+
 	t_header **TinyBins = MemoryLayout.TinyBins;
 	t_header *NextHdrInBin = TinyBins[Index];
 
 	TinyBins[Index] = Hdr;
 	Hdr->PrevFree = NULL;
 	Hdr->NextFree = NextHdrInBin;
-
+	
 	if (NextHdrInBin != NULL)
 		NextHdrInBin->PrevFree = Hdr;
 }
@@ -132,13 +132,13 @@ t_header	*try_coalesce_tiny_slot(t_header *Hdr) {
 		Prev = UNFLAG(Base->Prev);
 	}
 
-	PRINT("BACKTRACKED TO "); PRINT_ADDR(Base); PRINT(", PREV: "); PRINT_ADDR(Base->Prev); NL();
+	PRINT("BACKTRACKED TO "); PRINT_ADDR(Base); NL();
 
 	t_header *Current = Base;
 	t_header *Next = UNFLAG(Current->Next);
 	
 	while (Next != NULL && IS_FLAGGED(Current->Next) == 0) {
-		if (Current == NextFree)
+		if (Next == NextFree)
 			NextFree = NextFree->NextFree;
 
 		Current = Next;
@@ -150,7 +150,7 @@ t_header	*try_coalesce_tiny_slot(t_header *Hdr) {
 
 	if (Base->RealSize != BaseSize) {
 		Base->Size = Base->RealSize;
-		Base->Next = Next;
+		Base->Next = Current->Next; //Next; // UNFLAGS AUTOMATICALLY !!!
 		
 		if (Next != NULL)
 			Next->Prev = Base;

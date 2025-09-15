@@ -103,6 +103,7 @@ t_header	*break_tiny_slot(t_header *Hdr, size_t RequestedSize) {
 	// PUT BROKEN PART TO NEW BIN
 	put_tiny_slot_in_bin(PrevHdr);	
 
+	PRINT("Broke slot in two\n");
 	return Hdr;
 } 
 
@@ -122,6 +123,7 @@ t_header	*allocate_and_initialize_chunk(t_memchunks *MemZone, size_t ChunkSize) 
 	Hdr->PrevFree = NULL;
 	Hdr->NextFree = NULL;
 	
+	PRINT("Allocated new chunk\n");
 	return Hdr;
 }
 
@@ -135,11 +137,12 @@ t_header	*get_perfect_or_breakable_tiny_slot(size_t AlignedSize) {
 	if (TinyBins[index] != NULL) {
 		t_header *Hdr = TinyBins[index];
 		TinyBins[index] = Hdr->NextFree;
+		PRINT("Found perfect bin\n");
 		return Hdr;
 	}
 
 	// TRY TO FIND A BIGGER SLOT THAT CAN BE SPLIT IN TWO
-	size_t MinSlotSizeToBreak = ALIGNMENT + (HEADER_SIZE + AlignedSize);
+	size_t MinSlotSizeToBreak = MIN_ALLOC + (HEADER_SIZE + AlignedSize);
 	index = get_tiny_bin_index(MinSlotSizeToBreak);
 	
 	while (index < 8 && TinyBins[index] == NULL) {
@@ -151,19 +154,21 @@ t_header	*get_perfect_or_breakable_tiny_slot(size_t AlignedSize) {
 	if (index < 8) {
 		Hdr = TinyBins[index];
 		TinyBins[index] = Hdr->NextFree;
+		PRINT("Found breakable slot\n");
 	} else {
 		Hdr = TinyBins[8];
 		MinSlotSizeToBreak = (HEADER_SIZE + AlignedSize) + (HEADER_SIZE + ALIGNMENT);
 		while (Hdr != NULL && Hdr->RealSize < MinSlotSizeToBreak)
 			Hdr = Hdr->NextFree;
 
+		PRINT("Breaking big slot\n");
 		if (Hdr == NULL)
 			return NULL;
 
 		if (Hdr->PrevFree != NULL)
 			Hdr->PrevFree->NextFree = Hdr->NextFree;
 		else
-			TinyBins[8] = NULL;
+			TinyBins[8] = Hdr->NextFree;
 
 		if (Hdr->NextFree != NULL)
 			Hdr->NextFree->PrevFree = Hdr->PrevFree;
@@ -182,11 +187,11 @@ t_header	*get_tiny_slot(size_t AlignedSize) {
 
 	// TRY TO COALESCE FREE SLOTS
 	//if (AlignedSize > MIN_ALLOC) {
-		coalesce_tiny_slots();
-		Hdr = get_perfect_or_breakable_tiny_slot(AlignedSize);
+	coalesce_tiny_slots();
+	Hdr = get_perfect_or_breakable_tiny_slot(AlignedSize);
 				
-		if (Hdr != NULL)
-			return Hdr;
+	if (Hdr != NULL)
+		return Hdr;
 	//}
 
 	// ELSE, ALLOCATE NEW CHUNK
