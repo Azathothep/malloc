@@ -104,6 +104,7 @@ t_header	*break_tiny_slot(t_header *Hdr, size_t RequestedSize) {
 	put_tiny_slot_in_bin(PrevHdr);	
 
 	PRINT("Broke slot in two\n");
+	Hdr->Size = HEADER_SIZE + RequestedSize;
 	return Hdr;
 } 
 
@@ -137,6 +138,7 @@ t_header	*get_perfect_or_breakable_tiny_slot(size_t AlignedSize) {
 	if (TinyBins[index] != NULL) {
 		t_header *Hdr = TinyBins[index];
 		TinyBins[index] = Hdr->NextFree;
+		Hdr->Size = HEADER_SIZE + AlignedSize;
 		PRINT("Found perfect bin\n");
 		return Hdr;
 	}
@@ -286,7 +288,8 @@ void	*malloc_block(size_t size) {
 	if (PrevHdr != NULL) {
 		PrevHdr->Next = FLAG(Hdr);
 	} else {
-		// How to manage if first of the block ?
+		//void *CurrentChunk = ((void *)Hdr - CHUNK_HEADER);
+		//SET_CHUNK
 	}
 
 	if (NextHdr != NULL)

@@ -107,7 +107,7 @@ void	scan_zone_integrity(t_memchunks *Zone) {
 					return;
 				}
 				
-				if (flagged != IS_FLAGGED(Next->Prev)) {
+				if (Prev != NULL && flagged != IS_FLAGGED(Next->Prev)) {
 					scan_error(Hdr, Prev, "INCONSISTENT FLAGS");
 					return;
 				}

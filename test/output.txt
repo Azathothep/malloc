@@ -1,0 +1,2011 @@
+Breaking big slot
+Coalescing slot index: 0
+Coalescing slot index: 1
+Coalescing slot index: 2
+Coalescing slot index: 3
+Coalescing slot index: 4
+Coalescing slot index: 5
+Coalescing slot index: 6
+Coalescing slot index: 7
+Coalescing slot index: 8
+Breaking big slot
+Successfully mapped 12288 bytes of memory to addr 0x0000792DBFF76000
+Allocated new chunk
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF78FC8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78F98
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78F68
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78F38
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF78EE8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78EB8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF78E60
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78E30
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF78DF8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78DC8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF78D68
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78D38
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78D08
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78CD8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF78C88
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78C58
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF78C08
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78BD8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78BA8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78B78
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF78B18
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78AE8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF78A98
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78A68
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF78A10
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF789E0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF78980
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78950
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF78908
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF788D8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF788A8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78878
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF78818
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF787E8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF787B8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78788
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF78750
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78720
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF786C0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78690
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF78650
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78620
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF785D0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF785A0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF78558
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78528
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF784F8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF784C8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF78470
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78440
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF78400
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF783D0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF78380
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78350
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF78308
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF782D8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF78280
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78250
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF78210
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF781E0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF781B0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78180
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF78140
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78110
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF780C8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78098
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF78040
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF78010
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77FE0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77FB0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF77F58
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77F28
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF77ED0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77EA0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF77E60
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77E30
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF77DE8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77DB8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF77D78
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77D48
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF77D00
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77CD0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF77C90
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77C60
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77C30
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77C00
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF77BC8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77B98
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF77B58
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77B28
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF77AD8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77AA8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF77A68
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77A38
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF77A00
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF779D0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF77980
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77950
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF778F8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF778C8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77898
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77868
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77838
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77808
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF777C8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77798
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF77740
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77710
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF776D8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF776A8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF77670
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77640
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77610
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF775E0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF775B0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77580
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF77528
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF774F8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF774C8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77498
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF77450
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77420
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF773C0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77390
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF77350
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77320
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF772F0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF772C0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF77268
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77238
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF771E8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF771B8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF77158
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77128
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF770E0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF770B0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77080
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF77050
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF77008
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76FD8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF76F78
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76F48
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 40 [72] bytes at address 0x0000792DBFF76F00
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76ED0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF76E70
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76E40
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76E10
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76DE0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF76D80
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76D50
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF76D18
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76CE8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF76C98
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76C68
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF76C28
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76BF8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF76BA8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76B78
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF76B40
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76B10
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76AE0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76AB0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF76A50
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76A20
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF769E0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF769B0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF76960
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76930
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF768E0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF768B0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF76858
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76828
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF767C8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76798
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF76738
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76708
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF766B0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76680
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF76630
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76600
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF765A0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76570
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 24 [56] bytes at address 0x0000792DBFF76538
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76508
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF764B8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76488
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF76448
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76418
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF763D8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF763A8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF76368
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76338
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76308
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF762D8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 32 [64] bytes at address 0x0000792DBFF76298
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76268
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 64 [96] bytes at address 0x0000792DBFF76208
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF761D8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF761A8
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 16 [48] bytes at address 0x0000792DBFF76178
+Successfully mapped 81920 bytes of memory to addr 0x0000792DBFD7B000
+Allocated new chunk
+Allocated 4096 [4128] bytes at address 0x0000792DBFD8DFF0
+
+---- full mem ----
+TINY ZONE
+CHUNK: 0x0000792DBFF76000
+[32m0x0000792DBFF76010: [328] , Prev: 0x0000000000000000, Next:0x0000792DBFF76159[0m
+[31m0x0000792DBFF76158: 48 [48] , Prev: 0x0000792DBFF76010, Next:0x0000792DBFF76189[0m
+[31m0x0000792DBFF76188: 48 [48] , Prev: 0x0000792DBFF76159, Next:0x0000792DBFF761B9[0m
+[31m0x0000792DBFF761B8: 48 [48] , Prev: 0x0000792DBFF76189, Next:0x0000792DBFF761E9[0m
+[31m0x0000792DBFF761E8: 96 [96] , Prev: 0x0000792DBFF761B9, Next:0x0000792DBFF76249[0m
+[31m0x0000792DBFF76248: 48 [48] , Prev: 0x0000792DBFF761E9, Next:0x0000792DBFF76279[0m
+[31m0x0000792DBFF76278: 64 [64] , Prev: 0x0000792DBFF76249, Next:0x0000792DBFF762B9[0m
+[31m0x0000792DBFF762B8: 48 [48] , Prev: 0x0000792DBFF76279, Next:0x0000792DBFF762E9[0m
+[31m0x0000792DBFF762E8: 48 [48] , Prev: 0x0000792DBFF762B9, Next:0x0000792DBFF76319[0m
+[31m0x0000792DBFF76318: 48 [48] , Prev: 0x0000792DBFF762E9, Next:0x0000792DBFF76349[0m
+[31m0x0000792DBFF76348: 64 [64] , Prev: 0x0000792DBFF76319, Next:0x0000792DBFF76389[0m
+[31m0x0000792DBFF76388: 48 [48] , Prev: 0x0000792DBFF76349, Next:0x0000792DBFF763B9[0m
+[31m0x0000792DBFF763B8: 64 [64] , Prev: 0x0000792DBFF76389, Next:0x0000792DBFF763F9[0m
+[31m0x0000792DBFF763F8: 48 [48] , Prev: 0x0000792DBFF763B9, Next:0x0000792DBFF76429[0m
+[31m0x0000792DBFF76428: 64 [64] , Prev: 0x0000792DBFF763F9, Next:0x0000792DBFF76469[0m
+[31m0x0000792DBFF76468: 48 [48] , Prev: 0x0000792DBFF76429, Next:0x0000792DBFF76499[0m
+[31m0x0000792DBFF76498: 80 [80] , Prev: 0x0000792DBFF76469, Next:0x0000792DBFF764E9[0m
+[31m0x0000792DBFF764E8: 48 [48] , Prev: 0x0000792DBFF76499, Next:0x0000792DBFF76519[0m
+[31m0x0000792DBFF76518: 56 [56] , Prev: 0x0000792DBFF764E9, Next:0x0000792DBFF76551[0m
+[31m0x0000792DBFF76550: 48 [48] , Prev: 0x0000792DBFF76519, Next:0x0000792DBFF76581[0m
+[31m0x0000792DBFF76580: 96 [96] , Prev: 0x0000792DBFF76551, Next:0x0000792DBFF765E1[0m
+[31m0x0000792DBFF765E0: 48 [48] , Prev: 0x0000792DBFF76581, Next:0x0000792DBFF76611[0m
+[31m0x0000792DBFF76610: 80 [80] , Prev: 0x0000792DBFF765E1, Next:0x0000792DBFF76661[0m
+[31m0x0000792DBFF76660: 48 [48] , Prev: 0x0000792DBFF76611, Next:0x0000792DBFF76691[0m
+[31m0x0000792DBFF76690: 88 [88] , Prev: 0x0000792DBFF76661, Next:0x0000792DBFF766E9[0m
+[31m0x0000792DBFF766E8: 48 [48] , Prev: 0x0000792DBFF76691, Next:0x0000792DBFF76719[0m
+[31m0x0000792DBFF76718: 96 [96] , Prev: 0x0000792DBFF766E9, Next:0x0000792DBFF76779[0m
+[31m0x0000792DBFF76778: 48 [48] , Prev: 0x0000792DBFF76719, Next:0x0000792DBFF767A9[0m
+[31m0x0000792DBFF767A8: 96 [96] , Prev: 0x0000792DBFF76779, Next:0x0000792DBFF76809[0m
+[31m0x0000792DBFF76808: 48 [48] , Prev: 0x0000792DBFF767A9, Next:0x0000792DBFF76839[0m
+[31m0x0000792DBFF76838: 88 [88] , Prev: 0x0000792DBFF76809, Next:0x0000792DBFF76891[0m
+[31m0x0000792DBFF76890: 48 [48] , Prev: 0x0000792DBFF76839, Next:0x0000792DBFF768C1[0m
+[31m0x0000792DBFF768C0: 80 [80] , Prev: 0x0000792DBFF76891, Next:0x0000792DBFF76911[0m
+[31m0x0000792DBFF76910: 48 [48] , Prev: 0x0000792DBFF768C1, Next:0x0000792DBFF76941[0m
+[31m0x0000792DBFF76940: 80 [80] , Prev: 0x0000792DBFF76911, Next:0x0000792DBFF76991[0m
+[31m0x0000792DBFF76990: 48 [48] , Prev: 0x0000792DBFF76941, Next:0x0000792DBFF769C1[0m
+[31m0x0000792DBFF769C0: 64 [64] , Prev: 0x0000792DBFF76991, Next:0x0000792DBFF76A01[0m
+[31m0x0000792DBFF76A00: 48 [48] , Prev: 0x0000792DBFF769C1, Next:0x0000792DBFF76A31[0m
+[31m0x0000792DBFF76A30: 96 [96] , Prev: 0x0000792DBFF76A01, Next:0x0000792DBFF76A91[0m
+[31m0x0000792DBFF76A90: 48 [48] , Prev: 0x0000792DBFF76A31, Next:0x0000792DBFF76AC1[0m
+[31m0x0000792DBFF76AC0: 48 [48] , Prev: 0x0000792DBFF76A91, Next:0x0000792DBFF76AF1[0m
+[31m0x0000792DBFF76AF0: 48 [48] , Prev: 0x0000792DBFF76AC1, Next:0x0000792DBFF76B21[0m
+[31m0x0000792DBFF76B20: 56 [56] , Prev: 0x0000792DBFF76AF1, Next:0x0000792DBFF76B59[0m
+[31m0x0000792DBFF76B58: 48 [48] , Prev: 0x0000792DBFF76B21, Next:0x0000792DBFF76B89[0m
+[31m0x0000792DBFF76B88: 80 [80] , Prev: 0x0000792DBFF76B59, Next:0x0000792DBFF76BD9[0m
+[31m0x0000792DBFF76BD8: 48 [48] , Prev: 0x0000792DBFF76B89, Next:0x0000792DBFF76C09[0m
+[31m0x0000792DBFF76C08: 64 [64] , Prev: 0x0000792DBFF76BD9, Next:0x0000792DBFF76C49[0m
+[31m0x0000792DBFF76C48: 48 [48] , Prev: 0x0000792DBFF76C09, Next:0x0000792DBFF76C79[0m
+[31m0x0000792DBFF76C78: 80 [80] , Prev: 0x0000792DBFF76C49, Next:0x0000792DBFF76CC9[0m
+[31m0x0000792DBFF76CC8: 48 [48] , Prev: 0x0000792DBFF76C79, Next:0x0000792DBFF76CF9[0m
+[31m0x0000792DBFF76CF8: 56 [56] , Prev: 0x0000792DBFF76CC9, Next:0x0000792DBFF76D31[0m
+[31m0x0000792DBFF76D30: 48 [48] , Prev: 0x0000792DBFF76CF9, Next:0x0000792DBFF76D61[0m
+[31m0x0000792DBFF76D60: 96 [96] , Prev: 0x0000792DBFF76D31, Next:0x0000792DBFF76DC1[0m
+[31m0x0000792DBFF76DC0: 48 [48] , Prev: 0x0000792DBFF76D61, Next:0x0000792DBFF76DF1[0m
+[31m0x0000792DBFF76DF0: 48 [48] , Prev: 0x0000792DBFF76DC1, Next:0x0000792DBFF76E21[0m
+[31m0x0000792DBFF76E20: 48 [48] , Prev: 0x0000792DBFF76DF1, Next:0x0000792DBFF76E51[0m
+[31m0x0000792DBFF76E50: 96 [96] , Prev: 0x0000792DBFF76E21, Next:0x0000792DBFF76EB1[0m
+[31m0x0000792DBFF76EB0: 48 [48] , Prev: 0x0000792DBFF76E51, Next:0x0000792DBFF76EE1[0m
+[31m0x0000792DBFF76EE0: 72 [72] , Prev: 0x0000792DBFF76EB1, Next:0x0000792DBFF76F29[0m
+[31m0x0000792DBFF76F28: 48 [48] , Prev: 0x0000792DBFF76EE1, Next:0x0000792DBFF76F59[0m
+[31m0x0000792DBFF76F58: 96 [96] , Prev: 0x0000792DBFF76F29, Next:0x0000792DBFF76FB9[0m
+[31m0x0000792DBFF76FB8: 48 [48] , Prev: 0x0000792DBFF76F59, Next:0x0000792DBFF76FE9[0m
+[31m0x0000792DBFF76FE8: 72 [72] , Prev: 0x0000792DBFF76FB9, Next:0x0000792DBFF77031[0m
+[31m0x0000792DBFF77030: 48 [48] , Prev: 0x0000792DBFF76FE9, Next:0x0000792DBFF77061[0m
+[31m0x0000792DBFF77060: 48 [48] , Prev: 0x0000792DBFF77031, Next:0x0000792DBFF77091[0m
+[31m0x0000792DBFF77090: 48 [48] , Prev: 0x0000792DBFF77061, Next:0x0000792DBFF770C1[0m
+[31m0x0000792DBFF770C0: 72 [72] , Prev: 0x0000792DBFF77091, Next:0x0000792DBFF77109[0m
+[31m0x0000792DBFF77108: 48 [48] , Prev: 0x0000792DBFF770C1, Next:0x0000792DBFF77139[0m
+[31m0x0000792DBFF77138: 96 [96] , Prev: 0x0000792DBFF77109, Next:0x0000792DBFF77199[0m
+[31m0x0000792DBFF77198: 48 [48] , Prev: 0x0000792DBFF77139, Next:0x0000792DBFF771C9[0m
+[31m0x0000792DBFF771C8: 80 [80] , Prev: 0x0000792DBFF77199, Next:0x0000792DBFF77219[0m
+[31m0x0000792DBFF77218: 48 [48] , Prev: 0x0000792DBFF771C9, Next:0x0000792DBFF77249[0m
+[31m0x0000792DBFF77248: 88 [88] , Prev: 0x0000792DBFF77219, Next:0x0000792DBFF772A1[0m
+[31m0x0000792DBFF772A0: 48 [48] , Prev: 0x0000792DBFF77249, Next:0x0000792DBFF772D1[0m
+[31m0x0000792DBFF772D0: 48 [48] , Prev: 0x0000792DBFF772A1, Next:0x0000792DBFF77301[0m
+[31m0x0000792DBFF77300: 48 [48] , Prev: 0x0000792DBFF772D1, Next:0x0000792DBFF77331[0m
+[31m0x0000792DBFF77330: 64 [64] , Prev: 0x0000792DBFF77301, Next:0x0000792DBFF77371[0m
+[31m0x0000792DBFF77370: 48 [48] , Prev: 0x0000792DBFF77331, Next:0x0000792DBFF773A1[0m
+[31m0x0000792DBFF773A0: 96 [96] , Prev: 0x0000792DBFF77371, Next:0x0000792DBFF77401[0m
+[31m0x0000792DBFF77400: 48 [48] , Prev: 0x0000792DBFF773A1, Next:0x0000792DBFF77431[0m
+[31m0x0000792DBFF77430: 72 [72] , Prev: 0x0000792DBFF77401, Next:0x0000792DBFF77479[0m
+[31m0x0000792DBFF77478: 48 [48] , Prev: 0x0000792DBFF77431, Next:0x0000792DBFF774A9[0m
+[31m0x0000792DBFF774A8: 48 [48] , Prev: 0x0000792DBFF77479, Next:0x0000792DBFF774D9[0m
+[31m0x0000792DBFF774D8: 48 [48] , Prev: 0x0000792DBFF774A9, Next:0x0000792DBFF77509[0m
+[31m0x0000792DBFF77508: 88 [88] , Prev: 0x0000792DBFF774D9, Next:0x0000792DBFF77561[0m
+[31m0x0000792DBFF77560: 48 [48] , Prev: 0x0000792DBFF77509, Next:0x0000792DBFF77591[0m
+[31m0x0000792DBFF77590: 48 [48] , Prev: 0x0000792DBFF77561, Next:0x0000792DBFF775C1[0m
+[31m0x0000792DBFF775C0: 48 [48] , Prev: 0x0000792DBFF77591, Next:0x0000792DBFF775F1[0m
+[31m0x0000792DBFF775F0: 48 [48] , Prev: 0x0000792DBFF775C1, Next:0x0000792DBFF77621[0m
+[31m0x0000792DBFF77620: 48 [48] , Prev: 0x0000792DBFF775F1, Next:0x0000792DBFF77651[0m
+[31m0x0000792DBFF77650: 56 [56] , Prev: 0x0000792DBFF77621, Next:0x0000792DBFF77689[0m
+[31m0x0000792DBFF77688: 48 [48] , Prev: 0x0000792DBFF77651, Next:0x0000792DBFF776B9[0m
+[31m0x0000792DBFF776B8: 56 [56] , Prev: 0x0000792DBFF77689, Next:0x0000792DBFF776F1[0m
+[31m0x0000792DBFF776F0: 48 [48] , Prev: 0x0000792DBFF776B9, Next:0x0000792DBFF77721[0m
+[31m0x0000792DBFF77720: 88 [88] , Prev: 0x0000792DBFF776F1, Next:0x0000792DBFF77779[0m
+[31m0x0000792DBFF77778: 48 [48] , Prev: 0x0000792DBFF77721, Next:0x0000792DBFF777A9[0m
+[31m0x0000792DBFF777A8: 64 [64] , Prev: 0x0000792DBFF77779, Next:0x0000792DBFF777E9[0m
+[31m0x0000792DBFF777E8: 48 [48] , Prev: 0x0000792DBFF777A9, Next:0x0000792DBFF77819[0m
+[31m0x0000792DBFF77818: 48 [48] , Prev: 0x0000792DBFF777E9, Next:0x0000792DBFF77849[0m
+[31m0x0000792DBFF77848: 48 [48] , Prev: 0x0000792DBFF77819, Next:0x0000792DBFF77879[0m
+[31m0x0000792DBFF77878: 48 [48] , Prev: 0x0000792DBFF77849, Next:0x0000792DBFF778A9[0m
+[31m0x0000792DBFF778A8: 48 [48] , Prev: 0x0000792DBFF77879, Next:0x0000792DBFF778D9[0m
+[31m0x0000792DBFF778D8: 88 [88] , Prev: 0x0000792DBFF778A9, Next:0x0000792DBFF77931[0m
+[31m0x0000792DBFF77930: 48 [48] , Prev: 0x0000792DBFF778D9, Next:0x0000792DBFF77961[0m
+[31m0x0000792DBFF77960: 80 [80] , Prev: 0x0000792DBFF77931, Next:0x0000792DBFF779B1[0m
+[31m0x0000792DBFF779B0: 48 [48] , Prev: 0x0000792DBFF77961, Next:0x0000792DBFF779E1[0m
+[31m0x0000792DBFF779E0: 56 [56] , Prev: 0x0000792DBFF779B1, Next:0x0000792DBFF77A19[0m
+[31m0x0000792DBFF77A18: 48 [48] , Prev: 0x0000792DBFF779E1, Next:0x0000792DBFF77A49[0m
+[31m0x0000792DBFF77A48: 64 [64] , Prev: 0x0000792DBFF77A19, Next:0x0000792DBFF77A89[0m
+[31m0x0000792DBFF77A88: 48 [48] , Prev: 0x0000792DBFF77A49, Next:0x0000792DBFF77AB9[0m
+[31m0x0000792DBFF77AB8: 80 [80] , Prev: 0x0000792DBFF77A89, Next:0x0000792DBFF77B09[0m
+[31m0x0000792DBFF77B08: 48 [48] , Prev: 0x0000792DBFF77AB9, Next:0x0000792DBFF77B39[0m
+[31m0x0000792DBFF77B38: 64 [64] , Prev: 0x0000792DBFF77B09, Next:0x0000792DBFF77B79[0m
+[31m0x0000792DBFF77B78: 48 [48] , Prev: 0x0000792DBFF77B39, Next:0x0000792DBFF77BA9[0m
+[31m0x0000792DBFF77BA8: 56 [56] , Prev: 0x0000792DBFF77B79, Next:0x0000792DBFF77BE1[0m
+[31m0x0000792DBFF77BE0: 48 [48] , Prev: 0x0000792DBFF77BA9, Next:0x0000792DBFF77C11[0m
+[31m0x0000792DBFF77C10: 48 [48] , Prev: 0x0000792DBFF77BE1, Next:0x0000792DBFF77C41[0m
+[31m0x0000792DBFF77C40: 48 [48] , Prev: 0x0000792DBFF77C11, Next:0x0000792DBFF77C71[0m
+[31m0x0000792DBFF77C70: 64 [64] , Prev: 0x0000792DBFF77C41, Next:0x0000792DBFF77CB1[0m
+[31m0x0000792DBFF77CB0: 48 [48] , Prev: 0x0000792DBFF77C71, Next:0x0000792DBFF77CE1[0m
+[31m0x0000792DBFF77CE0: 72 [72] , Prev: 0x0000792DBFF77CB1, Next:0x0000792DBFF77D29[0m
+[31m0x0000792DBFF77D28: 48 [48] , Prev: 0x0000792DBFF77CE1, Next:0x0000792DBFF77D59[0m
+[31m0x0000792DBFF77D58: 64 [64] , Prev: 0x0000792DBFF77D29, Next:0x0000792DBFF77D99[0m
+[31m0x0000792DBFF77D98: 48 [48] , Prev: 0x0000792DBFF77D59, Next:0x0000792DBFF77DC9[0m
+[31m0x0000792DBFF77DC8: 72 [72] , Prev: 0x0000792DBFF77D99, Next:0x0000792DBFF77E11[0m
+[31m0x0000792DBFF77E10: 48 [48] , Prev: 0x0000792DBFF77DC9, Next:0x0000792DBFF77E41[0m
+[31m0x0000792DBFF77E40: 64 [64] , Prev: 0x0000792DBFF77E11, Next:0x0000792DBFF77E81[0m
+[31m0x0000792DBFF77E80: 48 [48] , Prev: 0x0000792DBFF77E41, Next:0x0000792DBFF77EB1[0m
+[31m0x0000792DBFF77EB0: 88 [88] , Prev: 0x0000792DBFF77E81, Next:0x0000792DBFF77F09[0m
+[31m0x0000792DBFF77F08: 48 [48] , Prev: 0x0000792DBFF77EB1, Next:0x0000792DBFF77F39[0m
+[31m0x0000792DBFF77F38: 88 [88] , Prev: 0x0000792DBFF77F09, Next:0x0000792DBFF77F91[0m
+[31m0x0000792DBFF77F90: 48 [48] , Prev: 0x0000792DBFF77F39, Next:0x0000792DBFF77FC1[0m
+[31m0x0000792DBFF77FC0: 48 [48] , Prev: 0x0000792DBFF77F91, Next:0x0000792DBFF77FF1[0m
+[31m0x0000792DBFF77FF0: 48 [48] , Prev: 0x0000792DBFF77FC1, Next:0x0000792DBFF78021[0m
+[31m0x0000792DBFF78020: 88 [88] , Prev: 0x0000792DBFF77FF1, Next:0x0000792DBFF78079[0m
+[31m0x0000792DBFF78078: 48 [48] , Prev: 0x0000792DBFF78021, Next:0x0000792DBFF780A9[0m
+[31m0x0000792DBFF780A8: 72 [72] , Prev: 0x0000792DBFF78079, Next:0x0000792DBFF780F1[0m
+[31m0x0000792DBFF780F0: 48 [48] , Prev: 0x0000792DBFF780A9, Next:0x0000792DBFF78121[0m
+[31m0x0000792DBFF78120: 64 [64] , Prev: 0x0000792DBFF780F1, Next:0x0000792DBFF78161[0m
+[31m0x0000792DBFF78160: 48 [48] , Prev: 0x0000792DBFF78121, Next:0x0000792DBFF78191[0m
+[31m0x0000792DBFF78190: 48 [48] , Prev: 0x0000792DBFF78161, Next:0x0000792DBFF781C1[0m
+[31m0x0000792DBFF781C0: 48 [48] , Prev: 0x0000792DBFF78191, Next:0x0000792DBFF781F1[0m
+[31m0x0000792DBFF781F0: 64 [64] , Prev: 0x0000792DBFF781C1, Next:0x0000792DBFF78231[0m
+[31m0x0000792DBFF78230: 48 [48] , Prev: 0x0000792DBFF781F1, Next:0x0000792DBFF78261[0m
+[31m0x0000792DBFF78260: 88 [88] , Prev: 0x0000792DBFF78231, Next:0x0000792DBFF782B9[0m
+[31m0x0000792DBFF782B8: 48 [48] , Prev: 0x0000792DBFF78261, Next:0x0000792DBFF782E9[0m
+[31m0x0000792DBFF782E8: 72 [72] , Prev: 0x0000792DBFF782B9, Next:0x0000792DBFF78331[0m
+[31m0x0000792DBFF78330: 48 [48] , Prev: 0x0000792DBFF782E9, Next:0x0000792DBFF78361[0m
+[31m0x0000792DBFF78360: 80 [80] , Prev: 0x0000792DBFF78331, Next:0x0000792DBFF783B1[0m
+[31m0x0000792DBFF783B0: 48 [48] , Prev: 0x0000792DBFF78361, Next:0x0000792DBFF783E1[0m
+[31m0x0000792DBFF783E0: 64 [64] , Prev: 0x0000792DBFF783B1, Next:0x0000792DBFF78421[0m
+[31m0x0000792DBFF78420: 48 [48] , Prev: 0x0000792DBFF783E1, Next:0x0000792DBFF78451[0m
+[31m0x0000792DBFF78450: 88 [88] , Prev: 0x0000792DBFF78421, Next:0x0000792DBFF784A9[0m
+[31m0x0000792DBFF784A8: 48 [48] , Prev: 0x0000792DBFF78451, Next:0x0000792DBFF784D9[0m
+[31m0x0000792DBFF784D8: 48 [48] , Prev: 0x0000792DBFF784A9, Next:0x0000792DBFF78509[0m
+[31m0x0000792DBFF78508: 48 [48] , Prev: 0x0000792DBFF784D9, Next:0x0000792DBFF78539[0m
+[31m0x0000792DBFF78538: 72 [72] , Prev: 0x0000792DBFF78509, Next:0x0000792DBFF78581[0m
+[31m0x0000792DBFF78580: 48 [48] , Prev: 0x0000792DBFF78539, Next:0x0000792DBFF785B1[0m
+[31m0x0000792DBFF785B0: 80 [80] , Prev: 0x0000792DBFF78581, Next:0x0000792DBFF78601[0m
+[31m0x0000792DBFF78600: 48 [48] , Prev: 0x0000792DBFF785B1, Next:0x0000792DBFF78631[0m
+[31m0x0000792DBFF78630: 64 [64] , Prev: 0x0000792DBFF78601, Next:0x0000792DBFF78671[0m
+[31m0x0000792DBFF78670: 48 [48] , Prev: 0x0000792DBFF78631, Next:0x0000792DBFF786A1[0m
+[31m0x0000792DBFF786A0: 96 [96] , Prev: 0x0000792DBFF78671, Next:0x0000792DBFF78701[0m
+[31m0x0000792DBFF78700: 48 [48] , Prev: 0x0000792DBFF786A1, Next:0x0000792DBFF78731[0m
+[31m0x0000792DBFF78730: 56 [56] , Prev: 0x0000792DBFF78701, Next:0x0000792DBFF78769[0m
+[31m0x0000792DBFF78768: 48 [48] , Prev: 0x0000792DBFF78731, Next:0x0000792DBFF78799[0m
+[31m0x0000792DBFF78798: 48 [48] , Prev: 0x0000792DBFF78769, Next:0x0000792DBFF787C9[0m
+[31m0x0000792DBFF787C8: 48 [48] , Prev: 0x0000792DBFF78799, Next:0x0000792DBFF787F9[0m
+[31m0x0000792DBFF787F8: 96 [96] , Prev: 0x0000792DBFF787C9, Next:0x0000792DBFF78859[0m
+[31m0x0000792DBFF78858: 48 [48] , Prev: 0x0000792DBFF787F9, Next:0x0000792DBFF78889[0m
+[31m0x0000792DBFF78888: 48 [48] , Prev: 0x0000792DBFF78859, Next:0x0000792DBFF788B9[0m
+[31m0x0000792DBFF788B8: 48 [48] , Prev: 0x0000792DBFF78889, Next:0x0000792DBFF788E9[0m
+[31m0x0000792DBFF788E8: 72 [72] , Prev: 0x0000792DBFF788B9, Next:0x0000792DBFF78931[0m
+[31m0x0000792DBFF78930: 48 [48] , Prev: 0x0000792DBFF788E9, Next:0x0000792DBFF78961[0m
+[31m0x0000792DBFF78960: 96 [96] , Prev: 0x0000792DBFF78931, Next:0x0000792DBFF789C1[0m
+[31m0x0000792DBFF789C0: 48 [48] , Prev: 0x0000792DBFF78961, Next:0x0000792DBFF789F1[0m
+[31m0x0000792DBFF789F0: 88 [88] , Prev: 0x0000792DBFF789C1, Next:0x0000792DBFF78A49[0m
+[31m0x0000792DBFF78A48: 48 [48] , Prev: 0x0000792DBFF789F1, Next:0x0000792DBFF78A79[0m
+[31m0x0000792DBFF78A78: 80 [80] , Prev: 0x0000792DBFF78A49, Next:0x0000792DBFF78AC9[0m
+[31m0x0000792DBFF78AC8: 48 [48] , Prev: 0x0000792DBFF78A79, Next:0x0000792DBFF78AF9[0m
+[31m0x0000792DBFF78AF8: 96 [96] , Prev: 0x0000792DBFF78AC9, Next:0x0000792DBFF78B59[0m
+[31m0x0000792DBFF78B58: 48 [48] , Prev: 0x0000792DBFF78AF9, Next:0x0000792DBFF78B89[0m
+[31m0x0000792DBFF78B88: 48 [48] , Prev: 0x0000792DBFF78B59, Next:0x0000792DBFF78BB9[0m
+[31m0x0000792DBFF78BB8: 48 [48] , Prev: 0x0000792DBFF78B89, Next:0x0000792DBFF78BE9[0m
+[31m0x0000792DBFF78BE8: 80 [80] , Prev: 0x0000792DBFF78BB9, Next:0x0000792DBFF78C39[0m
+[31m0x0000792DBFF78C38: 48 [48] , Prev: 0x0000792DBFF78BE9, Next:0x0000792DBFF78C69[0m
+[31m0x0000792DBFF78C68: 80 [80] , Prev: 0x0000792DBFF78C39, Next:0x0000792DBFF78CB9[0m
+[31m0x0000792DBFF78CB8: 48 [48] , Prev: 0x0000792DBFF78C69, Next:0x0000792DBFF78CE9[0m
+[31m0x0000792DBFF78CE8: 48 [48] , Prev: 0x0000792DBFF78CB9, Next:0x0000792DBFF78D19[0m
+[31m0x0000792DBFF78D18: 48 [48] , Prev: 0x0000792DBFF78CE9, Next:0x0000792DBFF78D49[0m
+[31m0x0000792DBFF78D48: 96 [96] , Prev: 0x0000792DBFF78D19, Next:0x0000792DBFF78DA9[0m
+[31m0x0000792DBFF78DA8: 48 [48] , Prev: 0x0000792DBFF78D49, Next:0x0000792DBFF78DD9[0m
+[31m0x0000792DBFF78DD8: 56 [56] , Prev: 0x0000792DBFF78DA9, Next:0x0000792DBFF78E11[0m
+[31m0x0000792DBFF78E10: 48 [48] , Prev: 0x0000792DBFF78DD9, Next:0x0000792DBFF78E41[0m
+[31m0x0000792DBFF78E40: 88 [88] , Prev: 0x0000792DBFF78E11, Next:0x0000792DBFF78E99[0m
+[31m0x0000792DBFF78E98: 48 [48] , Prev: 0x0000792DBFF78E41, Next:0x0000792DBFF78EC9[0m
+[31m0x0000792DBFF78EC8: 80 [80] , Prev: 0x0000792DBFF78E99, Next:0x0000792DBFF78F19[0m
+[31m0x0000792DBFF78F18: 48 [48] , Prev: 0x0000792DBFF78EC9, Next:0x0000792DBFF78F49[0m
+[31m0x0000792DBFF78F48: 48 [48] , Prev: 0x0000792DBFF78F19, Next:0x0000792DBFF78F79[0m
+[31m0x0000792DBFF78F78: 48 [48] , Prev: 0x0000792DBFF78F49, Next:0x0000792DBFF78FA9[0m
+[31m0x0000792DBFF78FA8: 72 [72] , Prev: 0x0000792DBFF78F79, Next:0x0000000000000000[0m
+
+SMALL ZONE
+
+LARGE ZONE
+CHUNK: 0x0000792DBFD7B000
+[32m0x0000792DBFD7B010: [77760] , Prev: 0x0000000000000000, Next:0x0000792DBFD8DFD1[0m
+[31m0x0000792DBFD8DFD0: 4096 [4128] , Prev: 0x0000792DBFD7B010, Next:0x0000000000000000[0m
+
+------------------
+Freeing address 0x0000792DBFF78DF8 (size: 56, Header: 0x0000792DBFF78DD8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78DD8
+Freeing address 0x0000792DBFF78DC8 (size: 48, Header: 0x0000792DBFF78DA8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78DA8
+Freeing address 0x0000792DBFF78C08 (size: 80, Header: 0x0000792DBFF78BE8)
+Freeing address 0x0000792DBFF78BD8 (size: 48, Header: 0x0000792DBFF78BB8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78BB8
+Freeing address 0x0000792DBFF786C0 (size: 96, Header: 0x0000792DBFF786A0)
+Freeing address 0x0000792DBFF78690 (size: 48, Header: 0x0000792DBFF78670)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78670
+Freeing address 0x0000792DBFF77A68 (size: 64, Header: 0x0000792DBFF77A48)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77A48
+Freeing address 0x0000792DBFF77A38 (size: 48, Header: 0x0000792DBFF77A18)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77A18
+Freeing address 0x0000792DBFF77D78 (size: 64, Header: 0x0000792DBFF77D58)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77D58
+Freeing address 0x0000792DBFF77D48 (size: 48, Header: 0x0000792DBFF77D28)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77D28
+Freeing address 0x0000792DBFF77980 (size: 80, Header: 0x0000792DBFF77960)
+Freeing address 0x0000792DBFF77950 (size: 48, Header: 0x0000792DBFF77930)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77930
+Freeing address 0x0000792DBFF765A0 (size: 96, Header: 0x0000792DBFF76580)
+Freeing address 0x0000792DBFF76570 (size: 48, Header: 0x0000792DBFF76550)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76550
+Freeing address 0x0000792DBFF76E70 (size: 96, Header: 0x0000792DBFF76E50)
+Freeing address 0x0000792DBFF76E40 (size: 48, Header: 0x0000792DBFF76E20)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76E20
+Freeing address 0x0000792DBFF77610 (size: 48, Header: 0x0000792DBFF775F0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF775F0
+Freeing address 0x0000792DBFF775E0 (size: 48, Header: 0x0000792DBFF775C0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF775C0
+Freeing address 0x0000792DBFF784F8 (size: 48, Header: 0x0000792DBFF784D8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF784D8
+Freeing address 0x0000792DBFF784C8 (size: 48, Header: 0x0000792DBFF784A8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF784A8
+Freeing address 0x0000792DBFF77C30 (size: 48, Header: 0x0000792DBFF77C10)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77C10
+Freeing address 0x0000792DBFF77C00 (size: 48, Header: 0x0000792DBFF77BE0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77BE0
+Freeing address 0x0000792DBFF769E0 (size: 64, Header: 0x0000792DBFF769C0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF769C0
+Freeing address 0x0000792DBFF769B0 (size: 48, Header: 0x0000792DBFF76990)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76990
+Freeing address 0x0000792DBFF76C98 (size: 80, Header: 0x0000792DBFF76C78)
+Freeing address 0x0000792DBFF76C68 (size: 48, Header: 0x0000792DBFF76C48)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76C48
+Freeing address 0x0000792DBFF77FE0 (size: 48, Header: 0x0000792DBFF77FC0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77FC0
+Freeing address 0x0000792DBFF77FB0 (size: 48, Header: 0x0000792DBFF77F90)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77F90
+Freeing address 0x0000792DBFF77A00 (size: 56, Header: 0x0000792DBFF779E0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF779E0
+Freeing address 0x0000792DBFF779D0 (size: 48, Header: 0x0000792DBFF779B0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF779B0
+Freeing address 0x0000792DBFF77DE8 (size: 72, Header: 0x0000792DBFF77DC8)
+Freeing address 0x0000792DBFF77DB8 (size: 48, Header: 0x0000792DBFF77D98)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77D98
+Freeing address 0x0000792DBFF76D18 (size: 56, Header: 0x0000792DBFF76CF8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76CF8
+Freeing address 0x0000792DBFF76CE8 (size: 48, Header: 0x0000792DBFF76CC8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76CC8
+Freeing address 0x0000792DBFF77080 (size: 48, Header: 0x0000792DBFF77060)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77060
+Freeing address 0x0000792DBFF77050 (size: 48, Header: 0x0000792DBFF77030)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77030
+Freeing address 0x0000792DBFF76F78 (size: 96, Header: 0x0000792DBFF76F58)
+Freeing address 0x0000792DBFF76F48 (size: 48, Header: 0x0000792DBFF76F28)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76F28
+Freeing address 0x0000792DBFF76F00 (size: 72, Header: 0x0000792DBFF76EE0)
+Freeing address 0x0000792DBFF76ED0 (size: 48, Header: 0x0000792DBFF76EB0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76EB0
+Freeing address 0x0000792DBFF77898 (size: 48, Header: 0x0000792DBFF77878)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77878
+Freeing address 0x0000792DBFF77868 (size: 48, Header: 0x0000792DBFF77848)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77848
+Freeing address 0x0000792DBFF77740 (size: 88, Header: 0x0000792DBFF77720)
+Freeing address 0x0000792DBFF77710 (size: 48, Header: 0x0000792DBFF776F0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF776F0
+Freeing address 0x0000792DBFF77E60 (size: 64, Header: 0x0000792DBFF77E40)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77E40
+Freeing address 0x0000792DBFF77E30 (size: 48, Header: 0x0000792DBFF77E10)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77E10
+Freeing address 0x0000792DBFF77158 (size: 96, Header: 0x0000792DBFF77138)
+Freeing address 0x0000792DBFF77128 (size: 48, Header: 0x0000792DBFF77108)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77108
+Freeing address 0x0000792DBFF76D80 (size: 96, Header: 0x0000792DBFF76D60)
+Freeing address 0x0000792DBFF76D50 (size: 48, Header: 0x0000792DBFF76D30)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76D30
+Freeing address 0x0000792DBFF78E60 (size: 88, Header: 0x0000792DBFF78E40)
+Freeing address 0x0000792DBFF78E30 (size: 48, Header: 0x0000792DBFF78E10)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78E10
+Freeing address 0x0000792DBFF76630 (size: 80, Header: 0x0000792DBFF76610)
+Freeing address 0x0000792DBFF76600 (size: 48, Header: 0x0000792DBFF765E0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF765E0
+Freeing address 0x0000792DBFF761A8 (size: 48, Header: 0x0000792DBFF76188)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76188
+Freeing address 0x0000792DBFF76178 (size: 48, Header: 0x0000792DBFF76158)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76158
+Freeing address 0x0000792DBFF78140 (size: 64, Header: 0x0000792DBFF78120)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78120
+Freeing address 0x0000792DBFF78110 (size: 48, Header: 0x0000792DBFF780F0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF780F0
+Freeing address 0x0000792DBFF766B0 (size: 88, Header: 0x0000792DBFF76690)
+Freeing address 0x0000792DBFF76680 (size: 48, Header: 0x0000792DBFF76660)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76660
+Freeing address 0x0000792DBFF78EE8 (size: 80, Header: 0x0000792DBFF78EC8)
+Freeing address 0x0000792DBFF78EB8 (size: 48, Header: 0x0000792DBFF78E98)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78E98
+Freeing address 0x0000792DBFF77ED0 (size: 88, Header: 0x0000792DBFF77EB0)
+Freeing address 0x0000792DBFF77EA0 (size: 48, Header: 0x0000792DBFF77E80)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77E80
+Freeing address 0x0000792DBFF76298 (size: 64, Header: 0x0000792DBFF76278)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76278
+Freeing address 0x0000792DBFF76268 (size: 48, Header: 0x0000792DBFF76248)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76248
+Freeing address 0x0000792DBFF78470 (size: 88, Header: 0x0000792DBFF78450)
+Freeing address 0x0000792DBFF78440 (size: 48, Header: 0x0000792DBFF78420)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78420
+Freeing address 0x0000792DBFF788A8 (size: 48, Header: 0x0000792DBFF78888)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78888
+Freeing address 0x0000792DBFF78878 (size: 48, Header: 0x0000792DBFF78858)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78858
+Freeing address 0x0000792DBFF77450 (size: 72, Header: 0x0000792DBFF77430)
+Freeing address 0x0000792DBFF77420 (size: 48, Header: 0x0000792DBFF77400)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77400
+Freeing address 0x0000792DBFF768E0 (size: 80, Header: 0x0000792DBFF768C0)
+Freeing address 0x0000792DBFF768B0 (size: 48, Header: 0x0000792DBFF76890)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76890
+Freeing address 0x0000792DBFF777C8 (size: 64, Header: 0x0000792DBFF777A8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF777A8
+Freeing address 0x0000792DBFF77798 (size: 48, Header: 0x0000792DBFF77778)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77778
+Freeing address 0x0000792DBFF77008 (size: 72, Header: 0x0000792DBFF76FE8)
+Freeing address 0x0000792DBFF76FD8 (size: 48, Header: 0x0000792DBFF76FB8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76FB8
+Freeing address 0x0000792DBFF776D8 (size: 56, Header: 0x0000792DBFF776B8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF776B8
+Freeing address 0x0000792DBFF776A8 (size: 48, Header: 0x0000792DBFF77688)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77688
+Freeing address 0x0000792DBFF778F8 (size: 88, Header: 0x0000792DBFF778D8)
+Freeing address 0x0000792DBFF778C8 (size: 48, Header: 0x0000792DBFF778A8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF778A8
+Freeing address 0x0000792DBFF76448 (size: 64, Header: 0x0000792DBFF76428)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76428
+Freeing address 0x0000792DBFF76418 (size: 48, Header: 0x0000792DBFF763F8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF763F8
+Freeing address 0x0000792DBFF775B0 (size: 48, Header: 0x0000792DBFF77590)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77590
+Freeing address 0x0000792DBFF77580 (size: 48, Header: 0x0000792DBFF77560)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77560
+Freeing address 0x0000792DBFF77AD8 (size: 80, Header: 0x0000792DBFF77AB8)
+Freeing address 0x0000792DBFF77AA8 (size: 48, Header: 0x0000792DBFF77A88)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77A88
+Freeing address 0x0000792DBFF78040 (size: 88, Header: 0x0000792DBFF78020)
+Freeing address 0x0000792DBFF78010 (size: 48, Header: 0x0000792DBFF77FF0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77FF0
+Freeing address 0x0000792DBFF764B8 (size: 80, Header: 0x0000792DBFF76498)
+Freeing address 0x0000792DBFF76488 (size: 48, Header: 0x0000792DBFF76468)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76468
+Freeing address 0x0000792DBFF76208 (size: 96, Header: 0x0000792DBFF761E8)
+Freeing address 0x0000792DBFF761D8 (size: 48, Header: 0x0000792DBFF761B8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF761B8
+Freeing address 0x0000792DBFF771E8 (size: 80, Header: 0x0000792DBFF771C8)
+Freeing address 0x0000792DBFF771B8 (size: 48, Header: 0x0000792DBFF77198)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77198
+Freeing address 0x0000792DBFF78818 (size: 96, Header: 0x0000792DBFF787F8)
+Freeing address 0x0000792DBFF787E8 (size: 48, Header: 0x0000792DBFF787C8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF787C8
+Freeing address 0x0000792DBFF78308 (size: 72, Header: 0x0000792DBFF782E8)
+Freeing address 0x0000792DBFF782D8 (size: 48, Header: 0x0000792DBFF782B8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF782B8
+Freeing address 0x0000792DBFF78980 (size: 96, Header: 0x0000792DBFF78960)
+Freeing address 0x0000792DBFF78950 (size: 48, Header: 0x0000792DBFF78930)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78930
+Freeing address 0x0000792DBFF78750 (size: 56, Header: 0x0000792DBFF78730)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78730
+Freeing address 0x0000792DBFF78720 (size: 48, Header: 0x0000792DBFF78700)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78700
+Freeing address 0x0000792DBFF78650 (size: 64, Header: 0x0000792DBFF78630)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78630
+Freeing address 0x0000792DBFF78620 (size: 48, Header: 0x0000792DBFF78600)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78600
+Freeing address 0x0000792DBFF76A50 (size: 96, Header: 0x0000792DBFF76A30)
+Freeing address 0x0000792DBFF76A20 (size: 48, Header: 0x0000792DBFF76A00)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76A00
+Freeing address 0x0000792DBFF76738 (size: 96, Header: 0x0000792DBFF76718)
+Freeing address 0x0000792DBFF76708 (size: 48, Header: 0x0000792DBFF766E8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF766E8
+Freeing address 0x0000792DBFF76C28 (size: 64, Header: 0x0000792DBFF76C08)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76C08
+Freeing address 0x0000792DBFF76BF8 (size: 48, Header: 0x0000792DBFF76BD8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76BD8
+Freeing address 0x0000792DBFF78BA8 (size: 48, Header: 0x0000792DBFF78B88)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78B88
+Freeing address 0x0000792DBFF78B78 (size: 48, Header: 0x0000792DBFF78B58)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78B58
+Freeing address 0x0000792DBFF78D68 (size: 96, Header: 0x0000792DBFF78D48)
+Freeing address 0x0000792DBFF78D38 (size: 48, Header: 0x0000792DBFF78D18)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78D18
+Freeing address 0x0000792DBFF780C8 (size: 72, Header: 0x0000792DBFF780A8)
+Freeing address 0x0000792DBFF78098 (size: 48, Header: 0x0000792DBFF78078)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78078
+Freeing address 0x0000792DBFF78210 (size: 64, Header: 0x0000792DBFF781F0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF781F0
+Freeing address 0x0000792DBFF781E0 (size: 48, Header: 0x0000792DBFF781C0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF781C0
+Freeing address 0x0000792DBFF77838 (size: 48, Header: 0x0000792DBFF77818)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77818
+Freeing address 0x0000792DBFF77808 (size: 48, Header: 0x0000792DBFF777E8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF777E8
+Freeing address 0x0000792DBFF78908 (size: 72, Header: 0x0000792DBFF788E8)
+Freeing address 0x0000792DBFF788D8 (size: 48, Header: 0x0000792DBFF788B8)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF788B8
+Freeing address 0x0000792DBFF77268 (size: 88, Header: 0x0000792DBFF77248)
+Freeing address 0x0000792DBFF77238 (size: 48, Header: 0x0000792DBFF77218)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77218
+Freeing address 0x0000792DBFF770E0 (size: 72, Header: 0x0000792DBFF770C0)
+Freeing address 0x0000792DBFF770B0 (size: 48, Header: 0x0000792DBFF77090)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77090
+Freeing address 0x0000792DBFF76368 (size: 64, Header: 0x0000792DBFF76348)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76348
+Freeing address 0x0000792DBFF76338 (size: 48, Header: 0x0000792DBFF76318)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76318
+Freeing address 0x0000792DBFF772F0 (size: 48, Header: 0x0000792DBFF772D0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF772D0
+Freeing address 0x0000792DBFF772C0 (size: 48, Header: 0x0000792DBFF772A0)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF772A0
+Freeing address 0x0000792DBFF78FC8 (size: 72, Header: 0x0000792DBFF78FA8)
+Freeing address 0x0000792DBFF78F98 (size: 48, Header: 0x0000792DBFF78F78)
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78F78
+
+---- full mem ----
+TINY ZONE
+CHUNK: 0x0000792DBFF76000
+[32m0x0000792DBFF76010: [328] , Prev: 0x0000000000000000, Next:0x0000792DBFF76158[0m
+[32m0x0000792DBFF76158: [48] , Prev: 0x0000792DBFF76010, Next:0x0000792DBFF76188[0m
+[32m0x0000792DBFF76188: [48] , Prev: 0x0000792DBFF76158, Next:0x0000792DBFF761B8[0m
+[32m0x0000792DBFF761B8: [48] , Prev: 0x0000792DBFF76188, Next:0x0000792DBFF761E8[0m
+[32m0x0000792DBFF761E8: [144] , Prev: 0x0000792DBFF761B8, Next:0x0000792DBFF76278[0m
+[32m0x0000792DBFF76278: [64] , Prev: 0x0000792DBFF761E8, Next:0x0000792DBFF762B9[0m
+[31m0x0000792DBFF762B8: 48 [48] , Prev: 0x0000792DBFF76278, Next:0x0000792DBFF762E9[0m
+[31m0x0000792DBFF762E8: 48 [48] , Prev: 0x0000792DBFF762B9, Next:0x0000792DBFF76318[0m
+[32m0x0000792DBFF76318: [48] , Prev: 0x0000792DBFF762E9, Next:0x0000792DBFF76348[0m
+[32m0x0000792DBFF76348: [64] , Prev: 0x0000792DBFF76318, Next:0x0000792DBFF76389[0m
+[31m0x0000792DBFF76388: 48 [48] , Prev: 0x0000792DBFF76348, Next:0x0000792DBFF763B9[0m
+[31m0x0000792DBFF763B8: 64 [64] , Prev: 0x0000792DBFF76389, Next:0x0000792DBFF763F8[0m
+[32m0x0000792DBFF763F8: [48] , Prev: 0x0000792DBFF763B9, Next:0x0000792DBFF76428[0m
+[32m0x0000792DBFF76428: [64] , Prev: 0x0000792DBFF763F8, Next:0x0000792DBFF76468[0m
+[32m0x0000792DBFF76468: [48] , Prev: 0x0000792DBFF76428, Next:0x0000792DBFF76498[0m
+[32m0x0000792DBFF76498: [80] , Prev: 0x0000792DBFF76468, Next:0x0000792DBFF764E9[0m
+[31m0x0000792DBFF764E8: 48 [48] , Prev: 0x0000792DBFF76498, Next:0x0000792DBFF76519[0m
+[31m0x0000792DBFF76518: 56 [56] , Prev: 0x0000792DBFF764E9, Next:0x0000792DBFF76550[0m
+[32m0x0000792DBFF76550: [48] , Prev: 0x0000792DBFF76519, Next:0x0000792DBFF76580[0m
+[32m0x0000792DBFF76580: [96] , Prev: 0x0000792DBFF76550, Next:0x0000792DBFF765E0[0m
+[32m0x0000792DBFF765E0: [48] , Prev: 0x0000792DBFF76580, Next:0x0000792DBFF76610[0m
+[32m0x0000792DBFF76610: [80] , Prev: 0x0000792DBFF765E0, Next:0x0000792DBFF76660[0m
+[32m0x0000792DBFF76660: [48] , Prev: 0x0000792DBFF76610, Next:0x0000792DBFF76690[0m
+[32m0x0000792DBFF76690: [88] , Prev: 0x0000792DBFF76660, Next:0x0000792DBFF766E8[0m
+[32m0x0000792DBFF766E8: [48] , Prev: 0x0000792DBFF76690, Next:0x0000792DBFF76718[0m
+[32m0x0000792DBFF76718: [96] , Prev: 0x0000792DBFF766E8, Next:0x0000792DBFF76779[0m
+[31m0x0000792DBFF76778: 48 [48] , Prev: 0x0000792DBFF76718, Next:0x0000792DBFF767A9[0m
+[31m0x0000792DBFF767A8: 96 [96] , Prev: 0x0000792DBFF76779, Next:0x0000792DBFF76809[0m
+[31m0x0000792DBFF76808: 48 [48] , Prev: 0x0000792DBFF767A9, Next:0x0000792DBFF76839[0m
+[31m0x0000792DBFF76838: 88 [88] , Prev: 0x0000792DBFF76809, Next:0x0000792DBFF76890[0m
+[32m0x0000792DBFF76890: [48] , Prev: 0x0000792DBFF76839, Next:0x0000792DBFF768C0[0m
+[32m0x0000792DBFF768C0: [80] , Prev: 0x0000792DBFF76890, Next:0x0000792DBFF76911[0m
+[31m0x0000792DBFF76910: 48 [48] , Prev: 0x0000792DBFF768C0, Next:0x0000792DBFF76941[0m
+[31m0x0000792DBFF76940: 80 [80] , Prev: 0x0000792DBFF76911, Next:0x0000792DBFF76990[0m
+[32m0x0000792DBFF76990: [48] , Prev: 0x0000792DBFF76941, Next:0x0000792DBFF769C0[0m
+[32m0x0000792DBFF769C0: [64] , Prev: 0x0000792DBFF76990, Next:0x0000792DBFF76A00[0m
+[32m0x0000792DBFF76A00: [48] , Prev: 0x0000792DBFF769C0, Next:0x0000792DBFF76A30[0m
+[32m0x0000792DBFF76A30: [96] , Prev: 0x0000792DBFF76A00, Next:0x0000792DBFF76A91[0m
+[31m0x0000792DBFF76A90: 48 [48] , Prev: 0x0000792DBFF76A30, Next:0x0000792DBFF76AC1[0m
+[31m0x0000792DBFF76AC0: 48 [48] , Prev: 0x0000792DBFF76A91, Next:0x0000792DBFF76AF1[0m
+[31m0x0000792DBFF76AF0: 48 [48] , Prev: 0x0000792DBFF76AC1, Next:0x0000792DBFF76B21[0m
+[31m0x0000792DBFF76B20: 56 [56] , Prev: 0x0000792DBFF76AF1, Next:0x0000792DBFF76B59[0m
+[31m0x0000792DBFF76B58: 48 [48] , Prev: 0x0000792DBFF76B21, Next:0x0000792DBFF76B89[0m
+[31m0x0000792DBFF76B88: 80 [80] , Prev: 0x0000792DBFF76B59, Next:0x0000792DBFF76BD8[0m
+[32m0x0000792DBFF76BD8: [48] , Prev: 0x0000792DBFF76B89, Next:0x0000792DBFF76C08[0m
+[32m0x0000792DBFF76C08: [64] , Prev: 0x0000792DBFF76BD8, Next:0x0000792DBFF76C48[0m
+[32m0x0000792DBFF76C48: [48] , Prev: 0x0000792DBFF76C08, Next:0x0000792DBFF76C78[0m
+[32m0x0000792DBFF76C78: [80] , Prev: 0x0000792DBFF76C48, Next:0x0000792DBFF76CC8[0m
+[32m0x0000792DBFF76CC8: [48] , Prev: 0x0000792DBFF76C78, Next:0x0000792DBFF76CF8[0m
+[32m0x0000792DBFF76CF8: [56] , Prev: 0x0000792DBFF76CC8, Next:0x0000792DBFF76D30[0m
+[32m0x0000792DBFF76D30: [48] , Prev: 0x0000792DBFF76CF8, Next:0x0000792DBFF76D60[0m
+[32m0x0000792DBFF76D60: [96] , Prev: 0x0000792DBFF76D30, Next:0x0000792DBFF76DC1[0m
+[31m0x0000792DBFF76DC0: 48 [48] , Prev: 0x0000792DBFF76D60, Next:0x0000792DBFF76DF1[0m
+[31m0x0000792DBFF76DF0: 48 [48] , Prev: 0x0000792DBFF76DC1, Next:0x0000792DBFF76E20[0m
+[32m0x0000792DBFF76E20: [48] , Prev: 0x0000792DBFF76DF1, Next:0x0000792DBFF76E50[0m
+[32m0x0000792DBFF76E50: [96] , Prev: 0x0000792DBFF76E20, Next:0x0000792DBFF76EB0[0m
+[32m0x0000792DBFF76EB0: [48] , Prev: 0x0000792DBFF76E50, Next:0x0000792DBFF76EE0[0m
+[32m0x0000792DBFF76EE0: [120] , Prev: 0x0000792DBFF76EB0, Next:0x0000792DBFF76F58[0m
+[32m0x0000792DBFF76F58: [96] , Prev: 0x0000792DBFF76EE0, Next:0x0000792DBFF76FB8[0m
+[32m0x0000792DBFF76FB8: [48] , Prev: 0x0000792DBFF76F58, Next:0x0000792DBFF76FE8[0m
+[32m0x0000792DBFF76FE8: [120] , Prev: 0x0000792DBFF76FB8, Next:0x0000792DBFF77060[0m
+[32m0x0000792DBFF77060: [48] , Prev: 0x0000792DBFF76FE8, Next:0x0000792DBFF77090[0m
+[32m0x0000792DBFF77090: [48] , Prev: 0x0000792DBFF77060, Next:0x0000792DBFF770C0[0m
+[32m0x0000792DBFF770C0: [120] , Prev: 0x0000792DBFF77090, Next:0x0000792DBFF77138[0m
+[32m0x0000792DBFF77138: [96] , Prev: 0x0000792DBFF770C0, Next:0x0000792DBFF77198[0m
+[32m0x0000792DBFF77198: [48] , Prev: 0x0000792DBFF77138, Next:0x0000792DBFF771C8[0m
+[32m0x0000792DBFF771C8: [80] , Prev: 0x0000792DBFF77198, Next:0x0000792DBFF77218[0m
+[32m0x0000792DBFF77218: [48] , Prev: 0x0000792DBFF771C8, Next:0x0000792DBFF77248[0m
+[32m0x0000792DBFF77248: [88] , Prev: 0x0000792DBFF77218, Next:0x0000792DBFF772A0[0m
+[32m0x0000792DBFF772A0: [48] , Prev: 0x0000792DBFF77248, Next:0x0000792DBFF772D0[0m
+[32m0x0000792DBFF772D0: [48] , Prev: 0x0000792DBFF772A0, Next:0x0000792DBFF77301[0m
+[31m0x0000792DBFF77300: 48 [48] , Prev: 0x0000792DBFF772D0, Next:0x0000792DBFF77331[0m
+[31m0x0000792DBFF77330: 64 [64] , Prev: 0x0000792DBFF77301, Next:0x0000792DBFF77371[0m
+[31m0x0000792DBFF77370: 48 [48] , Prev: 0x0000792DBFF77331, Next:0x0000792DBFF773A1[0m
+[31m0x0000792DBFF773A0: 96 [96] , Prev: 0x0000792DBFF77371, Next:0x0000792DBFF77400[0m
+[32m0x0000792DBFF77400: [48] , Prev: 0x0000792DBFF773A1, Next:0x0000792DBFF77430[0m
+[32m0x0000792DBFF77430: [72] , Prev: 0x0000792DBFF77400, Next:0x0000792DBFF77479[0m
+[31m0x0000792DBFF77478: 48 [48] , Prev: 0x0000792DBFF77430, Next:0x0000792DBFF774A9[0m
+[31m0x0000792DBFF774A8: 48 [48] , Prev: 0x0000792DBFF77479, Next:0x0000792DBFF774D9[0m
+[31m0x0000792DBFF774D8: 48 [48] , Prev: 0x0000792DBFF774A9, Next:0x0000792DBFF77509[0m
+[31m0x0000792DBFF77508: 88 [88] , Prev: 0x0000792DBFF774D9, Next:0x0000792DBFF77560[0m
+[32m0x0000792DBFF77560: [48] , Prev: 0x0000792DBFF77509, Next:0x0000792DBFF77590[0m
+[32m0x0000792DBFF77590: [48] , Prev: 0x0000792DBFF77560, Next:0x0000792DBFF775C0[0m
+[32m0x0000792DBFF775C0: [48] , Prev: 0x0000792DBFF77590, Next:0x0000792DBFF775F0[0m
+[32m0x0000792DBFF775F0: [48] , Prev: 0x0000792DBFF775C0, Next:0x0000792DBFF77621[0m
+[31m0x0000792DBFF77620: 48 [48] , Prev: 0x0000792DBFF775F0, Next:0x0000792DBFF77651[0m
+[31m0x0000792DBFF77650: 56 [56] , Prev: 0x0000792DBFF77621, Next:0x0000792DBFF77688[0m
+[32m0x0000792DBFF77688: [48] , Prev: 0x0000792DBFF77651, Next:0x0000792DBFF776B8[0m
+[32m0x0000792DBFF776B8: [56] , Prev: 0x0000792DBFF77688, Next:0x0000792DBFF776F0[0m
+[32m0x0000792DBFF776F0: [48] , Prev: 0x0000792DBFF776B8, Next:0x0000792DBFF77720[0m
+[32m0x0000792DBFF77720: [88] , Prev: 0x0000792DBFF776F0, Next:0x0000792DBFF77778[0m
+[32m0x0000792DBFF77778: [48] , Prev: 0x0000792DBFF77720, Next:0x0000792DBFF777A8[0m
+[32m0x0000792DBFF777A8: [64] , Prev: 0x0000792DBFF77778, Next:0x0000792DBFF777E8[0m
+[32m0x0000792DBFF777E8: [48] , Prev: 0x0000792DBFF777A8, Next:0x0000792DBFF77818[0m
+[32m0x0000792DBFF77818: [48] , Prev: 0x0000792DBFF777E8, Next:0x0000792DBFF77848[0m
+[32m0x0000792DBFF77848: [48] , Prev: 0x0000792DBFF77818, Next:0x0000792DBFF77878[0m
+[32m0x0000792DBFF77878: [48] , Prev: 0x0000792DBFF77848, Next:0x0000792DBFF778A8[0m
+[32m0x0000792DBFF778A8: [48] , Prev: 0x0000792DBFF77878, Next:0x0000792DBFF778D8[0m
+[32m0x0000792DBFF778D8: [136] , Prev: 0x0000792DBFF778A8, Next:0x0000792DBFF77960[0m
+[32m0x0000792DBFF77960: [80] , Prev: 0x0000792DBFF778D8, Next:0x0000792DBFF779B0[0m
+[32m0x0000792DBFF779B0: [48] , Prev: 0x0000792DBFF77960, Next:0x0000792DBFF779E0[0m
+[32m0x0000792DBFF779E0: [56] , Prev: 0x0000792DBFF779B0, Next:0x0000792DBFF77A18[0m
+[32m0x0000792DBFF77A18: [48] , Prev: 0x0000792DBFF779E0, Next:0x0000792DBFF77A48[0m
+[32m0x0000792DBFF77A48: [64] , Prev: 0x0000792DBFF77A18, Next:0x0000792DBFF77A88[0m
+[32m0x0000792DBFF77A88: [48] , Prev: 0x0000792DBFF77A48, Next:0x0000792DBFF77AB8[0m
+[32m0x0000792DBFF77AB8: [80] , Prev: 0x0000792DBFF77A88, Next:0x0000792DBFF77B09[0m
+[31m0x0000792DBFF77B08: 48 [48] , Prev: 0x0000792DBFF77AB8, Next:0x0000792DBFF77B39[0m
+[31m0x0000792DBFF77B38: 64 [64] , Prev: 0x0000792DBFF77B09, Next:0x0000792DBFF77B79[0m
+[31m0x0000792DBFF77B78: 48 [48] , Prev: 0x0000792DBFF77B39, Next:0x0000792DBFF77BA9[0m
+[31m0x0000792DBFF77BA8: 56 [56] , Prev: 0x0000792DBFF77B79, Next:0x0000792DBFF77BE0[0m
+[32m0x0000792DBFF77BE0: [48] , Prev: 0x0000792DBFF77BA9, Next:0x0000792DBFF77C10[0m
+[32m0x0000792DBFF77C10: [48] , Prev: 0x0000792DBFF77BE0, Next:0x0000792DBFF77C41[0m
+[31m0x0000792DBFF77C40: 48 [48] , Prev: 0x0000792DBFF77C10, Next:0x0000792DBFF77C71[0m
+[31m0x0000792DBFF77C70: 64 [64] , Prev: 0x0000792DBFF77C41, Next:0x0000792DBFF77CB1[0m
+[31m0x0000792DBFF77CB0: 48 [48] , Prev: 0x0000792DBFF77C71, Next:0x0000792DBFF77CE1[0m
+[31m0x0000792DBFF77CE0: 72 [72] , Prev: 0x0000792DBFF77CB1, Next:0x0000792DBFF77D28[0m
+[32m0x0000792DBFF77D28: [48] , Prev: 0x0000792DBFF77CE1, Next:0x0000792DBFF77D58[0m
+[32m0x0000792DBFF77D58: [64] , Prev: 0x0000792DBFF77D28, Next:0x0000792DBFF77D98[0m
+[32m0x0000792DBFF77D98: [48] , Prev: 0x0000792DBFF77D58, Next:0x0000792DBFF77DC8[0m
+[32m0x0000792DBFF77DC8: [72] , Prev: 0x0000792DBFF77D98, Next:0x0000792DBFF77E10[0m
+[32m0x0000792DBFF77E10: [48] , Prev: 0x0000792DBFF77DC8, Next:0x0000792DBFF77E40[0m
+[32m0x0000792DBFF77E40: [64] , Prev: 0x0000792DBFF77E10, Next:0x0000792DBFF77E80[0m
+[32m0x0000792DBFF77E80: [48] , Prev: 0x0000792DBFF77E40, Next:0x0000792DBFF77EB0[0m
+[32m0x0000792DBFF77EB0: [88] , Prev: 0x0000792DBFF77E80, Next:0x0000792DBFF77F09[0m
+[31m0x0000792DBFF77F08: 48 [48] , Prev: 0x0000792DBFF77EB0, Next:0x0000792DBFF77F39[0m
+[31m0x0000792DBFF77F38: 88 [88] , Prev: 0x0000792DBFF77F09, Next:0x0000792DBFF77F90[0m
+[32m0x0000792DBFF77F90: [48] , Prev: 0x0000792DBFF77F39, Next:0x0000792DBFF77FC0[0m
+[32m0x0000792DBFF77FC0: [48] , Prev: 0x0000792DBFF77F90, Next:0x0000792DBFF77FF0[0m
+[32m0x0000792DBFF77FF0: [48] , Prev: 0x0000792DBFF77FC0, Next:0x0000792DBFF78020[0m
+[32m0x0000792DBFF78020: [88] , Prev: 0x0000792DBFF77FF0, Next:0x0000792DBFF78078[0m
+[32m0x0000792DBFF78078: [48] , Prev: 0x0000792DBFF78020, Next:0x0000792DBFF780A8[0m
+[32m0x0000792DBFF780A8: [120] , Prev: 0x0000792DBFF78078, Next:0x0000792DBFF78120[0m
+[32m0x0000792DBFF78120: [64] , Prev: 0x0000792DBFF780A8, Next:0x0000792DBFF78161[0m
+[31m0x0000792DBFF78160: 48 [48] , Prev: 0x0000792DBFF78120, Next:0x0000792DBFF78191[0m
+[31m0x0000792DBFF78190: 48 [48] , Prev: 0x0000792DBFF78161, Next:0x0000792DBFF781C0[0m
+[32m0x0000792DBFF781C0: [48] , Prev: 0x0000792DBFF78191, Next:0x0000792DBFF781F0[0m
+[32m0x0000792DBFF781F0: [64] , Prev: 0x0000792DBFF781C0, Next:0x0000792DBFF78231[0m
+[31m0x0000792DBFF78230: 48 [48] , Prev: 0x0000792DBFF781F0, Next:0x0000792DBFF78261[0m
+[31m0x0000792DBFF78260: 88 [88] , Prev: 0x0000792DBFF78231, Next:0x0000792DBFF782B8[0m
+[32m0x0000792DBFF782B8: [48] , Prev: 0x0000792DBFF78261, Next:0x0000792DBFF782E8[0m
+[32m0x0000792DBFF782E8: [72] , Prev: 0x0000792DBFF782B8, Next:0x0000792DBFF78331[0m
+[31m0x0000792DBFF78330: 48 [48] , Prev: 0x0000792DBFF782E8, Next:0x0000792DBFF78361[0m
+[31m0x0000792DBFF78360: 80 [80] , Prev: 0x0000792DBFF78331, Next:0x0000792DBFF783B1[0m
+[31m0x0000792DBFF783B0: 48 [48] , Prev: 0x0000792DBFF78361, Next:0x0000792DBFF783E1[0m
+[31m0x0000792DBFF783E0: 64 [64] , Prev: 0x0000792DBFF783B1, Next:0x0000792DBFF78420[0m
+[32m0x0000792DBFF78420: [48] , Prev: 0x0000792DBFF783E1, Next:0x0000792DBFF78450[0m
+[32m0x0000792DBFF78450: [136] , Prev: 0x0000792DBFF78420, Next:0x0000792DBFF784D8[0m
+[32m0x0000792DBFF784D8: [48] , Prev: 0x0000792DBFF78450, Next:0x0000792DBFF78509[0m
+[31m0x0000792DBFF78508: 48 [48] , Prev: 0x0000792DBFF784D8, Next:0x0000792DBFF78539[0m
+[31m0x0000792DBFF78538: 72 [72] , Prev: 0x0000792DBFF78509, Next:0x0000792DBFF78581[0m
+[31m0x0000792DBFF78580: 48 [48] , Prev: 0x0000792DBFF78539, Next:0x0000792DBFF785B1[0m
+[31m0x0000792DBFF785B0: 80 [80] , Prev: 0x0000792DBFF78581, Next:0x0000792DBFF78600[0m
+[32m0x0000792DBFF78600: [48] , Prev: 0x0000792DBFF785B1, Next:0x0000792DBFF78630[0m
+[32m0x0000792DBFF78630: [64] , Prev: 0x0000792DBFF78600, Next:0x0000792DBFF78670[0m
+[32m0x0000792DBFF78670: [48] , Prev: 0x0000792DBFF78630, Next:0x0000792DBFF786A0[0m
+[32m0x0000792DBFF786A0: [96] , Prev: 0x0000792DBFF78670, Next:0x0000792DBFF78700[0m
+[32m0x0000792DBFF78700: [48] , Prev: 0x0000792DBFF786A0, Next:0x0000792DBFF78730[0m
+[32m0x0000792DBFF78730: [56] , Prev: 0x0000792DBFF78700, Next:0x0000792DBFF78769[0m
+[31m0x0000792DBFF78768: 48 [48] , Prev: 0x0000792DBFF78730, Next:0x0000792DBFF78799[0m
+[31m0x0000792DBFF78798: 48 [48] , Prev: 0x0000792DBFF78769, Next:0x0000792DBFF787C8[0m
+[32m0x0000792DBFF787C8: [48] , Prev: 0x0000792DBFF78799, Next:0x0000792DBFF787F8[0m
+[32m0x0000792DBFF787F8: [144] , Prev: 0x0000792DBFF787C8, Next:0x0000792DBFF78888[0m
+[32m0x0000792DBFF78888: [48] , Prev: 0x0000792DBFF787F8, Next:0x0000792DBFF788B8[0m
+[32m0x0000792DBFF788B8: [48] , Prev: 0x0000792DBFF78888, Next:0x0000792DBFF788E8[0m
+[32m0x0000792DBFF788E8: [120] , Prev: 0x0000792DBFF788B8, Next:0x0000792DBFF78960[0m
+[32m0x0000792DBFF78960: [96] , Prev: 0x0000792DBFF788E8, Next:0x0000792DBFF789C1[0m
+[31m0x0000792DBFF789C0: 48 [48] , Prev: 0x0000792DBFF78960, Next:0x0000792DBFF789F1[0m
+[31m0x0000792DBFF789F0: 88 [88] , Prev: 0x0000792DBFF789C1, Next:0x0000792DBFF78A49[0m
+[31m0x0000792DBFF78A48: 48 [48] , Prev: 0x0000792DBFF789F1, Next:0x0000792DBFF78A79[0m
+[31m0x0000792DBFF78A78: 80 [80] , Prev: 0x0000792DBFF78A49, Next:0x0000792DBFF78AC9[0m
+[31m0x0000792DBFF78AC8: 48 [48] , Prev: 0x0000792DBFF78A79, Next:0x0000792DBFF78AF9[0m
+[31m0x0000792DBFF78AF8: 96 [96] , Prev: 0x0000792DBFF78AC9, Next:0x0000792DBFF78B58[0m
+[32m0x0000792DBFF78B58: [48] , Prev: 0x0000792DBFF78AF9, Next:0x0000792DBFF78B88[0m
+[32m0x0000792DBFF78B88: [48] , Prev: 0x0000792DBFF78B58, Next:0x0000792DBFF78BB8[0m
+[32m0x0000792DBFF78BB8: [48] , Prev: 0x0000792DBFF78B88, Next:0x0000792DBFF78BE8[0m
+[32m0x0000792DBFF78BE8: [80] , Prev: 0x0000792DBFF78BB8, Next:0x0000792DBFF78C39[0m
+[31m0x0000792DBFF78C38: 48 [48] , Prev: 0x0000792DBFF78BE8, Next:0x0000792DBFF78C69[0m
+[31m0x0000792DBFF78C68: 80 [80] , Prev: 0x0000792DBFF78C39, Next:0x0000792DBFF78CB9[0m
+[31m0x0000792DBFF78CB8: 48 [48] , Prev: 0x0000792DBFF78C69, Next:0x0000792DBFF78CE9[0m
+[31m0x0000792DBFF78CE8: 48 [48] , Prev: 0x0000792DBFF78CB9, Next:0x0000792DBFF78D18[0m
+[32m0x0000792DBFF78D18: [48] , Prev: 0x0000792DBFF78CE9, Next:0x0000792DBFF78D48[0m
+[32m0x0000792DBFF78D48: [144] , Prev: 0x0000792DBFF78D18, Next:0x0000792DBFF78DD8[0m
+[32m0x0000792DBFF78DD8: [56] , Prev: 0x0000792DBFF78D48, Next:0x0000792DBFF78E10[0m
+[32m0x0000792DBFF78E10: [48] , Prev: 0x0000792DBFF78DD8, Next:0x0000792DBFF78E40[0m
+[32m0x0000792DBFF78E40: [88] , Prev: 0x0000792DBFF78E10, Next:0x0000792DBFF78E98[0m
+[32m0x0000792DBFF78E98: [48] , Prev: 0x0000792DBFF78E40, Next:0x0000792DBFF78EC8[0m
+[32m0x0000792DBFF78EC8: [80] , Prev: 0x0000792DBFF78E98, Next:0x0000792DBFF78F19[0m
+[31m0x0000792DBFF78F18: 48 [48] , Prev: 0x0000792DBFF78EC8, Next:0x0000792DBFF78F49[0m
+[31m0x0000792DBFF78F48: 48 [48] , Prev: 0x0000792DBFF78F19, Next:0x0000792DBFF78F78[0m
+[32m0x0000792DBFF78F78: [48] , Prev: 0x0000792DBFF78F49, Next:0x0000792DBFF78FA8[0m
+[32m0x0000792DBFF78FA8: [72] , Prev: 0x0000792DBFF78F78, Next:0x0000000000000000[0m
+
+SMALL ZONE
+
+LARGE ZONE
+CHUNK: 0x0000792DBFD7B000
+[32m0x0000792DBFD7B010: [77760] , Prev: 0x0000000000000000, Next:0x0000792DBFD8DFD1[0m
+[31m0x0000792DBFD8DFD0: 4096 [4128] , Prev: 0x0000792DBFD7B010, Next:0x0000000000000000[0m
+
+------------------
+Found perfect bin
+Allocated 32 [64] bytes at address 0x0000792DBFF76368
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF78F98
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF76128
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF772C0
+Found perfect bin
+Allocated 24 [56] bytes at address 0x0000792DBFF78750
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF772F0
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 48 [80] bytes at address 0x0000792DBFF760D8
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF76338
+Breaking big slot
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76010
+Broke slot in two
+Allocated 56 [88] bytes at address 0x0000792DBFF76080
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF770B0
+Found perfect bin
+Allocated 32 [64] bytes at address 0x0000792DBFF78210
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF77238
+Found perfect bin
+Allocated 24 [56] bytes at address 0x0000792DBFF776D8
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF788D8
+Found perfect bin
+Allocated 48 [80] bytes at address 0x0000792DBFF76030
+Found perfect bin
+Allocated 16 [48] bytes at address 0x0000792DBFF77808
+Breaking big slot
+Coalescing slot index: 0
+Coalescing slot index: 1
+TRYING TO COALESCE 0x0000792DBFF77818
+BACKTRACKED TO 0x0000792DBFF77818
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77848
+remove_tiny_slot_from_bin: 0x0000792DBFF77848
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF776F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77878
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77878
+remove_tiny_slot_from_bin: 0x0000792DBFF77878
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF776F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76EB0
+Merging 0x0000792DBFF77818 and 0x0000792DBFF778A8
+remove_tiny_slot_from_bin: 0x0000792DBFF778A8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF763F8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77688
+Merging 0x0000792DBFF77818 and 0x0000792DBFF778D8
+remove_tiny_slot_from_bin: 0x0000792DBFF778D8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77AB8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76FE8
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77960
+remove_tiny_slot_from_bin: 0x0000792DBFF77960
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76580
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF786A0
+Merging 0x0000792DBFF77818 and 0x0000792DBFF779B0
+remove_tiny_slot_from_bin: 0x0000792DBFF779B0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77F90
+Merging 0x0000792DBFF77818 and 0x0000792DBFF779E0
+remove_tiny_slot_from_bin: 0x0000792DBFF779E0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76CF8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78DD8
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77A18
+remove_tiny_slot_from_bin: 0x0000792DBFF77A18
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D28
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78670
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77A48
+remove_tiny_slot_from_bin: 0x0000792DBFF77A48
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D58
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77A88
+remove_tiny_slot_from_bin: 0x0000792DBFF77A88
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77FF0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77560
+Merging 0x0000792DBFF77818 and 0x0000792DBFF77AB8
+remove_tiny_slot_from_bin: 0x0000792DBFF77AB8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78020
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76FE8
+remove_tiny_slot_from_bin: 0x0000792DBFF77818
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF777E8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF781C0
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77818
+TRYING TO COALESCE 0x0000792DBFF781C0
+BACKTRACKED TO 0x0000792DBFF781C0
+TRYING TO COALESCE 0x0000792DBFF78078
+BACKTRACKED TO 0x0000792DBFF77F90
+Merging 0x0000792DBFF77F90 and 0x0000792DBFF77FC0
+remove_tiny_slot_from_bin: 0x0000792DBFF77FC0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77F90
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76C48
+Merging 0x0000792DBFF77F90 and 0x0000792DBFF77FF0
+remove_tiny_slot_from_bin: 0x0000792DBFF77FF0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76468
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77560
+Merging 0x0000792DBFF77F90 and 0x0000792DBFF78020
+remove_tiny_slot_from_bin: 0x0000792DBFF78020
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76498
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76FE8
+Merging 0x0000792DBFF77F90 and 0x0000792DBFF78078
+remove_tiny_slot_from_bin: 0x0000792DBFF78078
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78D18
+Merging 0x0000792DBFF77F90 and 0x0000792DBFF780A8
+remove_tiny_slot_from_bin: 0x0000792DBFF780A8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF788E8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78D48
+Merging 0x0000792DBFF77F90 and 0x0000792DBFF78120
+remove_tiny_slot_from_bin: 0x0000792DBFF78120
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76278
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: 0x0000792DBFF77F90
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76C48
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77F90
+TRYING TO COALESCE 0x0000792DBFF78D18
+BACKTRACKED TO 0x0000792DBFF78D18
+Merging 0x0000792DBFF78D18 and 0x0000792DBFF78D48
+remove_tiny_slot_from_bin: 0x0000792DBFF78D48
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF788E8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76718
+Merging 0x0000792DBFF78D18 and 0x0000792DBFF78DD8
+remove_tiny_slot_from_bin: 0x0000792DBFF78DD8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76CF8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF78D18 and 0x0000792DBFF78E10
+remove_tiny_slot_from_bin: 0x0000792DBFF78E10
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF765E0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76D30
+Merging 0x0000792DBFF78D18 and 0x0000792DBFF78E40
+remove_tiny_slot_from_bin: 0x0000792DBFF78E40
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76610
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76D60
+Merging 0x0000792DBFF78D18 and 0x0000792DBFF78E98
+remove_tiny_slot_from_bin: 0x0000792DBFF78E98
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E80
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76660
+Merging 0x0000792DBFF78D18 and 0x0000792DBFF78EC8
+remove_tiny_slot_from_bin: 0x0000792DBFF78EC8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76690
+remove_tiny_slot_from_bin: 0x0000792DBFF78D18
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78B58
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78D18
+TRYING TO COALESCE 0x0000792DBFF78B58
+BACKTRACKED TO 0x0000792DBFF78B58
+Merging 0x0000792DBFF78B58 and 0x0000792DBFF78B88
+remove_tiny_slot_from_bin: 0x0000792DBFF78B88
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78B58
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76BD8
+Merging 0x0000792DBFF78B58 and 0x0000792DBFF78BB8
+remove_tiny_slot_from_bin: 0x0000792DBFF78BB8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78670
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF78B58 and 0x0000792DBFF78BE8
+remove_tiny_slot_from_bin: 0x0000792DBFF78BE8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF786A0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+remove_tiny_slot_from_bin: 0x0000792DBFF78B58
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76BD8
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78B58
+TRYING TO COALESCE 0x0000792DBFF76BD8
+BACKTRACKED TO 0x0000792DBFF76BD8
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76C08
+remove_tiny_slot_from_bin: 0x0000792DBFF76C08
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78630
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76C48
+remove_tiny_slot_from_bin: 0x0000792DBFF76C48
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76990
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76C78
+remove_tiny_slot_from_bin: 0x0000792DBFF76C78
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77DC8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76E50
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76CC8
+remove_tiny_slot_from_bin: 0x0000792DBFF76CC8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77060
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77D98
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76CF8
+remove_tiny_slot_from_bin: 0x0000792DBFF76CF8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF776B8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76D30
+remove_tiny_slot_from_bin: 0x0000792DBFF76D30
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF765E0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E10
+Merging 0x0000792DBFF76BD8 and 0x0000792DBFF76D60
+remove_tiny_slot_from_bin: 0x0000792DBFF76D60
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76610
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77138
+remove_tiny_slot_from_bin: 0x0000792DBFF76BD8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF766E8
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76BD8
+TRYING TO COALESCE 0x0000792DBFF766E8
+BACKTRACKED TO 0x0000792DBFF76550
+Merging 0x0000792DBFF76550 and 0x0000792DBFF76580
+remove_tiny_slot_from_bin: 0x0000792DBFF76580
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76E50
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF786A0
+Merging 0x0000792DBFF76550 and 0x0000792DBFF765E0
+remove_tiny_slot_from_bin: 0x0000792DBFF765E0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76188
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E10
+Merging 0x0000792DBFF76550 and 0x0000792DBFF76610
+remove_tiny_slot_from_bin: 0x0000792DBFF76610
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76690
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77138
+Merging 0x0000792DBFF76550 and 0x0000792DBFF76660
+remove_tiny_slot_from_bin: 0x0000792DBFF76660
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E80
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76158
+Merging 0x0000792DBFF76550 and 0x0000792DBFF76690
+remove_tiny_slot_from_bin: 0x0000792DBFF76690
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77138
+Merging 0x0000792DBFF76550 and 0x0000792DBFF766E8
+remove_tiny_slot_from_bin: 0x0000792DBFF766E8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76A00
+Merging 0x0000792DBFF76550 and 0x0000792DBFF76718
+remove_tiny_slot_from_bin: 0x0000792DBFF76718
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF788E8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76A30
+remove_tiny_slot_from_bin: 0x0000792DBFF76550
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76E20
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77D28
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76550
+TRYING TO COALESCE 0x0000792DBFF76A00
+BACKTRACKED TO 0x0000792DBFF76990
+Merging 0x0000792DBFF76990 and 0x0000792DBFF769C0
+remove_tiny_slot_from_bin: 0x0000792DBFF769C0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77D58
+Merging 0x0000792DBFF76990 and 0x0000792DBFF76A00
+remove_tiny_slot_from_bin: 0x0000792DBFF76A00
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78600
+Merging 0x0000792DBFF76990 and 0x0000792DBFF76A30
+remove_tiny_slot_from_bin: 0x0000792DBFF76A30
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF788E8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: 0x0000792DBFF76990
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77BE0
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76990
+TRYING TO COALESCE 0x0000792DBFF78600
+BACKTRACKED TO 0x0000792DBFF78600
+Merging 0x0000792DBFF78600 and 0x0000792DBFF78630
+remove_tiny_slot_from_bin: 0x0000792DBFF78630
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76428
+Merging 0x0000792DBFF78600 and 0x0000792DBFF78670
+remove_tiny_slot_from_bin: 0x0000792DBFF78670
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77D28
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF78600 and 0x0000792DBFF786A0
+remove_tiny_slot_from_bin: 0x0000792DBFF786A0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76E50
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF78600 and 0x0000792DBFF78700
+remove_tiny_slot_from_bin: 0x0000792DBFF78700
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78600
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF782B8
+remove_tiny_slot_from_bin: 0x0000792DBFF78600
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF782B8
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78600
+TRYING TO COALESCE 0x0000792DBFF782B8
+BACKTRACKED TO 0x0000792DBFF782B8
+Merging 0x0000792DBFF782B8 and 0x0000792DBFF782E8
+remove_tiny_slot_from_bin: 0x0000792DBFF782E8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF787F8
+remove_tiny_slot_from_bin: 0x0000792DBFF782B8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF787C8
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF782B8
+TRYING TO COALESCE 0x0000792DBFF787C8
+BACKTRACKED TO 0x0000792DBFF787C8
+Merging 0x0000792DBFF787C8 and 0x0000792DBFF787F8
+remove_tiny_slot_from_bin: 0x0000792DBFF787F8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF771C8
+Merging 0x0000792DBFF787C8 and 0x0000792DBFF78888
+remove_tiny_slot_from_bin: 0x0000792DBFF78888
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77400
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78420
+remove_tiny_slot_from_bin: 0x0000792DBFF787C8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77198
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF787C8
+TRYING TO COALESCE 0x0000792DBFF77198
+BACKTRACKED TO 0x0000792DBFF770C0
+Merging 0x0000792DBFF770C0 and 0x0000792DBFF77138
+remove_tiny_slot_from_bin: 0x0000792DBFF77138
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77720
+Merging 0x0000792DBFF770C0 and 0x0000792DBFF77198
+remove_tiny_slot_from_bin: 0x0000792DBFF77198
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF761B8
+Merging 0x0000792DBFF770C0 and 0x0000792DBFF771C8
+remove_tiny_slot_from_bin: 0x0000792DBFF771C8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF761E8
+remove_tiny_slot_from_bin: 0x0000792DBFF770C0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78FA8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77248
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF770C0
+TRYING TO COALESCE 0x0000792DBFF761B8
+BACKTRACKED TO 0x0000792DBFF76158
+Merging 0x0000792DBFF76158 and 0x0000792DBFF76188
+remove_tiny_slot_from_bin: 0x0000792DBFF76188
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF76158
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E10
+Merging 0x0000792DBFF76158 and 0x0000792DBFF761B8
+remove_tiny_slot_from_bin: 0x0000792DBFF761B8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76468
+Merging 0x0000792DBFF76158 and 0x0000792DBFF761E8
+remove_tiny_slot_from_bin: 0x0000792DBFF761E8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76498
+Merging 0x0000792DBFF76158 and 0x0000792DBFF76278
+remove_tiny_slot_from_bin: 0x0000792DBFF76278
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF777A8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: 0x0000792DBFF76158
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E80
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E10
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76158
+TRYING TO COALESCE 0x0000792DBFF76468
+BACKTRACKED TO 0x0000792DBFF763F8
+Merging 0x0000792DBFF763F8 and 0x0000792DBFF76428
+remove_tiny_slot_from_bin: 0x0000792DBFF76428
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF777A8
+Merging 0x0000792DBFF763F8 and 0x0000792DBFF76468
+remove_tiny_slot_from_bin: 0x0000792DBFF76468
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77560
+Merging 0x0000792DBFF763F8 and 0x0000792DBFF76498
+remove_tiny_slot_from_bin: 0x0000792DBFF76498
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76FE8
+remove_tiny_slot_from_bin: 0x0000792DBFF763F8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77590
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77688
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF763F8
+TRYING TO COALESCE 0x0000792DBFF77560
+BACKTRACKED TO 0x0000792DBFF77560
+Merging 0x0000792DBFF77560 and 0x0000792DBFF77590
+remove_tiny_slot_from_bin: 0x0000792DBFF77590
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77560
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77688
+Merging 0x0000792DBFF77560 and 0x0000792DBFF775C0
+remove_tiny_slot_from_bin: 0x0000792DBFF775C0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF784D8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF775F0
+Merging 0x0000792DBFF77560 and 0x0000792DBFF775F0
+remove_tiny_slot_from_bin: 0x0000792DBFF775F0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF784D8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76E20
+remove_tiny_slot_from_bin: 0x0000792DBFF77560
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781C0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77688
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77560
+TRYING TO COALESCE 0x0000792DBFF77688
+BACKTRACKED TO 0x0000792DBFF77688
+TRYING TO COALESCE 0x0000792DBFF76FB8
+BACKTRACKED TO 0x0000792DBFF76E20
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF76E50
+remove_tiny_slot_from_bin: 0x0000792DBFF76E50
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77DC8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF76EB0
+remove_tiny_slot_from_bin: 0x0000792DBFF76EB0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF776F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76F28
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF76EE0
+remove_tiny_slot_from_bin: 0x0000792DBFF76EE0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77720
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76F58
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF76F58
+remove_tiny_slot_from_bin: 0x0000792DBFF76F58
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77720
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77DC8
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF76FB8
+remove_tiny_slot_from_bin: 0x0000792DBFF76FB8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77778
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF76FE8
+remove_tiny_slot_from_bin: 0x0000792DBFF76FE8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF768C0
+Merging 0x0000792DBFF76E20 and 0x0000792DBFF77060
+remove_tiny_slot_from_bin: 0x0000792DBFF77060
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000000000000000
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: 0x0000792DBFF76E20
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF784D8
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77D28
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76E20
+TRYING TO COALESCE 0x0000792DBFF77778
+BACKTRACKED TO 0x0000792DBFF776F0
+Merging 0x0000792DBFF776F0 and 0x0000792DBFF77720
+remove_tiny_slot_from_bin: 0x0000792DBFF77720
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77DC8
+Merging 0x0000792DBFF776F0 and 0x0000792DBFF77778
+remove_tiny_slot_from_bin: 0x0000792DBFF77778
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76890
+Merging 0x0000792DBFF776F0 and 0x0000792DBFF777A8
+remove_tiny_slot_from_bin: 0x0000792DBFF777A8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: 0x0000792DBFF776F0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E10
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76F28
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF776F0
+TRYING TO COALESCE 0x0000792DBFF76890
+BACKTRACKED TO 0x0000792DBFF76890
+Merging 0x0000792DBFF76890 and 0x0000792DBFF768C0
+remove_tiny_slot_from_bin: 0x0000792DBFF768C0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77430
+remove_tiny_slot_from_bin: 0x0000792DBFF76890
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77400
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76890
+TRYING TO COALESCE 0x0000792DBFF77400
+BACKTRACKED TO 0x0000792DBFF77400
+Merging 0x0000792DBFF77400 and 0x0000792DBFF77430
+remove_tiny_slot_from_bin: 0x0000792DBFF77430
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78450
+remove_tiny_slot_from_bin: 0x0000792DBFF77400
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF78420
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77400
+TRYING TO COALESCE 0x0000792DBFF78420
+BACKTRACKED TO 0x0000792DBFF78420
+Merging 0x0000792DBFF78420 and 0x0000792DBFF78450
+remove_tiny_slot_from_bin: 0x0000792DBFF78450
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77EB0
+Merging 0x0000792DBFF78420 and 0x0000792DBFF784D8
+remove_tiny_slot_from_bin: 0x0000792DBFF784D8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77C10
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77D28
+remove_tiny_slot_from_bin: 0x0000792DBFF78420
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77E80
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF78420
+TRYING TO COALESCE 0x0000792DBFF77E80
+BACKTRACKED TO 0x0000792DBFF77D28
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77D58
+remove_tiny_slot_from_bin: 0x0000792DBFF77D58
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: 0x0000792DBFF77D98
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000000000000000
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77BE0
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77DC8
+remove_tiny_slot_from_bin: 0x0000792DBFF77DC8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77E10
+remove_tiny_slot_from_bin: 0x0000792DBFF77E10
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77E80
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76F28
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: 0x0000792DBFF77E40
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF781F0
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77E80
+remove_tiny_slot_from_bin: 0x0000792DBFF77E80
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF76F28
+Merging 0x0000792DBFF77D28 and 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: 0x0000792DBFF77EB0
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF78960
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+remove_tiny_slot_from_bin: 0x0000792DBFF77D28
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77C10
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF77D28
+TRYING TO COALESCE 0x0000792DBFF76F28
+BACKTRACKED TO 0x0000792DBFF76F28
+Merging 0x0000792DBFF76F28 and 0x0000792DBFF76F58
+remove_tiny_slot_from_bin: 0x0000792DBFF76F58
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000000000000000
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF76F28 and 0x0000792DBFF76FB8
+remove_tiny_slot_from_bin: 0x0000792DBFF76FB8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000000000000000
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF76F28 and 0x0000792DBFF76FE8
+remove_tiny_slot_from_bin: 0x0000792DBFF76FE8
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000000000000000
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+Merging 0x0000792DBFF76F28 and 0x0000792DBFF77060
+remove_tiny_slot_from_bin: 0x0000792DBFF77060
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000000000000000
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000000000000000
+remove_tiny_slot_from_bin: 0x0000792DBFF76F28
+remove_tiny_slot_from_bin: Hdr->PrevFree = 0x0000792DBFF77688
+remove_tiny_slot_from_bin: Hdr->NextFree = 0x0000792DBFF77030
+put_tiny_slot_in_bin: Hdr = 0x0000792DBFF76F28
+[31m[0x0000792DBFF76E20]: CORRUPTED MEMORY - INCONSISTENT HEADERS[0m
+
+----------------- HEXDUMP -----------------
+
+Previous header
+[0x0000792DBFF76DF0]: 0x0000792DBFF76DC1  0x0000792DBFF76E20  
+[0x0000792DBFF76E00]: 0x0000000000000030  0x0000000000000030  
+[0x0000792DBFF76E10]: 0x0000000000000000  0x0000000000000000  
+
+
+Corrupted header
+[0x0000792DBFF76E20]: 0x0000792DBFF76DF1  0x0000792DBFF77091  
+[0x0000792DBFF76E30]: 0x0000000000000270  0x0000000000000270  
+[0x0000792DBFF76E40]: 0x0000792DBFF776F0  0x0000792DBFF77560  
+[0x0000792DBFF76E50]: 0x0000792DBFF76E20  0x0000792DBFF76EB0  
+[0x0000792DBFF76E60]: 0x0000000000000060  0x0000000000000060  
+[0x0000792DBFF76E70]: 0x0000000000000000 
+
+Next header
+[0x0000792DBFF77090]: 0x0000792DBFF76F28  0x0000792DBFF770C0  
+[0x0000792DBFF770A0]: 0x0000000000000030  0x0000000000000030  
+[0x0000792DBFF770B0]: 0x0000792DBFF76080  0x0000792DBFF76338  
+
+MAX ALLOCATION...
+FREED 2/3...
