@@ -25,7 +25,10 @@ void	print_block(t_header *Hdr) {
 		PRINT(" ");
 	}
 	
-	PRINT("["); PRINT_UINT64(Hdr->RealSize); PRINT("] "); PRINT(", Prev: "); PRINT_ADDR(Hdr->Prev); PRINT(", Next:"); PRINT_ADDR(Hdr->Next); PRINT(ANSI_COLOR_RESET); NL();
+	PRINT("["); PRINT_UINT64(Hdr->RealSize); PRINT("] ");
+	//PRINT(", Prev: "); PRINT_ADDR(Hdr->Prev);
+	//PRINT(", Next:"); PRINT_ADDR(Hdr->Next);
+	PRINT(ANSI_COLOR_RESET); NL();
 }
 
 void	show_alloc_zone(t_memchunks *Zone) {

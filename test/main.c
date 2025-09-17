@@ -29,7 +29,13 @@ void process_free(void *a[], int index) {
 }
 
 void	lst_alloc(t_list **begin_lst, size_t size) {
-	void *alloc = malloc(size);	
+	char *alloc = malloc(size);	
+	size_t i = 0;
+	while (i < size) {
+		alloc[i] = 0xFF;
+		i++;
+	}
+
 	t_list *list = ft_lstnew(alloc);
 	ft_lstadd_front(begin_lst, list);
 }

@@ -106,8 +106,8 @@ void	put_tiny_slot_in_bin(t_header *Hdr) {
 
 void	remove_tiny_slot_from_bin(t_header *Hdr) {
 	PRINT("remove_tiny_slot_from_bin: "); PRINT_ADDR(Hdr); NL();
-	PRINT("remove_tiny_slot_from_bin: Hdr->PrevFree = "); PRINT_ADDR(Hdr->PrevFree); NL();
-	PRINT("remove_tiny_slot_from_bin: Hdr->NextFree = "); PRINT_ADDR(Hdr->NextFree); NL();
+	//PRINT("remove_tiny_slot_from_bin: Hdr->PrevFree = "); PRINT_ADDR(Hdr->PrevFree); NL();
+	//PRINT("remove_tiny_slot_from_bin: Hdr->NextFree = "); PRINT_ADDR(Hdr->NextFree); NL();
 
 	if (Hdr->PrevFree != NULL)
 		Hdr->PrevFree->NextFree = Hdr->NextFree;
@@ -119,8 +119,8 @@ void	remove_tiny_slot_from_bin(t_header *Hdr) {
 	if (Hdr->NextFree != NULL)
 		Hdr->NextFree->PrevFree = Hdr->PrevFree;
 
-	Hdr->PrevFree = NULL;
-	Hdr->NextFree = NULL;
+	//Hdr->PrevFree = NULL;
+	//Hdr->NextFree = NULL;
 }
 
 t_header	*try_coalesce_tiny_slot(t_header *Hdr) {
@@ -137,14 +137,12 @@ t_header	*try_coalesce_tiny_slot(t_header *Hdr) {
 	}
 
 	PRINT("BACKTRACKED TO "); PRINT_ADDR(Base); PRINT(", Prev = "); PRINT_ADDR(Base->Prev); NL();
-
+	remove_tiny_slot_from_bin(Base);
+	
 	t_header *Current = Base;
 	t_header *Next = UNFLAG(Current->Next);
 	
 	while (Next != NULL && IS_FLAGGED(Current->Next) == 0) {
-		if (Next == NextFree)
-			NextFree = NextFree->NextFree;
-
 		Current = Next;
 		PRINT("Merging "); PRINT_ADDR(Base); PRINT(" ["); PRINT_UINT64(Base->RealSize); PRINT("] and "); PRINT_ADDR(Current); PRINT(" ["); PRINT_UINT64(Current->RealSize); PRINT("]"); NL();
 		remove_tiny_slot_from_bin(Current);
@@ -152,17 +150,21 @@ t_header	*try_coalesce_tiny_slot(t_header *Hdr) {
 		Next = UNFLAG(Current->Next);
 	}
 
+	while (NextFree != NULL // TODO(felix): can remove NULL check: next check implicitly checks it 
+		&& (uint64_t)NextFree > (uint64_t)Base
+		&& (uint64_t)NextFree <= (uint64_t)Next)
+			NextFree = NextFree->NextFree;
+
 	if (Base->RealSize != BaseSize) {
-		Base->Size = Base->RealSize;
+		Base->Size = Base->RealSize - HEADER_SIZE;
 		Base->Next = Current->Next;
 		if (Next != NULL)
 			Next->Prev = Base;
 
-		remove_tiny_slot_from_bin(Base);
-		put_tiny_slot_in_bin(Base);
 	}
 
-  scan_memory_integrity();
+	put_tiny_slot_in_bin(Base);
+  	scan_memory_integrity();
 
 	return NextFree;
 }
@@ -171,6 +173,7 @@ void	coalesce_tiny_slots() {
 	int i = 0;
 
 	//show_alloc_mem();
+	//show_tiny_bins();
 
 	while (i < 9) {
 		t_header *Hdr = MemoryLayout.TinyBins[i];

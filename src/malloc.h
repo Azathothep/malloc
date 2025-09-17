@@ -84,6 +84,7 @@ void put_tiny_slot_in_bin(t_header *Hdr);
 
 void coalesce_tiny_slots();
 
+void show_tiny_bins();
 void scan_memory_integrity();
 
 #endif

@@ -1,6 +1,7 @@
 #include "malloc.h"
 #include "utils.h"
 #include <stdlib.h>
+#include "../ft_malloc.h"
 
 #define ANSI_COLOR_RED		"\x1b[31m"
 #define	ANSI_COLOR_GREEN	"\x1b[32m"
@@ -64,6 +65,9 @@ void	scan_hexdump(t_header *Hdr) {
 }
 
 void	scan_error(t_header *Hdr, t_header *Prev, char *errmsg) {
+
+	//show_alloc_mem();
+
 	PRINT(ANSI_COLOR_RED); PRINT("["); PRINT_ADDR(Hdr); PRINT("]: CORRUPTED MEMORY - "); PRINT(errmsg); PRINT(ANSI_COLOR_RESET); NL();
 
 	PRINT("\n----------------- HEXDUMP -----------------\n");
@@ -74,6 +78,7 @@ void	scan_error(t_header *Hdr, t_header *Prev, char *errmsg) {
 	PRINT("\nNext header\n");
 	scan_hexdump(UNFLAG(Hdr->Next));
 
+//	show_tiny_bins();
 	exit(1);
 }
 
