@@ -19,9 +19,12 @@ typedef struct	s_memchunks {
 	t_header	*FreeList;
 }		t_memchunks;
 
+# define TINY_BINS_COUNT	9
+# define TINY_BINS_DUMP		(TINY_BINS_COUNT - 1)
+
 typedef struct	s_memlayout {
 	t_memchunks	TinyZone;
-	t_header	*TinyBins[9];	
+	t_header	*TinyBins[TINY_BINS_COUNT];	
 	
 	t_memchunks	SmallZone;
 	
