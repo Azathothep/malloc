@@ -63,17 +63,17 @@ void	show_alloc_zone(t_memchunks *Zone) {
 void	show_alloc_mem() {
 	PRINT("\n---- full mem ----\n");
 
-	t_memchunks *Zone = &MemoryLayout.TinyZone;
+	t_memchunks *Zone = GET_TINY_ZONE();//&MemoryLayout.TinyZone;
 	PRINT("TINY ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();
 
-	Zone = &MemoryLayout.SmallZone;
+	Zone = GET_SMALL_ZONE(); //&MemoryLayout.SmallZone;
 	PRINT("SMALL ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();
 
-	Zone = &MemoryLayout.LargeZone;
+	Zone = GET_LARGE_ZONE(); //&MemoryLayout.LargeZone;
 	PRINT("LARGE ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();

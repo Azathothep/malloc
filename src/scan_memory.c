@@ -190,8 +190,14 @@ void	scan_zone_integrity(t_memchunks *Zone) {
 }
 
 void	scan_memory_integrity() {
-	scan_zone_integrity(&MemoryLayout.TinyZone);
-	scan_free_integrity(MemoryLayout.TinyBins, 9);
-	scan_zone_integrity(&MemoryLayout.SmallZone);
-	scan_zone_integrity(&MemoryLayout.LargeZone);
+	t_memchunks *Zone = GET_TINY_ZONE();
+	scan_zone_integrity(Zone);
+	scan_free_integrity(Zone->Bins, 9);
+
+	Zone = GET_SMALL_ZONE();
+	scan_zone_integrity(Zone);
+	scan_free_integrity(Zone->Bins, 121);	
+
+	Zone = GET_LARGE_ZONE();
+	scan_zone_integrity(Zone);
 }

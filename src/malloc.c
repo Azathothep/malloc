@@ -4,9 +4,24 @@
 #include "utils.h"
 #include "malloc.h"
 
-#define PRINT_MALLOC
+//#define PRINT_MALLOC
 
-t_memlayout MemoryLayout;
+t_memlayout MemoryLayout = {
+	NULL,
+	NULL,
+	TINY_BINS_COUNT,
+	{ NULL },
+
+	NULL,
+	NULL,
+	SMALL_BINS_COUNT,
+	{ },
+
+	NULL,
+	NULL,
+	1,
+	NULL,
+};
 
 // TODO(felix): change this to support multithreaded programs
 void	*map_memory(int ChunkSize) {
@@ -131,7 +146,9 @@ t_header	*break_tiny_slot(t_header *Hdr, size_t AllocatedSize) {
 t_header	*get_perfect_tiny_slot(size_t AlignedSize) {
 	int index = get_tiny_bin_index(AlignedSize);
 
-	t_header **TinyBins = MemoryLayout.TinyBins;
+	t_memchunks *Zone = GET_TINY_ZONE();
+	t_header **TinyBins = Zone->Bins;
+	//t_header **TinyBins = MemoryLayout.TinyBins;
 
 	t_header *Hdr = NULL;
 
@@ -149,7 +166,9 @@ t_header	*get_perfect_tiny_slot(size_t AlignedSize) {
 t_header	*get_perfect_small_slot(size_t AlignedSize) {
 	int index = get_small_bin_index(AlignedSize);
 
-	t_header **Bins = MemoryLayout.SmallBins;
+	t_memchunks *Zone = GET_SMALL_ZONE();
+	t_header **Bins = Zone->Bins;
+	//t_header **Bins = MemoryLayout.SmallBins;
 	
 	t_header *Hdr = NULL;
 
@@ -167,7 +186,9 @@ t_header	*get_breakable_tiny_slot(size_t AlignedSize) {
 	size_t MinSlotSizeToBreak = MIN_TINY_ALLOC + (HEADER_SIZE + AlignedSize);
 	int index = get_tiny_bin_index(MinSlotSizeToBreak);
 
-	t_header **TinyBins = MemoryLayout.TinyBins;
+	t_memchunks *Zone = GET_TINY_ZONE();
+	t_header **TinyBins = Zone->Bins;
+	//t_header **TinyBins = MemoryLayout.TinyBins;
 
 	while (index < TINY_BINS_DUMP && TinyBins[index] == NULL) {
 		index++;
@@ -197,7 +218,9 @@ t_header	*get_breakable_small_slot(size_t AlignedSize) {
 	size_t MinSlotSizeToBreak = MIN_SMALL_ALLOC + (HEADER_SIZE + AlignedSize);
 	int index = get_small_bin_index(MinSlotSizeToBreak);
 
-	t_header **Bins = MemoryLayout.SmallBins;
+	t_memchunks *Zone = GET_SMALL_ZONE();
+	t_header **Bins = Zone->Bins;
+	//t_header **Bins = MemoryLayout.SmallBins;
 
 	while (index < SMALL_BINS_DUMP && Bins[index] == NULL) {
 		index++;
@@ -211,7 +234,7 @@ t_header	*get_breakable_small_slot(size_t AlignedSize) {
 		Hdr = Bins[SMALL_BINS_DUMP];
 		while (Hdr != NULL
 			&& Hdr->RealSize < (HEADER_SIZE + MinSlotSizeToBreak)) {
-		
+			
 			Hdr = Hdr->NextFree;
 		}
 
@@ -272,7 +295,9 @@ t_header	*get_tiny_slot(size_t AlignedSize) {
 		return Hdr;
 
 	// ELSE, ALLOCATE NEW CHUNK
-	Hdr = allocate_and_initialize_chunk(&MemoryLayout.TinyZone, TINY_CHUNK);
+	t_memchunks *Zone = GET_TINY_ZONE();
+	Hdr = allocate_and_initialize_chunk(Zone, TINY_CHUNK);
+	//Hdr = allocate_and_initialize_chunk(&MemoryLayout.TinyZone, TINY_CHUNK);
 	if (Hdr == NULL)
 		return NULL;
 
@@ -295,7 +320,10 @@ t_header	*get_small_slot(size_t AlignedSize) {
 	if (Hdr != NULL)
 		return Hdr;
 
-	Hdr = allocate_and_initialize_chunk(&MemoryLayout.SmallZone, SMALL_CHUNK);
+	t_memchunks *Zone = GET_SMALL_ZONE();
+	//Hdr = allocate_and_initialize_chunk(&MemoryLayout.SmallZone, SMALL_CHUNK);
+	Hdr = allocate_and_initialize_chunk(Zone, SMALL_CHUNK);
+	
 	if (Hdr == NULL)
 		return NULL;
 
@@ -309,28 +337,16 @@ t_header	*get_small_slot(size_t AlignedSize) {
 t_header	*get_large_slot(size_t AlignedSize) {	
 	size_t RequestedSize = AlignedSize + HEADER_SIZE;
 		
-	t_memchunks *MemZone = NULL;
-	int MinSlotSize = 0;
-	if (AlignedSize > SMALL_ALLOC_MAX) {
-		MemZone = &MemoryLayout.LargeZone;
-		MinSlotSize = LARGE_SPACE_MIN;
-	} else {
-		MemZone = &MemoryLayout.SmallZone;
-		MinSlotSize = SMALL_SPACE_MIN;
-	}
+	t_memchunks *MemZone = GET_LARGE_ZONE(); //&MemoryLayout.LargeZone;
+	int MinSlotSize = LARGE_SPACE_MIN;
 	
 	t_header *Hdr = get_free_slot(&MemZone->FreeList, RequestedSize);
 	if (Hdr == NULL) {
 		// allocate new chunk
-		int ChunkSize = 0;
-
-		if (AlignedSize > SMALL_ALLOC_MAX) {
-			ChunkSize = LARGE_CHUNK(AlignedSize);
-			if (ChunkSize < LARGE_PREALLOC)
-				ChunkSize = LARGE_PREALLOC;
-    		} else {
-			ChunkSize = TINY_CHUNK;
-    		}
+		int ChunkSize = LARGE_CHUNK(AlignedSize);
+		
+		if (ChunkSize < LARGE_PREALLOC)
+			ChunkSize = LARGE_PREALLOC;
 
 		Hdr = allocate_and_initialize_chunk(MemZone, ChunkSize);
 		if (Hdr == NULL)
@@ -347,8 +363,6 @@ t_header	*get_large_slot(size_t AlignedSize) {
 
 		Hdr = (t_header *)((void *)Hdr + NewSize);
 	
-		//Hdr = (t_header *)Addr;
-			
 		Hdr->Size = AlignedSize;
 		Hdr->RealSize = RequestedSize;
 		Hdr->Prev = PrevHdr; 
@@ -409,6 +423,13 @@ void	*malloc_block(size_t size) {
 
 void	*malloc(size_t size) {
 	//PRINT("Malloc request of size "); PRINT_UINT64(size); NL();
+
+//	PRINT("TINY ZONE: "); PRINT_ADDR(GET_TINY_ZONE()); NL();
+//	PRINT("SIZE: "); PRINT_UINT64(TINY_ZONE_SIZE); NL();
+//	PRINT("SMALL ZONE: "); PRINT_ADDR(GET_SMALL_ZONE()); NL();
+//	PRINT("TRUE ADDR: "); PRINT_ADDR(&MemoryLayout.SmallStartingBlockAddr); NL();
+
+//	return NULL;
 
 	if (size == 0)
 		return NULL;

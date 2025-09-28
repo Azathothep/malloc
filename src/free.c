@@ -56,7 +56,9 @@ size_t	coalesce_with_prev(t_header *MiddleHdr) {
 void	show_tiny_bins() {
 	PRINT("TINY BINS\n");
 
-	t_header **TinyBins = MemoryLayout.TinyBins;
+	t_memchunks* Zone = GET_TINY_ZONE();
+	t_header **TinyBins = Zone->Bins;
+	//t_header **TinyBins = MemoryLayout.TinyBins;
 
 	int i = 0;
 	while (i < 9) {
@@ -98,7 +100,9 @@ void	put_tiny_slot_in_bin(t_header *Hdr) {
 
 	int Index = get_tiny_bin_index(BinSize);
 
-	t_header **TinyBins = MemoryLayout.TinyBins;
+	t_memchunks *Zone = GET_TINY_ZONE();
+	t_header **TinyBins = Zone->Bins;
+	//t_header **TinyBins = MemoryLayout.TinyBins;
 	t_header *NextHdrInBin = TinyBins[Index];
 
 	TinyBins[Index] = Hdr;
@@ -114,7 +118,9 @@ void	put_small_slot_in_bin(t_header *Hdr) {
 
 	int Index = get_small_bin_index(BinSize);
 	
-	t_header **Bins = MemoryLayout.SmallBins;
+	t_memchunks *Zone = GET_SMALL_ZONE();
+	t_header **Bins = Zone->Bins;
+	//t_header **Bins = MemoryLayout.SmallBins;
 	t_header *NextHdrInBin = Bins[Index];
 
 	Bins[Index] = Hdr;
@@ -131,7 +137,9 @@ void	remove_tiny_slot_from_bin(t_header *Hdr) {
 	if (Hdr->PrevFree != NULL) { 
 		Hdr->PrevFree->NextFree = Hdr->NextFree;
 	} else {
-		MemoryLayout.TinyBins[index] = Hdr->NextFree;	
+		t_memchunks *Zone = GET_TINY_ZONE();
+		Zone->Bins[index] = Hdr->NextFree;
+		//MemoryLayout.TinyBins[index] = Hdr->NextFree;	
 	}
 
 	if (Hdr->NextFree != NULL)
@@ -147,7 +155,9 @@ void	remove_small_slot_from_bin(t_header *Hdr) {
 	if (Hdr->PrevFree != NULL) { 
 		Hdr->PrevFree->NextFree = Hdr->NextFree;
 	} else {
-		MemoryLayout.SmallBins[index] = Hdr->NextFree;	
+		t_memchunks *Zone = GET_SMALL_ZONE();
+		Zone->Bins[index] = Hdr->NextFree;
+		//MemoryLayout.SmallBins[index] = Hdr->NextFree;	
 	}
 
 	if (Hdr->NextFree != NULL)
@@ -254,8 +264,10 @@ void	try_coalesce_small_slot(t_header *Hdr, t_header **NextHdrToCheck) {
 void	coalesce_tiny_slots() {
 	int i = 0;
 
+	t_memchunks *Zone = GET_TINY_ZONE();
+
 	while (i < TINY_BINS_COUNT) {
-		t_header *Hdr = MemoryLayout.TinyBins[i];
+		t_header *Hdr = Zone->Bins[i];//MemoryLayout.TinyBins[i];
 
 		while (Hdr != NULL) {
 			try_coalesce_tiny_slot(Hdr, &Hdr);
@@ -268,8 +280,10 @@ void	coalesce_tiny_slots() {
 void	coalesce_small_slots() {
 	int i = 0;
 
+	t_memchunks *Zone = GET_SMALL_ZONE();
+
 	while (i < SMALL_BINS_COUNT) {
-		t_header *Hdr = MemoryLayout.SmallBins[i];
+		t_header *Hdr = Zone->Bins[i];//MemoryLayout.SmallBins[i];
 
 		while (Hdr != NULL) {
 			try_coalesce_small_slot(Hdr, &Hdr);
@@ -320,7 +334,7 @@ void	free(void *Ptr) {
 
   	t_memchunks *MemBlock = NULL;
 	if (BlockSize > SMALL_ALLOC_MAX) {
-		MemBlock = &MemoryLayout.LargeZone;
+		MemBlock = GET_LARGE_ZONE(); //&MemoryLayout.LargeZone;
 	} else if (BlockSize > TINY_ALLOC_MAX) {
 		free_small_slot(Hdr);
 		scan_memory_integrity();

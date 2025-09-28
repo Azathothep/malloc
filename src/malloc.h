@@ -17,6 +17,8 @@ typedef struct 	s_header {
 typedef struct	s_memchunks {
 	void		*StartingBlockAddr;
 	t_header	*FreeList;
+	int		BinsCount;
+	t_header	*Bins[];
 }		t_memchunks;
 
 # define TINY_BINS_COUNT	9
@@ -26,16 +28,31 @@ typedef struct	s_memchunks {
 # define SMALL_BINS_DUMP	(SMALL_BINS_COUNT - 1)
 
 typedef struct	s_memlayout {
-	t_memchunks	TinyZone;
+	void		*TinyStartingBlockAddr;
+	t_header	*TinyFreeList;
+	int		TinyBinsCount;
 	t_header	*TinyBins[TINY_BINS_COUNT];	
-	
-	t_memchunks	SmallZone;
+		
+	void		*SmallStartingBlockAddr;
+	t_header	*SmallFreeList;
+	int		SmallBinsCount;	
 	t_header	*SmallBins[SMALL_BINS_COUNT];
-	
-	t_memchunks	LargeZone;
+
+	void		*LargeStartingBlockAddr;
+	t_header	*LargeFreeList;
+	int		LargeBinsCount;
+	t_header	**LargeBins;
 }		t_memlayout;
 
 extern	t_memlayout MemoryLayout;
+
+# define POINTER_SIZE		8
+# define TINY_ZONE_SIZE		(sizeof(t_memchunks) + (TINY_BINS_COUNT * POINTER_SIZE))
+# define SMALL_ZONE_SIZE	(sizeof(t_memchunks) + (SMALL_BINS_COUNT * POINTER_SIZE))
+
+# define GET_TINY_ZONE()	((t_memchunks*)((void *)&MemoryLayout))
+# define GET_SMALL_ZONE()	((t_memchunks*)((void *)&MemoryLayout + TINY_ZONE_SIZE))
+# define GET_LARGE_ZONE()	((t_memchunks*)((void *)&MemoryLayout + TINY_ZONE_SIZE + SMALL_ZONE_SIZE))
 
 # define PAGE_SIZE		getpagesize()
 
@@ -50,7 +67,7 @@ extern	t_memlayout MemoryLayout;
 # define HEADER_SIZE		32
 # define MIN_ALLOC		16
 # define MIN_TINY_ALLOC		MIN_ALLOC
-# define MIN_SMALL_ALLOC	TINY_ALLOC_MAX
+# define MIN_SMALL_ALLOC	(TINY_ALLOC_MAX + ALIGNMENT)
 # define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *)) // size of chunk + pointer to previous chunk
 # define CHUNK_FOOTER	    	(sizeof(void *) + sizeof(void *)) // last header pointer + pointer to next chunk
 # define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
