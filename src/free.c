@@ -8,7 +8,7 @@
 #define	ANSI_COLOR_GREEN	"\x1b[32m"
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
-#define PRINT_FREE
+//#define PRINT_FREE
 
 void	lst_free_add(t_header **BeginList, t_header *Hdr) {
 	
