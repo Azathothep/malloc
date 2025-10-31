@@ -79,46 +79,32 @@ void	show_bins(t_memchunks *Zone) {
 	}
 }
 
-int	get_tiny_bin_index(size_t AlignedSize) {
-	if (AlignedSize > TINY_ALLOC_MAX)
-		return TINY_BINS_DUMP;
+int get_bin_index(size_t AlignedSize, t_zonetype ZoneType) {
+	int result = 0;
 
-	return (AlignedSize / ALIGNMENT) - 1;
+	if (ZoneType == SMALL) {
+		if (AlignedSize > SMALL_ALLOC_MAX)
+			result = SMALL_BINS_DUMP;
+		else
+			result = ((AlignedSize - TINY_ALLOC_MAX) / ALIGNMENT) - 1;
+	}
+	else
+	{
+		if (AlignedSize > TINY_ALLOC_MAX)
+			result = TINY_BINS_DUMP;
+		else
+			result = (AlignedSize / ALIGNMENT) - 1;
+	}
+
+	return result;
 }
 
-int	get_small_bin_index(size_t AlignedSize) {
-	if (AlignedSize > SMALL_ALLOC_MAX)
-		return SMALL_BINS_DUMP;
-
-	return ((AlignedSize - TINY_ALLOC_MAX) / ALIGNMENT) - 1;
-}
-
-void	put_tiny_slot_in_bin(t_header *Hdr) {
+void	put_slot_in_bin(t_header *Hdr, t_memchunks *Zone) {
 	int BinSize = Hdr->RealSize - HEADER_SIZE;
 
-	int Index = get_tiny_bin_index(BinSize);
+	int Index = get_bin_index(BinSize, Zone->ZoneType);
 
-	t_memchunks *Zone = GET_TINY_ZONE();
-	t_header **TinyBins = Zone->Bins;
-	//t_header **TinyBins = MemoryLayout.TinyBins;
-	t_header *NextHdrInBin = TinyBins[Index];
-
-	TinyBins[Index] = Hdr;
-	Hdr->PrevFree = NULL;
-	Hdr->NextFree = NextHdrInBin;
-	
-	if (NextHdrInBin != NULL)
-		NextHdrInBin->PrevFree = Hdr;
-}
-
-void	put_small_slot_in_bin(t_header *Hdr) {
-	int BinSize = Hdr->RealSize - HEADER_SIZE;
-
-	int Index = get_small_bin_index(BinSize);
-	
-	t_memchunks *Zone = GET_SMALL_ZONE();
 	t_header **Bins = Zone->Bins;
-	//t_header **Bins = MemoryLayout.SmallBins;
 	t_header *NextHdrInBin = Bins[Index];
 
 	Bins[Index] = Hdr;
@@ -129,43 +115,23 @@ void	put_small_slot_in_bin(t_header *Hdr) {
 		NextHdrInBin->PrevFree = Hdr;
 }
 
-void	remove_tiny_slot_from_bin(t_header *Hdr) {
-	int index = get_tiny_bin_index(Hdr->RealSize - HEADER_SIZE);
+void	remove_slot_from_bin(t_header *Hdr, t_memchunks *Zone) {
+	int index = get_bin_index(Hdr->RealSize - HEADER_SIZE, Zone->ZoneType);
 
-	if (Hdr->PrevFree != NULL) { 
+	if (Hdr->PrevFree != NULL) {
 		Hdr->PrevFree->NextFree = Hdr->NextFree;
 	} else {
-		t_memchunks *Zone = GET_TINY_ZONE();
 		Zone->Bins[index] = Hdr->NextFree;
-		//MemoryLayout.TinyBins[index] = Hdr->NextFree;	
 	}
 
 	if (Hdr->NextFree != NULL)
-		Hdr->NextFree->PrevFree = Hdr->PrevFree;
+			Hdr->NextFree->PrevFree = Hdr->PrevFree;
 
 	Hdr->PrevFree = NULL;
 	Hdr->NextFree = NULL;
 }
 
-void	remove_small_slot_from_bin(t_header *Hdr) {
-	int index = get_small_bin_index(Hdr->RealSize - HEADER_SIZE);
-
-	if (Hdr->PrevFree != NULL) { 
-		Hdr->PrevFree->NextFree = Hdr->NextFree;
-	} else {
-		t_memchunks *Zone = GET_SMALL_ZONE();
-		Zone->Bins[index] = Hdr->NextFree;
-		//MemoryLayout.SmallBins[index] = Hdr->NextFree;	
-	}
-
-	if (Hdr->NextFree != NULL)
-		Hdr->NextFree->PrevFree = Hdr->PrevFree;
-
-	Hdr->PrevFree = NULL;
-	Hdr->NextFree = NULL;
-}
-
-void	try_coalesce_tiny_slot(t_header *Hdr, t_header **NextHdrToCheck) {
+void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memchunks *Zone) {
 	t_header *NextFree = Hdr->NextFree;
 
 	t_header *Base = Hdr;
@@ -176,7 +142,6 @@ void	try_coalesce_tiny_slot(t_header *Hdr, t_header **NextHdrToCheck) {
 		Base = Prev;
 		Prev = UNFLAG(Base->Prev);
 	}
-
 	
 	size_t NewSize = Base->RealSize;
 	t_header *Current = Base;
@@ -191,12 +156,12 @@ void	try_coalesce_tiny_slot(t_header *Hdr, t_header **NextHdrToCheck) {
 
 		Current = Next;
 		NewSize += Current->RealSize;
-		remove_tiny_slot_from_bin(Current);
+		remove_slot_from_bin(Current, Zone);
 		Next = UNFLAG(Current->Next);
 	}
 
 	if (Base->RealSize != NewSize) { 
-		remove_tiny_slot_from_bin(Base);
+		remove_slot_from_bin(Base, Zone);
 		Base->RealSize = NewSize;
 		Base->Size = NewSize - HEADER_SIZE; 
 		Base->Next = Current->Next;
@@ -204,7 +169,7 @@ void	try_coalesce_tiny_slot(t_header *Hdr, t_header **NextHdrToCheck) {
 		if (Next != NULL)
 			Next->Prev = Base;
 	
-		put_tiny_slot_in_bin(Base);
+		put_slot_in_bin(Base, Zone);
 	}
 
 	*NextHdrToCheck = NextFree;
@@ -212,99 +177,21 @@ void	try_coalesce_tiny_slot(t_header *Hdr, t_header **NextHdrToCheck) {
   	scan_memory_integrity();
 }
 
-void	try_coalesce_small_slot(t_header *Hdr, t_header **NextHdrToCheck) {
-	t_header *NextFree = Hdr->NextFree;
-
-	t_header *Base = Hdr;
-	t_header *Prev = UNFLAG(Base->Prev);
-
-	//TODO(felix): optimize this part & start coalescing when backtracking
-	while (Prev != NULL && IS_FLAGGED(Base->Prev) == 0) {
-		Base = Prev;
-		Prev = UNFLAG(Base->Prev);
-	}
-
-	
-	size_t NewSize = Base->RealSize;
-	t_header *Current = Base;
-	t_header *Next = UNFLAG(Current->Next);
-	
-	while (Next != NULL && IS_FLAGGED(Current->Next) == 0) {
-	
-		while (NextFree != NULL 
-			&& (uint64_t)NextFree > (uint64_t)Base
-			&& (uint64_t)NextFree <= (uint64_t)Next)
-			NextFree = NextFree->NextFree;
-
-		Current = Next;
-		NewSize += Current->RealSize;
-		remove_small_slot_from_bin(Current);
-		Next = UNFLAG(Current->Next);
-	}
-
-	if (Base->RealSize != NewSize) { 
-		remove_small_slot_from_bin(Base);
-		Base->RealSize = NewSize;
-		Base->Size = NewSize - HEADER_SIZE; 
-		Base->Next = Current->Next;
-
-		if (Next != NULL)
-			Next->Prev = Base;
-	
-		put_small_slot_in_bin(Base);
-	}
-
-	*NextHdrToCheck = NextFree;
-
-  	scan_memory_integrity();
-}
-
-void	coalesce_tiny_slots() {
+void	coalesce_slots(t_memchunks *Zone) {
 	int i = 0;
 
-	t_memchunks *Zone = GET_TINY_ZONE();
-
-	while (i < TINY_BINS_COUNT) {
-		t_header *Hdr = Zone->Bins[i];//MemoryLayout.TinyBins[i];
+	while (i < Zone->BinsCount) {
+		t_header *Hdr = Zone->Bins[i];
 
 		while (Hdr != NULL) {
-			try_coalesce_tiny_slot(Hdr, &Hdr);
-		}	
-
-		i++;
-	}
-}
-
-void	coalesce_small_slots() {
-	int i = 0;
-
-	t_memchunks *Zone = GET_SMALL_ZONE();
-
-	while (i < SMALL_BINS_COUNT) {
-		t_header *Hdr = Zone->Bins[i];//MemoryLayout.SmallBins[i];
-
-		while (Hdr != NULL) {
-			try_coalesce_small_slot(Hdr, &Hdr);
+			try_coalesce_slot(Hdr, &Hdr, Zone);
 		}
 
 		i++;
 	}
 }
 
-void	free_tiny_slot(t_header *Hdr) {
-	t_header *HdrPrev = UNFLAG(Hdr->Prev);
-	t_header *HdrNext = UNFLAG(Hdr->Next);
-
-	if (HdrNext != NULL)
-		HdrNext->Prev = Hdr;
-
-	if (HdrPrev != NULL)
-		HdrPrev->Next = Hdr;	
-
-	put_tiny_slot_in_bin(Hdr);	
-}
-
-void	free_small_slot(t_header *Hdr) {
+void	free_slot(t_header *Hdr, t_zonetype ZoneType) {
 	t_header *HdrPrev = UNFLAG(Hdr->Prev);
 	t_header *HdrNext = UNFLAG(Hdr->Next);
 
@@ -314,35 +201,17 @@ void	free_small_slot(t_header *Hdr) {
 	if (HdrPrev != NULL)
 		HdrPrev->Next = Hdr;
 
-	put_small_slot_in_bin(Hdr);
+	t_memchunks *Zone = NULL;
+	if (ZoneType == SMALL)
+		Zone = GET_SMALL_ZONE();
+	else
+		Zone = GET_TINY_ZONE();
+
+	put_slot_in_bin(Hdr, Zone);
 }
 
-// ----------- FREE ------------ //
-
-void	free(void *Ptr) {
-
-	//TODO(felix): verify if block need to be freed beforehand	
-
-	t_header *Hdr = GET_HEADER(Ptr);
- 	size_t BlockSize = Hdr->Size;
-	
-#ifdef PRINT_FREE
-	PRINT("Freeing address "); PRINT_ADDR(Ptr); PRINT(" (size: "); PRINT_UINT64(BlockSize); PRINT(", Header: "); PRINT_ADDR(GET_HEADER(Ptr)); PRINT(")"); NL();
-#endif
-
-  	t_memchunks *MemBlock = NULL;
-	if (BlockSize > SMALL_ALLOC_MAX) {
-		MemBlock = GET_LARGE_ZONE(); //&MemoryLayout.LargeZone;
-	} else if (BlockSize > TINY_ALLOC_MAX) {
-		free_small_slot(Hdr);
-		scan_memory_integrity();
- 		return;
-	} else {
-  		//MemBlock = &MemoryLayout.TinyZone;
-		free_tiny_slot(Hdr);
-		scan_memory_integrity();
-		return;
-	}
+void	free_large_slot(t_header *Hdr) {
+	t_memchunks *MemBlock = GET_LARGE_ZONE();
 
 	lst_free_add(&MemBlock->FreeList, Hdr);
 
@@ -400,10 +269,32 @@ void	free(void *Ptr) {
 
 			if (PrevChunk != NULL)	
 				SET_NEXT_CHUNK(PrevChunk, NextChunk);		
-      			else
+      		else
 				MemBlock->StartingBlockAddr = NextChunk;
 		}	
   	}
+}
+
+// ----------- FREE ------------ //
+
+void	free(void *Ptr) {
+
+	//TODO(felix): verify if block need to be freed beforehand !!!	
+
+	t_header *Hdr = GET_HEADER(Ptr);
+ 	size_t BlockSize = Hdr->Size;
+
+#ifdef PRINT_FREE
+	PRINT("Freeing address "); PRINT_ADDR(Ptr); PRINT(" (size: "); PRINT_UINT64(BlockSize); PRINT(", Header: "); PRINT_ADDR(GET_HEADER(Ptr)); PRINT(")"); NL();
+#endif
+
+	if (BlockSize > SMALL_ALLOC_MAX) {
+		free_large_slot(Hdr);
+	} else if (BlockSize > TINY_ALLOC_MAX) {
+		free_slot(Hdr, SMALL);
+	} else {
+		free_slot(Hdr, TINY);
+	}
 
 	scan_memory_integrity();
 }

@@ -3,6 +3,12 @@
 
 # include <unistd.h>
 
+typedef enum e_zonetype {
+	TINY,
+	SMALL,
+	LARGE
+}			t_zonetype;
+
 typedef struct 	s_header {
 	struct s_header	*Prev;
 	struct s_header *Next;
@@ -15,9 +21,10 @@ typedef struct 	s_header {
 }		t_header;
 
 typedef struct	s_memchunks {
+	t_zonetype	ZoneType;
 	void		*StartingBlockAddr;
 	t_header	*FreeList;
-	int		BinsCount;
+	int			BinsCount;
 	t_header	*Bins[];
 }		t_memchunks;
 
@@ -28,19 +35,22 @@ typedef struct	s_memchunks {
 # define SMALL_BINS_DUMP	(SMALL_BINS_COUNT - 1)
 
 typedef struct	s_memlayout {
+	t_zonetype	TinyZoneType;
 	void		*TinyStartingBlockAddr;
 	t_header	*TinyFreeList;
-	int		TinyBinsCount;
+	int			TinyBinsCount;
 	t_header	*TinyBins[TINY_BINS_COUNT];	
 		
+	t_zonetype	SmallZoneType;
 	void		*SmallStartingBlockAddr;
 	t_header	*SmallFreeList;
-	int		SmallBinsCount;	
+	int			SmallBinsCount;	
 	t_header	*SmallBins[SMALL_BINS_COUNT];
 
+	t_zonetype	LargeZoneType;
 	void		*LargeStartingBlockAddr;
 	t_header	*LargeFreeList;
-	int		LargeBinsCount;
+	int			LargeBinsCount;
 	t_header	**LargeBins;
 }		t_memlayout;
 
@@ -105,15 +115,10 @@ extern	t_memlayout MemoryLayout;
 void lst_free_add(t_header **BeginList, t_header *Hdr);
 void lst_free_remove(t_header **BeginList, t_header *Hdr);
 
-int get_tiny_bin_index(size_t AlignedSize);
-int get_small_bin_index(size_t AlignedSize);
-void put_tiny_slot_in_bin(t_header *Hdr);
-void put_small_slot_in_bin(t_header *Hdr);
-void remove_tiny_slot_from_bin(t_header *Hdr);
-void remove_small_slot_from_bin(t_header *Hdr);
-
-void coalesce_tiny_slots();
-void coalesce_small_slots();
+int	get_bin_index(size_t AlignedSize, t_zonetype ZoneType);
+void put_slot_in_bin(t_header *Hdr, t_memchunks *Zone);
+void remove_slot_from_bin(t_header *Hdr, t_memchunks *Zone);
+void coalesce_slots(t_memchunks *Zone);
 
 void show_bins(t_memchunks *Zone);
 void scan_memory_integrity();
