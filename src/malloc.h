@@ -28,11 +28,24 @@ typedef struct	s_memchunks {
 	t_header	*Bins[];
 }		t_memchunks;
 
+# define TINY_ALLOC_MAX		64
+# define SMALL_ALLOC_MAX	1024
+# define MIN_ENTRY		100
+
+# define LARGE_PREALLOC		(PAGE_SIZE * 20)
+
 # define TINY_BINS_COUNT	9
 # define TINY_BINS_DUMP		(TINY_BINS_COUNT - 1)
 
 # define SMALL_BINS_COUNT	121
 # define SMALL_BINS_DUMP	(SMALL_BINS_COUNT - 1)
+
+# define LARGE_BINS_COUNT	64
+# define LARGE_BINS_DUMP	(LARGE_BINS_COUNT - 1)
+
+# define LARGE_BINS_SEGMENTS_COUNT 6
+# define GET_LARGE_BINS_SEGMENTS_SPACE_BETWEEN(n)	(1 << (6 + (n * 3)))
+# define LARGE_BINS_SEGMENTS { 3072, 11264, 44032, 175104, 699392, 2796544 }
 
 typedef struct	s_memlayout {
 	t_zonetype	TinyZoneType;
@@ -51,7 +64,7 @@ typedef struct	s_memlayout {
 	void		*LargeStartingBlockAddr;
 	t_header	*LargeFreeList;
 	int			LargeBinsCount;
-	t_header	**LargeBins;
+	t_header	*LargeBins[LARGE_BINS_COUNT];
 }		t_memlayout;
 
 extern	t_memlayout MemoryLayout;
@@ -66,18 +79,13 @@ extern	t_memlayout MemoryLayout;
 
 # define PAGE_SIZE		getpagesize()
 
-# define TINY_ALLOC_MAX		64
-# define SMALL_ALLOC_MAX	1024 	
-# define MIN_ENTRY		100
-
-# define LARGE_PREALLOC		(PAGE_SIZE * 20)
-
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
 # define HEADER_SIZE		32
 # define MIN_ALLOC		16
 # define MIN_TINY_ALLOC		MIN_ALLOC
 # define MIN_SMALL_ALLOC	(TINY_ALLOC_MAX + ALIGNMENT)
+# define MIN_LARGE_ALLOC	(SMALL_ALLOC_MAX + ALIGNMENT)
 # define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *)) // size of chunk + pointer to previous chunk
 # define CHUNK_FOOTER	    	(sizeof(void *) + sizeof(void *)) // last header pointer + pointer to next chunk
 # define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
@@ -122,5 +130,7 @@ void coalesce_slots(t_memchunks *Zone);
 
 void show_bins(t_memchunks *Zone);
 void scan_memory_integrity();
+
+int *get_large_bin_segments();
 
 #endif

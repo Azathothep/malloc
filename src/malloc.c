@@ -11,7 +11,7 @@ t_memlayout MemoryLayout = {
 
 	SMALL, NULL, NULL, SMALL_BINS_COUNT, { },
 
-	LARGE, NULL, NULL, 1, NULL,
+	LARGE, NULL, NULL, LARGE_BINS_COUNT, { }
 };
 
 // TODO(felix): change this to support multithreaded programs
@@ -140,10 +140,12 @@ t_header *get_perfect_slot(size_t AlignedSize, t_memchunks *Zone) {
 	t_header *Hdr = NULL;
 
 	int bin_dump = 0;
-	if (Zone->ZoneType == SMALL)
+	if (Zone->ZoneType == TINY)
+		bin_dump = TINY_BINS_DUMP;
+	else if (Zone->ZoneType == SMALL)
 		bin_dump = SMALL_BINS_DUMP;
 	else
-		bin_dump = TINY_BINS_DUMP;
+		bin_dump = LARGE_BINS_DUMP;
 	
 	if (index >= bin_dump || Zone->Bins[index] == NULL)
 		return NULL;
@@ -159,13 +161,16 @@ t_header	*get_breakable_slot(size_t AlignedSize, t_memchunks *Zone) {
 	int min_alloc = 0;
 	int bin_dumps = 0;
 
-	if (Zone->ZoneType == SMALL) {
-		min_alloc = MIN_SMALL_ALLOC;
-		bin_dumps = SMALL_BINS_DUMP;
-	}
-	else {
+	if (Zone->ZoneType == TINY) {
 		min_alloc = MIN_TINY_ALLOC;
 		bin_dumps = TINY_BINS_DUMP;
+	}
+	else if (Zone->ZoneType == SMALL) {
+		min_alloc = MIN_SMALL_ALLOC;
+		bin_dumps = SMALL_BINS_DUMP;
+	} else if (Zone->ZoneType == LARGE) {
+		min_alloc = MIN_LARGE_ALLOC;
+		bin_dumps = LARGE_BINS_DUMP;
 	}
 
 	size_t MinSlotSizeToBreak = min_alloc + (HEADER_SIZE + AlignedSize);
@@ -216,13 +221,16 @@ t_header	*get_slot(size_t AlignedSize, t_zonetype ZoneType) {
 	t_memchunks *Zone = NULL;
 	size_t ChunkSize = 0;
 
-	if (ZoneType == SMALL) {
-		Zone = GET_SMALL_ZONE();
-		ChunkSize = SMALL_CHUNK;
-	}
-	else {
+	if (ZoneType == TINY) {
 		Zone = GET_TINY_ZONE();
 		ChunkSize = TINY_CHUNK;
+	}
+	else if (ZoneType == SMALL) {
+		Zone = GET_SMALL_ZONE();
+		ChunkSize = SMALL_CHUNK;
+	} else {
+		Zone = GET_LARGE_ZONE();
+		ChunkSize = LARGE_CHUNK(AlignedSize);
 	}
 
 	t_header *Hdr = get_perfect_or_break_slot(AlignedSize, Zone);
@@ -298,7 +306,7 @@ t_header	*get_large_slot(size_t AlignedSize) {
 
 void	*malloc_block(size_t size) {
 	size_t AlignedSize = SIZE_ALIGN(size);
-	
+
 	t_header *Hdr = NULL;
 	
 	if (AlignedSize <= TINY_ALLOC_MAX) {

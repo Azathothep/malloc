@@ -79,21 +79,57 @@ void	show_bins(t_memchunks *Zone) {
 	}
 }
 
+int get_large_bin_index(size_t AlignedSize) {
+	
+	int segments[LARGE_BINS_SEGMENTS_COUNT] = LARGE_BINS_SEGMENTS;
+
+	// GET SEGMENT INDEX
+	int segment_index = 0;
+	while (segment_index < LARGE_BINS_SEGMENTS_COUNT && (int)AlignedSize > segments[segment_index]) 
+		segment_index++;
+
+	if (segment_index == LARGE_BINS_SEGMENTS_COUNT)
+		return LARGE_BINS_DUMP;
+
+	// GET BIN INDEX IN SEGMENT
+	int SizeInSegment = AlignedSize;
+	if (segment_index == 0)
+		SizeInSegment -= SMALL_ALLOC_MAX;
+	else
+		SizeInSegment -= segments[segment_index - 1];
+	
+	int space_between = GET_LARGE_BINS_SEGMENTS_SPACE_BETWEEN(segment_index);
+	int index_in_segment = (SizeInSegment - 1) / space_between;
+
+	// GET SEGMENT STARTING BIN INDEX
+	int segment_starting_index = 0;
+	int number_of_bins_in_segment = 1 << 5;
+	while (segment_index > 0) {
+		segment_starting_index += number_of_bins_in_segment;
+		number_of_bins_in_segment = number_of_bins_in_segment >> 1;
+		segment_index--;
+	}
+
+	int result = segment_starting_index + index_in_segment;
+
+	return result;
+}
+
 int get_bin_index(size_t AlignedSize, t_zonetype ZoneType) {
 	int result = 0;
 
-	if (ZoneType == SMALL) {
-		if (AlignedSize > SMALL_ALLOC_MAX)
-			result = SMALL_BINS_DUMP;
-		else
-			result = ((AlignedSize - TINY_ALLOC_MAX) / ALIGNMENT) - 1;
-	}
-	else
-	{
+	if (ZoneType == TINY) {
 		if (AlignedSize > TINY_ALLOC_MAX)
 			result = TINY_BINS_DUMP;
 		else
 			result = (AlignedSize / ALIGNMENT) - 1;
+	} else if (ZoneType == SMALL) {
+		if (AlignedSize > SMALL_ALLOC_MAX)
+			result = SMALL_BINS_DUMP;
+		else
+			result = ((AlignedSize - TINY_ALLOC_MAX) / ALIGNMENT) - 1;
+	} else if (ZoneType == LARGE) {
+		result = get_large_bin_index(AlignedSize);
 	}
 
 	return result;
@@ -107,9 +143,13 @@ void	put_slot_in_bin(t_header *Hdr, t_memchunks *Zone) {
 	t_header **Bins = Zone->Bins;
 	t_header *NextHdrInBin = Bins[Index];
 
-	Bins[Index] = Hdr;
-	Hdr->PrevFree = NULL;
-	Hdr->NextFree = NextHdrInBin;
+	if (Zone->ZoneType != LARGE) {
+		Bins[Index] = Hdr;
+		Hdr->PrevFree = NULL;
+		Hdr->NextFree = NextHdrInBin;
+	} else {
+		// TODO: put in order, from tinyest to largest
+	}
 
 	if (NextHdrInBin != NULL)
 		NextHdrInBin->PrevFree = Hdr;
@@ -202,10 +242,12 @@ void	free_slot(t_header *Hdr, t_zonetype ZoneType) {
 		HdrPrev->Next = Hdr;
 
 	t_memchunks *Zone = NULL;
-	if (ZoneType == SMALL)
-		Zone = GET_SMALL_ZONE();
-	else
+	if (ZoneType == TINY)
 		Zone = GET_TINY_ZONE();
+	else if (ZoneType == SMALL)
+		Zone = GET_SMALL_ZONE();
+	else if (ZoneType == LARGE)
+		Zone = GET_LARGE_ZONE();
 
 	put_slot_in_bin(Hdr, Zone);
 }
@@ -264,12 +306,14 @@ void	free_large_slot(t_header *Hdr) {
 				return;
 			}
 
-			if (NextChunk != NULL)
+			if (NextChunk != NULL) {
 				SET_PREV_CHUNK(NextChunk, PrevChunk);
+			}
 
-			if (PrevChunk != NULL)	
+			if (PrevChunk != NULL) {	
 				SET_NEXT_CHUNK(PrevChunk, NextChunk);		
-      		else
+			}
+			else
 				MemBlock->StartingBlockAddr = NextChunk;
 		}	
   	}
