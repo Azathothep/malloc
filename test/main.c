@@ -149,7 +149,7 @@ int main(int argc, char** argv)
 
 	unsigned int seed = time(NULL);
 	int 	n = 1;
-	int	maxAlloc = 100;
+	int		maxAlloc = 100;
 	size_t 	maxAllocSize = 2048;
 
 	if (argc > 1)

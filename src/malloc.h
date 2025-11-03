@@ -12,7 +12,6 @@ typedef enum e_zonetype {
 typedef struct 	s_header {
 	struct s_header	*Prev;
 	struct s_header *Next;
-	size_t		Size;
 	size_t		RealSize;
 
 	// Only used when block is freed

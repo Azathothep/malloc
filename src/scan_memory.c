@@ -153,11 +153,6 @@ void	scan_zone_integrity(t_memchunks *Zone) {
 				return;
 			}
 
-			if (flagged == 1 && Hdr->Size > Hdr->RealSize) {
-				scan_error(Hdr, Prev, "INCONSISTENT SIZE");
-				return;
-			}
-
 			t_header *Next = UNFLAG(Hdr->Next);
 			if (Next != NULL) {
 				if (UNFLAG(Next->Prev) != Hdr) {

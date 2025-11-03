@@ -71,8 +71,7 @@ t_header	*allocate_and_initialize_chunk(t_memchunks *MemZone, size_t ChunkSize) 
 	t_header *Hdr = (t_header *)ChunkStartingAddr;
 	Hdr->Prev = NULL;
 	Hdr->Next = NULL;
-	Hdr->Size = CHUNK_USABLE_SIZE(ChunkSize) - HEADER_SIZE;
-	Hdr->RealSize = Hdr->Size;
+	Hdr->RealSize = CHUNK_USABLE_SIZE(ChunkSize) - HEADER_SIZE;
 	
 	Hdr->PrevFree = NULL;
 	Hdr->NextFree = NULL;
@@ -84,14 +83,12 @@ t_header	*break_slot(t_header *Hdr, size_t AllocatedSize) {
 	int FullSize = AllocatedSize + HEADER_SIZE;
 	size_t NewSize = Hdr->RealSize - FullSize;
 	Hdr->RealSize = NewSize;
-	Hdr->Size = NewSize - HEADER_SIZE;
 		
 	t_header *PrevHdr = Hdr;
 	t_header *NextHdr = UNFLAG(Hdr->Next);
 
 	Hdr = (t_header *)((void *)Hdr + NewSize);
 
-	Hdr->Size = AllocatedSize;
 	Hdr->RealSize = FullSize;
 
 	Hdr->Prev = PrevHdr;
@@ -105,7 +102,9 @@ t_header	*break_slot(t_header *Hdr, size_t AllocatedSize) {
 	return Hdr;
 }
 
-t_header *get_slot_of_size_in_large_bin(size_t RequestedSize, t_memchunks *Zone, int BinIndex) {
+t_header *get_slot_of_size_in_large_bin(size_t AlignedSize, t_memchunks *Zone, int BinIndex) {
+	size_t RequestedSize = AlignedSize + HEADER_SIZE;
+
 	if (Zone->ZoneType != LARGE)
 		return Zone->Bins[BinIndex];
 
@@ -141,7 +140,7 @@ t_header *get_perfect_slot(size_t AlignedSize, t_memchunks *Zone) {
 		return NULL;
 
 	if (Zone->ZoneType == LARGE) {
-		Hdr = get_slot_of_size_in_large_bin(AlignedSize + HEADER_SIZE, Zone, index);
+		Hdr = get_slot_of_size_in_large_bin(AlignedSize, Zone, index);
 	} else {
 		Hdr = Zone->Bins[index];
 	}
@@ -151,7 +150,6 @@ t_header *get_perfect_slot(size_t AlignedSize, t_memchunks *Zone) {
 
 	remove_slot_from_bin(Hdr, Zone);
 
-	Hdr->Size = AlignedSize;
 	return Hdr;
 }
 

@@ -21,13 +21,11 @@ void	print_block(t_header *Hdr) {
 	PRINT(color); PRINT_ADDR(Hdr); PRINT(": ");
 
 	if (flagged == 1) {
-		PRINT_UINT64(Hdr->Size);
+		PRINT_UINT64(Hdr->RealSize - HEADER_SIZE);
 		PRINT(" ");
 	}
 	
 	PRINT("["); PRINT_UINT64(Hdr->RealSize); PRINT("] ");
-	//PRINT(", Prev: "); PRINT_ADDR(Hdr->Prev);
-	//PRINT(", Next:"); PRINT_ADDR(Hdr->Next);
 	PRINT(ANSI_COLOR_RESET); NL();
 }
 

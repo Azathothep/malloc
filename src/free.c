@@ -39,8 +39,8 @@ void	show_bins(t_memchunks *Zone) {
 }
 
 int get_large_bin_index(size_t AlignedSize) {
-	
 	int segments[LARGE_BINS_SEGMENTS_COUNT] = LARGE_BINS_SEGMENTS;
+	//size_t FullSize = AlignedSize + HEADER_SIZE;
 
 	// GET SEGMENT INDEX
 	int segment_index = 0;
@@ -181,7 +181,6 @@ void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memchunks *Zo
 	if (Base->RealSize != NewSize) { 
 		remove_slot_from_bin(Base, Zone);
 		Base->RealSize = NewSize;
-		Base->Size = NewSize - HEADER_SIZE; 
 		Base->Next = Current->Next;
 
 		if (Next != NULL)
@@ -237,7 +236,7 @@ void	free(void *Ptr) {
 	//TODO(felix): verify if block need to be freed beforehand !!!	
 
 	t_header *Hdr = GET_HEADER(Ptr);
- 	size_t BlockSize = Hdr->Size;
+ 	size_t BlockSize = Hdr->RealSize - HEADER_SIZE;
 
 #ifdef PRINT_FREE
 	PRINT("Freeing address "); PRINT_ADDR(Ptr); PRINT(" (size: "); PRINT_UINT64(BlockSize); PRINT(", Header: "); PRINT_ADDR(GET_HEADER(Ptr)); PRINT(")"); NL();
