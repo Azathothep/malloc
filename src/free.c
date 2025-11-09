@@ -68,7 +68,7 @@ int get_bin_index(size_t AlignedSize, t_zonetype ZoneType) {
 	return result;
 }
 
-void	put_slot_in_bin(t_header *Hdr, t_memchunks *Zone) {
+void	put_slot_in_bin(t_header *Hdr, t_memzone *Zone) {
 	int BinSize = Hdr->RealSize - HEADER_SIZE;
 
 	int Index = get_bin_index(BinSize, Zone->ZoneType);
@@ -107,7 +107,7 @@ void	put_slot_in_bin(t_header *Hdr, t_memchunks *Zone) {
 	}
 }
 
-void	remove_slot_from_bin(t_header *Hdr, t_memchunks *Zone) {
+void	remove_slot_from_bin(t_header *Hdr, t_memzone *Zone) {
 	int index = get_bin_index(Hdr->RealSize - HEADER_SIZE, Zone->ZoneType);
 
 	if (Hdr->PrevFree != NULL) {
@@ -123,7 +123,7 @@ void	remove_slot_from_bin(t_header *Hdr, t_memchunks *Zone) {
 	Hdr->NextFree = NULL;
 }
 
-void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memchunks *Zone) {
+void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memzone *Zone) {
 	t_header *NextFree = Hdr->NextFree;
 
 	t_header *Base = Hdr;
@@ -168,7 +168,7 @@ void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memchunks *Zo
   	scan_memory_integrity();
 }
 
-void	coalesce_slots(t_memchunks *Zone) {
+void	coalesce_slots(t_memzone *Zone) {
 	int i = 0;
 
 	while (i < Zone->BinsCount) {
@@ -185,7 +185,7 @@ void	coalesce_slots(t_memchunks *Zone) {
 void	free_slot(t_header *Hdr) {
  	size_t BlockSize = Hdr->RealSize - HEADER_SIZE;
 	
-	t_memchunks *Zone = NULL;
+	t_memzone *Zone = NULL;
 	if (BlockSize > SMALL_ALLOC_MAX) {
 		Zone = GET_LARGE_ZONE();
 	} else if (BlockSize > TINY_ALLOC_MAX) {

@@ -3,7 +3,7 @@
 
 //TODO(felix): add chunk subdivision in zones
 
-void	show_free_zone(t_memchunks *Zone) {
+void	show_free_zone(t_memzone *Zone) {
 	//t_free *lst = Zone->FreeList;	
 	t_header *lst = Zone->FreeList;	
 
@@ -19,7 +19,7 @@ void	show_free_zone(t_memchunks *Zone) {
 void	show_free_mem() {
 	PRINT("\n---- free mem ----\n");
 
-	t_memchunks *Zone = GET_TINY_ZONE(); //&MemoryLayout.TinyZone;
+	t_memzone *Zone = GET_TINY_ZONE(); //&MemoryLayout.TinyZone;
 	PRINT("TINY ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_free_zone(Zone);
 	NL();

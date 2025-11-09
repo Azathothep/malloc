@@ -39,7 +39,7 @@ void	*map_memory(int ChunkSize) {
 	return ptrToMappedMemory;
 }
 
-void	*alloc_chunk(t_memchunks *MemZone, size_t ChunkSize) {
+void	*alloc_chunk(t_memzone *MemZone, size_t ChunkSize) {
 	void *NewChunk = map_memory(ChunkSize);
 	if (NewChunk == NULL)
 		return NULL;
@@ -65,7 +65,7 @@ void	*alloc_chunk(t_memchunks *MemZone, size_t ChunkSize) {
 	return NewChunk;	
 }
 
-t_header	*allocate_and_initialize_chunk(t_memchunks *MemZone, size_t ChunkSize) {
+t_header	*allocate_and_initialize_chunk(t_memzone *MemZone, size_t ChunkSize) {
 	void *NewChunk = alloc_chunk(MemZone, ChunkSize);
 	if (NewChunk == NULL)
 		return NULL;
@@ -107,7 +107,7 @@ t_header	*break_slot(t_header *Hdr, size_t AllocatedSize) {
 	return Hdr;
 }
 
-t_header *get_slot_of_size_in_large_bin(size_t AlignedSize, t_memchunks *Zone, int BinIndex) {
+t_header *get_slot_of_size_in_large_bin(size_t AlignedSize, t_memzone *Zone, int BinIndex) {
 	size_t RequestedSize = AlignedSize + HEADER_SIZE;
 
 	if (Zone->ZoneType != LARGE)
@@ -128,7 +128,7 @@ t_header *get_slot_of_size_in_large_bin(size_t AlignedSize, t_memchunks *Zone, i
 	return Hdr;
 }
 
-t_header *get_perfect_slot(size_t AlignedSize, t_memchunks *Zone) {
+t_header *get_perfect_slot(size_t AlignedSize, t_memzone *Zone) {
 	int index = get_bin_index(AlignedSize, Zone->ZoneType);
 
 	t_header *Hdr = NULL;
@@ -158,7 +158,7 @@ t_header *get_perfect_slot(size_t AlignedSize, t_memchunks *Zone) {
 	return Hdr;
 }
 
-t_header	*get_breakable_slot(size_t AlignedSize, t_memchunks *Zone) {
+t_header	*get_breakable_slot(size_t AlignedSize, t_memzone *Zone) {
 	int min_alloc = 0;
 	int bin_dumps = 0;
 
@@ -210,7 +210,7 @@ t_header	*get_breakable_slot(size_t AlignedSize, t_memchunks *Zone) {
 	return Hdr;
 }
 
-t_header	*get_perfect_or_break_slot(size_t AlignedSize, t_memchunks *Zone) {
+t_header	*get_perfect_or_break_slot(size_t AlignedSize, t_memzone *Zone) {
 	t_header *Hdr = get_perfect_slot(AlignedSize, Zone);
 
 	if (Hdr != NULL)
@@ -228,7 +228,7 @@ t_header	*get_perfect_or_break_slot(size_t AlignedSize, t_memchunks *Zone) {
 }
 
 t_header	*get_slot(size_t AlignedSize, t_zonetype ZoneType) {
-	t_memchunks *Zone = NULL;
+	t_memzone *Zone = NULL;
 	size_t ChunkSize = 0;
 
 	if (ZoneType == TINY) {

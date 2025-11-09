@@ -21,13 +21,13 @@ typedef struct 	s_header {
 	struct s_header *NextFree;
 }		t_header;
 
-typedef struct	s_memchunks {
+typedef struct	s_memzone {
 	t_zonetype	ZoneType;
 	void		*StartingBlockAddr;
 	t_header	*FreeList;
 	int			BinsCount;
 	t_header	*Bins[];
-}		t_memchunks;
+}		t_memzone;
 
 # define PAGE_SIZE		getpagesize()
 
@@ -75,12 +75,12 @@ typedef struct	s_memlayout {
 extern	t_memlayout MemoryLayout;
 
 # define POINTER_SIZE		8
-# define TINY_ZONE_SIZE		(sizeof(t_memchunks) + (TINY_BINS_COUNT * POINTER_SIZE))
-# define SMALL_ZONE_SIZE	(sizeof(t_memchunks) + (SMALL_BINS_COUNT * POINTER_SIZE))
+# define TINY_ZONE_SIZE		(sizeof(t_memzone) + (TINY_BINS_COUNT * POINTER_SIZE))
+# define SMALL_ZONE_SIZE	(sizeof(t_memzone) + (SMALL_BINS_COUNT * POINTER_SIZE))
 
-# define GET_TINY_ZONE()	((t_memchunks*)((void *)&MemoryLayout))
-# define GET_SMALL_ZONE()	((t_memchunks*)((void *)&MemoryLayout + TINY_ZONE_SIZE))
-# define GET_LARGE_ZONE()	((t_memchunks*)((void *)&MemoryLayout + TINY_ZONE_SIZE + SMALL_ZONE_SIZE))
+# define GET_TINY_ZONE()	((t_memzone*)((void *)&MemoryLayout))
+# define GET_SMALL_ZONE()	((t_memzone*)((void *)&MemoryLayout + TINY_ZONE_SIZE))
+# define GET_LARGE_ZONE()	((t_memzone*)((void *)&MemoryLayout + TINY_ZONE_SIZE + SMALL_ZONE_SIZE))
 
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
@@ -124,9 +124,9 @@ void lst_free_add(t_header **BeginList, t_header *Hdr);
 void lst_free_remove(t_header **BeginList, t_header *Hdr);
 
 int	get_bin_index(size_t AlignedSize, t_zonetype ZoneType);
-void put_slot_in_bin(t_header *Hdr, t_memchunks *Zone);
-void remove_slot_from_bin(t_header *Hdr, t_memchunks *Zone);
-void coalesce_slots(t_memchunks *Zone);
+void put_slot_in_bin(t_header *Hdr, t_memzone *Zone);
+void remove_slot_from_bin(t_header *Hdr, t_memzone *Zone);
+void coalesce_slots(t_memzone *Zone);
 
 void scan_memory_integrity();
 

@@ -26,7 +26,7 @@ void	print_block(t_header *Hdr) {
 	PRINT(ANSI_COLOR_RESET); NL();
 }
 
-void	show_alloc_zone(t_memchunks *Zone) {
+void	show_alloc_zone(t_memzone *Zone) {
 	void *Chunk = Zone->StartingBlockAddr;
 
 	while (Chunk != NULL) {
@@ -55,7 +55,7 @@ void	show_alloc_zone(t_memchunks *Zone) {
 void	show_alloc_mem() {
 	PRINT("\n---- full mem ----\n");
 
-	t_memchunks *Zone = GET_TINY_ZONE();//&MemoryLayout.TinyZone;
+	t_memzone *Zone = GET_TINY_ZONE();//&MemoryLayout.TinyZone;
 	PRINT("TINY ZONE\n"); // : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
 	show_alloc_zone(Zone);
 	NL();

@@ -11,7 +11,7 @@
 
 //TODO(felix): add chunk subdivision in zones
 
-void	show_bins(t_memchunks *Zone) {
+void	show_bins(t_memzone *Zone) {
 	PRINT("BINS\n");
 
 	t_header **Bins = Zone->Bins;
@@ -107,7 +107,7 @@ void	scan_error(t_header *Hdr, t_header *Prev, char *errmsg) {
 	exit(1);
 }
 
-void	bin_error(t_header *Hdr, char *errmsg, t_memchunks *Zone) {
+void	bin_error(t_header *Hdr, char *errmsg, t_memzone *Zone) {
 	PRINT(ANSI_COLOR_RED); PRINT("["); PRINT_ADDR(Hdr); PRINT("]: CORRUPTED BINS - "); PRINT(errmsg); PRINT(ANSI_COLOR_RESET); NL();
 
 	PRINT("\n----------------- HEXDUMP -----------------\n");
@@ -123,7 +123,7 @@ void	bin_error(t_header *Hdr, char *errmsg, t_memchunks *Zone) {
 	exit(1);
 }
 
-void	search_for_double(t_memchunks *Zone, t_header *to_check, int CurrentBin) {
+void	search_for_double(t_memzone *Zone, t_header *to_check, int CurrentBin) {
 	t_header **Bins = Zone->Bins;
 	t_header *NextFree = to_check->NextFree;
 	while (CurrentBin < Zone->BinsCount) {
@@ -141,7 +141,7 @@ void	search_for_double(t_memchunks *Zone, t_header *to_check, int CurrentBin) {
 	}
 }
 
-void	scan_free_integrity(t_memchunks *Zone) {
+void	scan_free_integrity(t_memzone *Zone) {
 	int currentBin = 0;
 	t_header **Bins = Zone->Bins;
 	
@@ -161,7 +161,7 @@ void	scan_free_integrity(t_memchunks *Zone) {
 	}
 }
 
-void	scan_zone_integrity(t_memchunks *Zone) {
+void	scan_zone_integrity(t_memzone *Zone) {
 	void *Chunk = Zone->StartingBlockAddr;
 
 	while (Chunk != NULL) {
@@ -205,7 +205,7 @@ void	scan_zone_integrity(t_memchunks *Zone) {
 }
 
 void	scan_memory_integrity() {
-	t_memchunks *Zone = GET_TINY_ZONE();
+	t_memzone *Zone = GET_TINY_ZONE();
 	scan_zone_integrity(Zone);
 	scan_free_integrity(Zone);
 
