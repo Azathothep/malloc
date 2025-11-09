@@ -267,6 +267,9 @@ void	free(void *Ptr) {
 
 	//TODO(felix): verify if block need to be freed beforehand !!!	
 
+	if (Ptr == NULL)
+		return;
+
 	t_header *Hdr = GET_HEADER(Ptr);
 
 #ifdef PRINT_FREE
