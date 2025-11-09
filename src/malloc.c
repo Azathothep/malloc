@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "malloc.h"
 
-//#define PRINT_MALLOC
+#define PRINT_MALLOC
 
 t_memlayout MemoryLayout = {
 	TINY, NULL, NULL, TINY_BINS_COUNT, { },
@@ -31,7 +31,9 @@ void	*map_memory(int ChunkSize) {
 	}
 
 #ifdef PRINT_MALLOC
-	PRINT("Successfully mapped "); PRINT_UINT64(ChunkSize); PRINT(" bytes of memory to addr "); PRINT_ADDR(ptrToMappedMemory); NL();
+	PRINT("Successfully mapped "); PRINT_UINT64(ChunkSize); 
+	PRINT("["); PRINT_UINT64(CHUNK_USABLE_SIZE(ChunkSize)); PRINT("]");
+	PRINT(" bytes of memory to addr "); PRINT_ADDR(ptrToMappedMemory); NL();
 #endif	
 
 	return ptrToMappedMemory;
@@ -73,7 +75,8 @@ t_header	*allocate_and_initialize_chunk(t_memchunks *MemZone, size_t ChunkSize) 
 	t_header *Hdr = (t_header *)ChunkStartingAddr;
 	Hdr->Prev = NULL;
 	Hdr->Next = NULL;
-	Hdr->RealSize = CHUNK_USABLE_SIZE(ChunkSize) - HEADER_SIZE;
+	Hdr->Free = 1;
+	Hdr->RealSize = CHUNK_USABLE_SIZE(ChunkSize);
 	
 	Hdr->PrevFree = NULL;
 	Hdr->NextFree = NULL;
@@ -87,7 +90,7 @@ t_header	*break_slot(t_header *Hdr, size_t AllocatedSize) {
 	Hdr->RealSize = NewSize;
 		
 	t_header *PrevHdr = Hdr;
-	t_header *NextHdr = UNFLAG(Hdr->Next);
+	t_header *NextHdr = Hdr->Next; 
 
 	Hdr = (t_header *)((void *)Hdr + NewSize);
 
@@ -96,11 +99,11 @@ t_header	*break_slot(t_header *Hdr, size_t AllocatedSize) {
 	Hdr->Prev = PrevHdr;
 	Hdr->Next = PrevHdr->Next;
 
-	PrevHdr->Next = FLAG(Hdr);
-	
+	PrevHdr->Next = Hdr;
+
 	if (NextHdr != NULL)
-		NextHdr->Prev = FLAG(Hdr);
-	
+		NextHdr->Prev = Hdr;
+
 	return Hdr;
 }
 
@@ -326,18 +329,7 @@ void	*malloc_block(size_t size) {
 	if (Hdr == NULL)
 		return NULL;
 
-	t_header *NextHdr = UNFLAG(Hdr->Next);		
-	t_header *PrevHdr = UNFLAG(Hdr->Prev);
-
-	if (PrevHdr != NULL) {
-		PrevHdr->Next = FLAG(Hdr);
-	} else {
-		// TODO: how to flag block as occupied if it is the first ?
-		// can't just rely on the next one: can be the only one in its chunk
-	}
-
-	if (NextHdr != NULL)
-		NextHdr->Prev = FLAG(Hdr);
+	Hdr->Free = 0;
 
 	void *AllocatedPtr = GET_SLOT(Hdr);
 

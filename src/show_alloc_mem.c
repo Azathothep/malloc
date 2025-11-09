@@ -9,18 +9,15 @@
 
 void	print_block(t_header *Hdr) {
 	char *color = NULL;
-	char flagged = IS_FLAGGED(Hdr);
 	
-	if (flagged == 1)
-		color = ANSI_COLOR_RED;
-	else
+	if (Hdr->Free)
 		color = ANSI_COLOR_GREEN;
+	else
+		color = ANSI_COLOR_RED;
 	
-	Hdr = UNFLAG(Hdr);
-
 	PRINT(color); PRINT_ADDR(Hdr); PRINT(": ");
 
-	if (flagged == 1) {
+	if (!Hdr->Free) {
 		PRINT_UINT64(Hdr->RealSize - HEADER_SIZE);
 		PRINT(" ");
 	}
@@ -39,16 +36,13 @@ void	show_alloc_zone(t_memchunks *Zone) {
 	
 		print_block(Hdr);
 		
-		Hdr = UNFLAG(Hdr);
 		Hdr = Hdr->Next;
 
-		t_header *HdrClean = UNFLAG(Hdr);
-		while (HdrClean != NULL) {
+		while (Hdr != NULL) {
 			print_block(Hdr);
-			t_header *Prev = HdrClean;
-			Hdr = HdrClean->Next;
-			HdrClean = UNFLAG(Hdr);
-			if (HdrClean != NULL && (uint64_t)HdrClean < (uint64_t)Prev) {
+			t_header *Prev = Hdr;
+			Hdr = Hdr->Next;
+			if (Hdr != NULL && (uint64_t)Hdr < (uint64_t)Prev) {
 				PRINT("CIRCULAR HEADER !!!\n");
 				break;
 			}

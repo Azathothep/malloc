@@ -11,6 +11,32 @@
 
 //TODO(felix): add chunk subdivision in zones
 
+void	show_bins(t_memchunks *Zone) {
+	PRINT("BINS\n");
+
+	t_header **Bins = Zone->Bins;
+
+	int i = 0;
+	while (i < Zone->BinsCount) {
+		PRINT("["); PRINT_UINT64(i); PRINT("] (");
+		if (i < 8)
+			PRINT_UINT64((i + 1) * 8);
+		else
+			PRINT("+");
+
+		PRINT(")"); NL();
+		
+		t_header *Ptr = Bins[i];
+		while (Ptr != NULL) {
+			PRINT_ADDR(Ptr); NL();
+			Ptr = Ptr->NextFree;
+		}
+		NL();
+		
+		i++;
+	}
+}
+
 void	scan_hexdump_single(void *P) {
 	void *mem = *((void **)P);
 	PRINT_ADDR(mem);
@@ -76,7 +102,7 @@ void	scan_error(t_header *Hdr, t_header *Prev, char *errmsg) {
 	PRINT("\nCorrupted header\n");
 	scan_hexdump(Hdr);
 	PRINT("\nNext header\n");
-	scan_hexdump(UNFLAG(Hdr->Next));
+	scan_hexdump(Hdr->Next);
 
 	exit(1);
 }
@@ -143,9 +169,7 @@ void	scan_zone_integrity(t_memchunks *Zone) {
 	
 		// FIRST BLOCK CHECK
 		t_header *Prev = NULL;
-		while (UNFLAG(Hdr) != NULL) {
-			uint64_t flagged = IS_FLAGGED(Hdr);
-			Hdr = UNFLAG(Hdr);
+		while (Hdr != NULL) {
 
 			void *AlignedHdr = (void *)SIZE_ALIGN((uint64_t)Hdr);
 			if (Hdr != AlignedHdr) {
@@ -153,15 +177,10 @@ void	scan_zone_integrity(t_memchunks *Zone) {
 				return;
 			}
 
-			t_header *Next = UNFLAG(Hdr->Next);
+			t_header *Next = Hdr->Next;
 			if (Next != NULL) {
-				if (UNFLAG(Next->Prev) != Hdr) {
+				if (Next->Prev != Hdr) {
 					scan_error(Hdr, Prev, "INCONSISTENT HEADERS");
-					return;
-				}
-				
-				if (Prev != NULL && flagged != IS_FLAGGED(Next->Prev)) {
-					scan_error(Hdr, Prev, "INCONSISTENT FLAGS");
 					return;
 				}
 			}			
@@ -196,4 +215,5 @@ void	scan_memory_integrity() {
 
 	Zone = GET_LARGE_ZONE();
 	scan_zone_integrity(Zone);
+	scan_free_integrity(Zone);
 }

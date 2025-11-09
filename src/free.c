@@ -12,32 +12,6 @@
 
 // --------- BINS ---------- //
 
-void	show_bins(t_memchunks *Zone) {
-	PRINT("BINS\n");
-
-	t_header **Bins = Zone->Bins;
-
-	int i = 0;
-	while (i < Zone->BinsCount) {
-		PRINT("["); PRINT_UINT64(i); PRINT("] (");
-		if (i < 8)
-			PRINT_UINT64((i + 1) * 8);
-		else
-			PRINT("+");
-
-		PRINT(")"); NL();
-		
-		t_header *Ptr = Bins[i];
-		while (Ptr != NULL) {
-			PRINT_ADDR(Ptr); NL();
-			Ptr = Ptr->NextFree;
-		}
-		NL();
-		
-		i++;
-	}
-}
-
 int get_large_bin_index(size_t AlignedSize) {
 	int segments[LARGE_BINS_SEGMENTS_COUNT] = LARGE_BINS_SEGMENTS;
 	//size_t FullSize = AlignedSize + HEADER_SIZE;
@@ -153,20 +127,20 @@ void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memchunks *Zo
 	t_header *NextFree = Hdr->NextFree;
 
 	t_header *Base = Hdr;
-	t_header *Prev = UNFLAG(Base->Prev);
+	t_header *Prev = Base->Prev;
 
 	//TODO(felix): optimize this part & start coalescing when backtracking
-	while (Prev != NULL && IS_FLAGGED(Base->Prev) == 0) {
+	while (Prev != NULL && Prev->Free) {
 		Base = Prev;
-		Prev = UNFLAG(Base->Prev);
+		Prev = Base->Prev;
 	}
 	
 	size_t NewSize = Base->RealSize;
 	t_header *Current = Base;
-	t_header *Next = UNFLAG(Current->Next);
+	t_header *Next = Current->Next;
 	
-	while (Next != NULL && IS_FLAGGED(Current->Next) == 0) {
-	
+	while (Next != NULL && Next->Free) {
+
 		while (NextFree != NULL 
 			&& (uint64_t)NextFree > (uint64_t)Base
 			&& (uint64_t)NextFree <= (uint64_t)Next)
@@ -175,7 +149,7 @@ void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memchunks *Zo
 		Current = Next;
 		NewSize += Current->RealSize;
 		remove_slot_from_bin(Current, Zone);
-		Next = UNFLAG(Current->Next);
+		Next = Current->Next; //UNFLAG(Current->Next);
 	}
 
 	if (Base->RealSize != NewSize) { 
@@ -237,14 +211,7 @@ void	flush_unsorted_bin() {
 
 void	add_to_unsorted_bin(t_header *Hdr) {
 
-	t_header *HdrPrev = UNFLAG(Hdr->Prev);
-	t_header *HdrNext = UNFLAG(Hdr->Next);
-
-	if (HdrNext != NULL)
-		HdrNext->Prev = Hdr;
-
-	if (HdrPrev != NULL)
-		HdrPrev->Next = Hdr;
+	Hdr->Free = 1;
 
 	t_header *FirstBinHdr = MemoryLayout.UnsortedBin;
 

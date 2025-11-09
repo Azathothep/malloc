@@ -2,6 +2,7 @@
 # define MALLOC_H
 
 # include <unistd.h>
+# include <stdint.h>
 
 typedef enum e_zonetype {
 	TINY,
@@ -12,7 +13,8 @@ typedef enum e_zonetype {
 typedef struct 	s_header {
 	struct s_header	*Prev;
 	struct s_header *Next;
-	size_t		RealSize;
+	uint64_t		Free;
+	size_t			RealSize;
 
 	// Only used when block is freed
 	struct s_header *PrevFree;
@@ -26,6 +28,8 @@ typedef struct	s_memchunks {
 	int			BinsCount;
 	t_header	*Bins[];
 }		t_memchunks;
+
+# define PAGE_SIZE		getpagesize()
 
 # define TINY_ALLOC_MAX		64
 # define SMALL_ALLOC_MAX	1024
@@ -78,8 +82,6 @@ extern	t_memlayout MemoryLayout;
 # define GET_SMALL_ZONE()	((t_memchunks*)((void *)&MemoryLayout + TINY_ZONE_SIZE))
 # define GET_LARGE_ZONE()	((t_memchunks*)((void *)&MemoryLayout + TINY_ZONE_SIZE + SMALL_ZONE_SIZE))
 
-# define PAGE_SIZE		getpagesize()
-
 # define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
 
 # define ALIGNMENT		8
@@ -89,6 +91,7 @@ extern	t_memlayout MemoryLayout;
 # define MIN_TINY_ALLOC		MIN_ALLOC
 # define MIN_SMALL_ALLOC	(TINY_ALLOC_MAX + ALIGNMENT)
 # define MIN_LARGE_ALLOC	(SMALL_ALLOC_MAX + ALIGNMENT)
+
 # define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *)) // size of chunk + pointer to previous chunk
 # define CHUNK_FOOTER	    	(sizeof(void *) + sizeof(void *)) // last header pointer + pointer to next chunk
 # define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
@@ -117,11 +120,6 @@ extern	t_memlayout MemoryLayout;
 # define GET_HEADER(p)		((t_header *)((void *)p - HEADER_SIZE))	
 # define GET_SLOT(p)		((void *)((void *)p + HEADER_SIZE))
 
-# define ALLOC_FLAG		1
-# define FLAG(p)		((t_header *)((uint64_t)p | ALLOC_FLAG))
-# define UNFLAG(p)		((t_header *)((uint64_t)p & (~ALLOC_FLAG)))
-# define IS_FLAGGED(p)		((uint64_t)p & ALLOC_FLAG)
-
 void lst_free_add(t_header **BeginList, t_header *Hdr);
 void lst_free_remove(t_header **BeginList, t_header *Hdr);
 
@@ -130,7 +128,6 @@ void put_slot_in_bin(t_header *Hdr, t_memchunks *Zone);
 void remove_slot_from_bin(t_header *Hdr, t_memchunks *Zone);
 void coalesce_slots(t_memchunks *Zone);
 
-void show_bins(t_memchunks *Zone);
 void scan_memory_integrity();
 
 int *get_large_bin_segments();
