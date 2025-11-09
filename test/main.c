@@ -8,8 +8,6 @@
 #include <time.h>
 #include "libft.h"
 
-# define INDEX	1000
-
 void process_allocation(void *a[], int index) {	
 	int i = 0;
 	while (i < index - 1){
@@ -86,7 +84,7 @@ void random_allocations(int maxAlloc, size_t maxAllocSize) {
 		i++;
 	}
 
-	printf("MAX ALLOCATION...\n");
+//	printf("MAX ALLOCATION...\n");
 	//show_alloc_mem();
 
 
@@ -98,7 +96,7 @@ void random_allocations(int maxAlloc, size_t maxAllocSize) {
 		i++;
 	}
 
-	printf("FREED 2/3...\n");
+//	printf("FREED 2/3...\n");
 	//show_alloc_mem();
 
 	// re-allocating one-third, goes to 2-third
@@ -109,7 +107,7 @@ while (i < third) {
 		i++;
 	}
 
-	printf("RE-ALLOCATED 1/3, GOES TO 2/3...\n");
+//	printf("RE-ALLOCATED 1/3, GOES TO 2/3...\n");
 	//show_alloc_mem();
 
 	// re-freeing one-third, goes to 1-third
@@ -120,7 +118,7 @@ while (i < third) {
 		i++;
 	}
 
-	printf("RE-FREED 1/3, GOES TO 1/3...\n");
+//	printf("RE-FREED 1/3, GOES TO 1/3...\n");
 	//show_alloc_mem();
 
 	// re-allocating to max, goes to maxAlloc
@@ -132,13 +130,13 @@ while (i < third) {
 		i++;
 	}
 
-	printf("RE-ALLOCATED TO MAX...\n");
+//	printf("RE-ALLOCATED TO MAX...\n");
 //	show_alloc_mem();
 
 	// freeing everything
 	ft_lstclear(&begin_lst, &free);
 
-	printf("FREED ALL\n");
+//	printf("FREED ALL\n");
 	//show_alloc_mem();
 }
 

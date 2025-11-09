@@ -5,6 +5,7 @@
 #include "malloc.h"
 
 //#define PRINT_MALLOC
+#define SCAN_MEMORY_MALLOC
 
 t_memlayout MemoryLayout = {
 	TINY, NULL, NULL, TINY_BINS_COUNT, { },
@@ -348,7 +349,9 @@ void	*malloc(size_t size) {
 
 	void *AllocatedPtr = malloc_block(size);
 	
+#ifdef SCAN_MEMORY_MALLOC
 	scan_memory_integrity();
-	
+#endif	
+
 	return AllocatedPtr;
 }

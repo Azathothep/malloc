@@ -9,6 +9,7 @@
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
 //#define PRINT_FREE
+#define SCAN_MEMORY_FREE
 
 // --------- BINS ---------- //
 
@@ -165,7 +166,9 @@ void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memzone *Zone
 
 	*NextHdrToCheck = NextFree;
 
+#ifdef SCAN_MEMORY_FREE
   	scan_memory_integrity();
+#endif
 }
 
 void	coalesce_slots(t_memzone *Zone) {
@@ -239,11 +242,16 @@ void	free(void *Ptr) {
 
 	t_header *Hdr = GET_HEADER(Ptr);
 
+	if (Hdr->Free)
+		return;
+
 #ifdef PRINT_FREE
 	PRINT("Freeing address "); PRINT_ADDR(Ptr); PRINT(", Header: "); PRINT_ADDR(Hdr); NL();
 #endif
 
 	add_to_unsorted_bin(Hdr);
 
+#ifdef SCAN_MEMORY_FREE
 	scan_memory_integrity();
+#endif
 }
