@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "malloc.h"
 
-#define PRINT_MALLOC
+//#define PRINT_MALLOC
 
 t_memlayout MemoryLayout = {
 	TINY, NULL, NULL, TINY_BINS_COUNT, { },
@@ -44,9 +44,6 @@ void	*alloc_chunk(t_memzone *MemZone, size_t ChunkSize) {
 	if (NewChunk == NULL)
 		return NULL;
 
-	//SET_CHUNK_SIZE(NewChunk, ChunkSize);
-	//SET_NEXT_CHUNK(NewChunk, NULL);	
-	//SET_PREV_CHUNK(NewChunk, NULL);
 	NewChunk->FullSize = ChunkSize;
 	NewChunk->Next = NULL;
 	NewChunk->Prev = NULL;
@@ -57,14 +54,12 @@ void	*alloc_chunk(t_memzone *MemZone, size_t ChunkSize) {
 	}
 
 	t_memchunk *LastChunk = MemZone->FirstChunk;
-	t_memchunk *NextChunk = LastChunk->Next; //GET_NEXT_CHUNK(LastChunk);
+	t_memchunk *NextChunk = LastChunk->Next; 
 	while (NextChunk != NULL) {
 		LastChunk = NextChunk;
-		NextChunk = NextChunk->Next; //GET_NEXT_CHUNK(NextChunk);
+		NextChunk = NextChunk->Next;
 	}
 
-	//SET_NEXT_CHUNK(LastChunk, NewChunk);
-	//SET_PREV_CHUNK(NewChunk, LastChunk);
 	LastChunk->Next = NewChunk;
 	NewChunk->Prev = LastChunk;
 	return NewChunk;	

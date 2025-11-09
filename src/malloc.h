@@ -4,18 +4,27 @@
 # include <unistd.h>
 # include <stdint.h>
 
-typedef enum e_zonetype {
-	TINY,
-	SMALL,
-	LARGE
-}			t_zonetype;
-
 typedef struct 	s_memchunk {
 	struct s_memchunk	*Prev;
 	struct s_memchunk	*Next;
 	size_t	FullSize;
 	uint64_t Padding;
 }				t_memchunk;
+
+# define PAGE_SIZE			getpagesize()
+# define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
+
+# define CHUNK_OVERHEAD		sizeof(t_memchunk)
+# define CHUNK_STARTING_ADDR(p) (((void *)p) + CHUNK_OVERHEAD)//(p + CHUNK_HEADER)
+
+# define MIN_ENTRY			100
+# define MIN_CHUNK_SIZE(s)	((s + HEADER_SIZE) * MIN_ENTRY + CHUNK_OVERHEAD)
+# define CHUNK_USABLE_SIZE(s)	(size_t)(s - CHUNK_OVERHEAD)
+
+# define TINY_CHUNK			CHUNK_ALIGN(MIN_CHUNK_SIZE(TINY_ALLOC_MAX))
+# define SMALL_CHUNK		CHUNK_ALIGN(MIN_CHUNK_SIZE(SMALL_ALLOC_MAX))
+# define LARGE_CHUNK(s)		CHUNK_ALIGN(s + HEADER_SIZE + CHUNK_OVERHEAD)
+# define LARGE_PREALLOC		(PAGE_SIZE * 20)
 
 typedef struct 	s_header {
 	struct s_header	*Prev;
@@ -28,6 +37,19 @@ typedef struct 	s_header {
 	struct s_header *NextFree;
 }		t_header;
 
+# define HEADER_SIZE		32
+# define ALIGNMENT		8
+# define SIZE_ALIGN(s)		(((s) + (ALIGNMENT-1)) & ~(ALIGNMENT-1))
+
+# define GET_HEADER(p)		((t_header *)((void *)p - HEADER_SIZE))	
+# define GET_SLOT(p)		((void *)((void *)p + HEADER_SIZE))
+
+typedef enum e_zonetype {
+	TINY,
+	SMALL,
+	LARGE
+}			t_zonetype;
+
 typedef struct	s_memzone {
 	t_zonetype	ZoneType;
 	t_memchunk	*FirstChunk;
@@ -36,13 +58,13 @@ typedef struct	s_memzone {
 	t_header	*Bins[];
 }		t_memzone;
 
-# define PAGE_SIZE		getpagesize()
+# define MIN_ALLOC			16
+# define MIN_TINY_ALLOC		MIN_ALLOC
+# define MIN_SMALL_ALLOC	(TINY_ALLOC_MAX + ALIGNMENT)
+# define MIN_LARGE_ALLOC	(SMALL_ALLOC_MAX + ALIGNMENT)
 
 # define TINY_ALLOC_MAX		64
 # define SMALL_ALLOC_MAX	1024
-# define MIN_ENTRY		100
-
-# define LARGE_PREALLOC		(PAGE_SIZE * 20)
 
 # define TINY_BINS_COUNT	9
 # define TINY_BINS_DUMP		(TINY_BINS_COUNT - 1)
@@ -56,6 +78,14 @@ typedef struct	s_memzone {
 # define LARGE_BINS_SEGMENTS_COUNT 6
 # define GET_LARGE_BINS_SEGMENTS_SPACE_BETWEEN(n)	(1 << (6 + (n * 3)))
 # define LARGE_BINS_SEGMENTS { 3072, 11264, 44032, 175104, 699392, 2796544 }
+
+# define POINTER_SIZE		sizeof(void*)
+# define TINY_ZONE_SIZE		(sizeof(t_memzone) + (TINY_BINS_COUNT * POINTER_SIZE))
+# define SMALL_ZONE_SIZE	(sizeof(t_memzone) + (SMALL_BINS_COUNT * POINTER_SIZE))
+
+# define GET_TINY_ZONE()	((t_memzone*)((void *)&MemoryLayout))
+# define GET_SMALL_ZONE()	((t_memzone*)((void *)&MemoryLayout + TINY_ZONE_SIZE))
+# define GET_LARGE_ZONE()	((t_memzone*)((void *)&MemoryLayout + TINY_ZONE_SIZE + SMALL_ZONE_SIZE))
 
 typedef struct	s_memlayout {
 	t_zonetype	TinyZoneType;
@@ -80,44 +110,6 @@ typedef struct	s_memlayout {
 }		t_memlayout;
 
 extern	t_memlayout MemoryLayout;
-
-# define POINTER_SIZE		8
-# define TINY_ZONE_SIZE		(sizeof(t_memzone) + (TINY_BINS_COUNT * POINTER_SIZE))
-# define SMALL_ZONE_SIZE	(sizeof(t_memzone) + (SMALL_BINS_COUNT * POINTER_SIZE))
-
-# define GET_TINY_ZONE()	((t_memzone*)((void *)&MemoryLayout))
-# define GET_SMALL_ZONE()	((t_memzone*)((void *)&MemoryLayout + TINY_ZONE_SIZE))
-# define GET_LARGE_ZONE()	((t_memzone*)((void *)&MemoryLayout + TINY_ZONE_SIZE + SMALL_ZONE_SIZE))
-
-# define CHUNK_ALIGN(c)		(((c) + (PAGE_SIZE-1)) & ~(PAGE_SIZE-1)) 	
-
-# define ALIGNMENT		8
-
-# define HEADER_SIZE		32
-# define MIN_ALLOC		16
-# define MIN_TINY_ALLOC		MIN_ALLOC
-# define MIN_SMALL_ALLOC	(TINY_ALLOC_MAX + ALIGNMENT)
-# define MIN_LARGE_ALLOC	(SMALL_ALLOC_MAX + ALIGNMENT)
-
-# define CHUNK_OVERHEAD		sizeof(t_memchunk)
-# define CHUNK_STARTING_ADDR(p) (((void *)p) + CHUNK_OVERHEAD)//(p + CHUNK_HEADER)
-
-# define MIN_CHUNK_SIZE(s)	((s + HEADER_SIZE) * MIN_ENTRY + CHUNK_OVERHEAD)
-
-# define TINY_CHUNK			CHUNK_ALIGN(MIN_CHUNK_SIZE(TINY_ALLOC_MAX))
-# define SMALL_CHUNK		CHUNK_ALIGN(MIN_CHUNK_SIZE(SMALL_ALLOC_MAX))
-# define LARGE_CHUNK(s)		CHUNK_ALIGN(s + HEADER_SIZE + CHUNK_OVERHEAD)
-
-# define CHUNK_USABLE_SIZE(s)	(size_t)(s - CHUNK_OVERHEAD)
-
-# define SIZE_ALIGN(s)		(((s) + (ALIGNMENT-1)) & ~(ALIGNMENT-1))
-
-# define TINY_SPACE_MIN		(ALIGNMENT + HEADER_SIZE)
-# define SMALL_SPACE_MIN	(SIZE_ALIGN(TINY_ALLOC_MAX + 1) + HEADER_SIZE)
-# define LARGE_SPACE_MIN	(SIZE_ALIGN(SMALL_ALLOC_MAX + 1) + HEADER_SIZE) 
-
-# define GET_HEADER(p)		((t_header *)((void *)p - HEADER_SIZE))	
-# define GET_SLOT(p)		((void *)((void *)p + HEADER_SIZE))
 
 void lst_free_add(t_header **BeginList, t_header *Hdr);
 void lst_free_remove(t_header **BeginList, t_header *Hdr);
