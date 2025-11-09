@@ -162,7 +162,7 @@ void	scan_free_integrity(t_memzone *Zone) {
 }
 
 void	scan_zone_integrity(t_memzone *Zone) {
-	void *Chunk = Zone->StartingBlockAddr;
+	t_memchunk *Chunk = Zone->FirstChunk;
 
 	while (Chunk != NULL) {
 		t_header *Hdr = CHUNK_STARTING_ADDR(Chunk);
@@ -200,7 +200,7 @@ void	scan_zone_integrity(t_memzone *Zone) {
 			Hdr = Hdr->Next;
 		}
 		
-		Chunk = GET_NEXT_CHUNK(Chunk);
+		Chunk = Chunk->Next; //GET_NEXT_CHUNK(Chunk);
 	}
 }
 

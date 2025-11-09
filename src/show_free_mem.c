@@ -20,17 +20,17 @@ void	show_free_mem() {
 	PRINT("\n---- free mem ----\n");
 
 	t_memzone *Zone = GET_TINY_ZONE(); //&MemoryLayout.TinyZone;
-	PRINT("TINY ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
+	PRINT("TINY ZONE : "); PRINT_ADDR(Zone->FirstChunk); NL();
 	show_free_zone(Zone);
 	NL();
 
 	Zone = GET_SMALL_ZONE(); //&MemoryLayout.SmallZone;
-	PRINT("SMALL ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
+	PRINT("SMALL ZONE : "); PRINT_ADDR(Zone->FirstChunk); NL();
 	show_free_zone(Zone);
 	NL();
 
 	Zone = GET_LARGE_ZONE(); //&MemoryLayout.LargeZone;
-	PRINT("LARGE ZONE : "); PRINT_ADDR(Zone->StartingBlockAddr); NL();
+	PRINT("LARGE ZONE : "); PRINT_ADDR(Zone->FirstChunk); NL();
 	show_free_zone(Zone);
 	NL();
 

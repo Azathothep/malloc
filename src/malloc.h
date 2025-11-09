@@ -10,6 +10,13 @@ typedef enum e_zonetype {
 	LARGE
 }			t_zonetype;
 
+typedef struct 	s_memchunk {
+	struct s_memchunk	*Prev;
+	struct s_memchunk	*Next;
+	size_t	FullSize;
+	uint64_t Padding;
+}				t_memchunk;
+
 typedef struct 	s_header {
 	struct s_header	*Prev;
 	struct s_header *Next;
@@ -23,7 +30,7 @@ typedef struct 	s_header {
 
 typedef struct	s_memzone {
 	t_zonetype	ZoneType;
-	void		*StartingBlockAddr;
+	t_memchunk	*FirstChunk;
 	t_header	*FreeList;
 	int			BinsCount;
 	t_header	*Bins[];
@@ -52,19 +59,19 @@ typedef struct	s_memzone {
 
 typedef struct	s_memlayout {
 	t_zonetype	TinyZoneType;
-	void		*TinyStartingBlockAddr;
+	t_memchunk	*TinyFirstChunk;
 	t_header	*TinyFreeList;
 	int			TinyBinsCount;
 	t_header	*TinyBins[TINY_BINS_COUNT];	
 		
 	t_zonetype	SmallZoneType;
-	void		*SmallStartingBlockAddr;
+	t_memchunk	*SmallFirstChunk;
 	t_header	*SmallFreeList;
 	int			SmallBinsCount;	
 	t_header	*SmallBins[SMALL_BINS_COUNT];
 
 	t_zonetype	LargeZoneType;
-	void		*LargeStartingBlockAddr;
+	t_memchunk	*LargeFirstChunk;
 	t_header	*LargeFreeList;
 	int			LargeBinsCount;
 	t_header	*LargeBins[LARGE_BINS_COUNT];
@@ -92,24 +99,16 @@ extern	t_memlayout MemoryLayout;
 # define MIN_SMALL_ALLOC	(TINY_ALLOC_MAX + ALIGNMENT)
 # define MIN_LARGE_ALLOC	(SMALL_ALLOC_MAX + ALIGNMENT)
 
-# define CHUNK_HEADER     	(sizeof(size_t) + sizeof(void *)) // size of chunk + pointer to previous chunk
-# define CHUNK_FOOTER	    	(sizeof(void *) + sizeof(void *)) // last header pointer + pointer to next chunk
-# define CHUNK_OVERHEAD		(CHUNK_HEADER + CHUNK_FOOTER)
-# define CHUNK_STARTING_ADDR(p) (p + CHUNK_HEADER)
+# define CHUNK_OVERHEAD		sizeof(t_memchunk)
+# define CHUNK_STARTING_ADDR(p) (((void *)p) + CHUNK_OVERHEAD)//(p + CHUNK_HEADER)
 
 # define MIN_CHUNK_SIZE(s)	((s + HEADER_SIZE) * MIN_ENTRY + CHUNK_OVERHEAD)
 
-# define TINY_CHUNK		CHUNK_ALIGN(MIN_CHUNK_SIZE(TINY_ALLOC_MAX))
+# define TINY_CHUNK			CHUNK_ALIGN(MIN_CHUNK_SIZE(TINY_ALLOC_MAX))
 # define SMALL_CHUNK		CHUNK_ALIGN(MIN_CHUNK_SIZE(SMALL_ALLOC_MAX))
 # define LARGE_CHUNK(s)		CHUNK_ALIGN(s + HEADER_SIZE + CHUNK_OVERHEAD)
 
 # define CHUNK_USABLE_SIZE(s)	(size_t)(s - CHUNK_OVERHEAD)
-# define GET_CHUNK_SIZE(p)	*((size_t *)(p))
-# define SET_CHUNK_SIZE(p, s)	*((size_t *)p) = s
-# define GET_NEXT_CHUNK(p)	(*((void **)(p + GET_CHUNK_SIZE(p) - sizeof(void *)))) // go to the end, then backtrack to previous
-# define SET_NEXT_CHUNK(p, n)	(GET_NEXT_CHUNK(p) = n)
-# define GET_PREV_CHUNK(p)	(*((void **)(p + sizeof(size_t)))) // go to the chunk's second slot
-# define SET_PREV_CHUNK(p, n)	(GET_PREV_CHUNK(p) = n)
 
 # define SIZE_ALIGN(s)		(((s) + (ALIGNMENT-1)) & ~(ALIGNMENT-1))
 

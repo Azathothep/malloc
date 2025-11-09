@@ -40,28 +40,33 @@ void	*map_memory(int ChunkSize) {
 }
 
 void	*alloc_chunk(t_memzone *MemZone, size_t ChunkSize) {
-	void *NewChunk = map_memory(ChunkSize);
+	t_memchunk *NewChunk = (t_memchunk *)map_memory(ChunkSize);
 	if (NewChunk == NULL)
 		return NULL;
 
-	SET_CHUNK_SIZE(NewChunk, ChunkSize);
-	SET_NEXT_CHUNK(NewChunk, NULL);	
-	SET_PREV_CHUNK(NewChunk, NULL);
+	//SET_CHUNK_SIZE(NewChunk, ChunkSize);
+	//SET_NEXT_CHUNK(NewChunk, NULL);	
+	//SET_PREV_CHUNK(NewChunk, NULL);
+	NewChunk->FullSize = ChunkSize;
+	NewChunk->Next = NULL;
+	NewChunk->Prev = NULL;
 
-	if (MemZone->StartingBlockAddr == NULL) {
-		MemZone->StartingBlockAddr = NewChunk;
+	if (MemZone->FirstChunk == NULL) {
+		MemZone->FirstChunk = NewChunk;
 		return NewChunk;
 	}
 
-	void *LastChunk = MemZone->StartingBlockAddr;
-	void *NextChunk = GET_NEXT_CHUNK(LastChunk);
+	t_memchunk *LastChunk = MemZone->FirstChunk;
+	t_memchunk *NextChunk = LastChunk->Next; //GET_NEXT_CHUNK(LastChunk);
 	while (NextChunk != NULL) {
 		LastChunk = NextChunk;
-		NextChunk = GET_NEXT_CHUNK(NextChunk);
+		NextChunk = NextChunk->Next; //GET_NEXT_CHUNK(NextChunk);
 	}
 
-	SET_NEXT_CHUNK(LastChunk, NewChunk);
-	SET_PREV_CHUNK(NewChunk, LastChunk);
+	//SET_NEXT_CHUNK(LastChunk, NewChunk);
+	//SET_PREV_CHUNK(NewChunk, LastChunk);
+	LastChunk->Next = NewChunk;
+	NewChunk->Prev = LastChunk;
 	return NewChunk;	
 }
 
