@@ -8,7 +8,7 @@
 #define SCAN_MEMORY_MALLOC
 
 t_memlayout MemoryLayout = {
-	TINY, NULL, NULL, { }, TINY_BINS_COUNT, { },
+	TINY, NULL, NULL, { },  TINY_BINS_COUNT, { },
 
 	SMALL, NULL, NULL, { }, SMALL_BINS_COUNT, { },
 
@@ -233,7 +233,7 @@ t_header	*get_perfect_or_break_slot(size_t AlignedSize, t_memzone *Zone) {
 	return Hdr;
 }
 
-t_header	*get_slot(size_t AlignedSize, t_memzone *Zone) {	
+t_header	*get_slot_from_zone(size_t AlignedSize, t_memzone *Zone) {	
 	t_header *Hdr = get_perfect_or_break_slot(AlignedSize, Zone);
 
 	if (Hdr != NULL)
@@ -277,32 +277,7 @@ t_header	*get_slot(size_t AlignedSize, t_memzone *Zone) {
 	return Hdr;
 }
 
-t_header	*find_in_unsorted_bin(size_t AlignedSize) {
-	t_header *Hdr = MemoryLayout.UnsortedBin;
-
-	size_t RequestedSize = AlignedSize + HEADER_SIZE;
-	
-	while (Hdr != NULL) {
-		if (Hdr->RealSize == RequestedSize)
-		{
-			if (Hdr->PrevFree != NULL)
-				Hdr->PrevFree->NextFree = Hdr->NextFree;
-			else
-				MemoryLayout.UnsortedBin = Hdr->NextFree;
-
-			if (Hdr->NextFree != NULL)
-				Hdr->NextFree->PrevFree = Hdr->PrevFree;
-	
-			return Hdr;
-		}
-
-		Hdr = Hdr->NextFree;
-	}
-
-	return NULL;
-}
-
-t_header	*get_slot_from_zone(size_t AlignedSize) {
+t_header	*get_slot(size_t AlignedSize) {
 	t_memzone *Zone = NULL;
 
 	if (AlignedSize <= TINY_ALLOC_MAX) {
@@ -317,12 +292,38 @@ t_header	*get_slot_from_zone(size_t AlignedSize) {
 		Zone = GET_LARGE_ZONE();
 	}
 
-	t_header *Hdr = get_slot(AlignedSize, Zone);
+	t_header *Hdr = get_slot_from_zone(AlignedSize, Zone);
 
 	if (Hdr == NULL)
 		return NULL;
 
 	Zone->MemStatus.TotalFreedMemSize -= Hdr->RealSize;
+
+	return Hdr;
+}
+
+t_header	*find_in_unsorted_bin(size_t AlignedSize) {
+	t_header *Hdr = MemoryLayout.UnsortedBin;
+
+	size_t RequestedSize = AlignedSize + HEADER_SIZE;
+	
+	while (Hdr != NULL) {
+		
+		if (Hdr->RealSize != RequestedSize) {
+			Hdr = Hdr->NextFree;
+			continue;
+		}
+
+		if (Hdr->PrevFree != NULL)
+			Hdr->PrevFree->NextFree = Hdr->NextFree;
+		else
+			MemoryLayout.UnsortedBin = Hdr->NextFree;
+
+		if (Hdr->NextFree != NULL)
+			Hdr->NextFree->PrevFree = Hdr->PrevFree;
+	
+		break;
+	}
 
 	return Hdr;
 }
@@ -333,7 +334,7 @@ void	*malloc_block(size_t size) {
 	t_header *Hdr = find_in_unsorted_bin(AlignedSize);
 
 	if (Hdr == NULL)
-		Hdr = get_slot_from_zone(AlignedSize);
+		Hdr = get_slot(AlignedSize);
 
 	if (Hdr == NULL)
 		return NULL;

@@ -219,7 +219,7 @@ typedef struct	s_unmapchunkargs {
 	size_t 		FreeableChunkSize;
 }				t_unmapchunkargs;
 
-int		unmap_chunk_recurse(t_memchunk *Chunk, t_unmapchunkargs *UnmapChunkArgs) { // size_t FreeableChunkSize, size_t MinChunkMemBeforeUnmap) {
+int		unmap_chunk_recurse(t_memchunk *Chunk, t_unmapchunkargs *UnmapChunkArgs) {
 	size_t ChunkUsableSize = CHUNK_USABLE_SIZE(Chunk->FullSize);
 	t_header *FirstHdr = (t_header *)CHUNK_STARTING_ADDR(Chunk);
 		
@@ -239,7 +239,7 @@ int		unmap_chunk_recurse(t_memchunk *Chunk, t_unmapchunkargs *UnmapChunkArgs) { 
 		return 1;
 	}
 
-	if (unmap_chunk_recurse(Chunk->Next, UnmapChunkArgs) == 0) { //FreeableChunkSize, MinChunkMemBeforeUnmap)) {
+	if (unmap_chunk_recurse(Chunk->Next, UnmapChunkArgs) == 0) {
 		return 0;
 	}
 
@@ -254,25 +254,13 @@ void	free_slot(t_header *Hdr) {
  	size_t BlockSize = RealSize - HEADER_SIZE;
 	
 	t_memzone 	*Zone = NULL;
-	size_t		MinFreedMemBeforeCoalesce;
-	size_t		MinChunkMemBeforeUnmap;	
-	size_t		MinMemToKeepMapped;
 
 	if (BlockSize > SMALL_ALLOC_MAX) {
 		Zone = GET_LARGE_ZONE();
-		MinFreedMemBeforeCoalesce = MIN_FREED_MEM_BEFORE_COALESCE_TINY;
-		MinChunkMemBeforeUnmap = MIN_CHUNK_MEM_BEFORE_UNMAP_TINY;
-		MinMemToKeepMapped = MIN_MEM_TO_KEEP_TINY;
 	} else if (BlockSize > TINY_ALLOC_MAX) {
 		Zone = GET_SMALL_ZONE();
-		MinFreedMemBeforeCoalesce = MIN_FREED_MEM_BEFORE_COALESCE_SMALL;
-		MinChunkMemBeforeUnmap = MIN_CHUNK_MEM_BEFORE_UNMAP_SMALL;
-		MinMemToKeepMapped = MIN_MEM_TO_KEEP_SMALL;
 	} else {
 		Zone = GET_TINY_ZONE();
-		MinFreedMemBeforeCoalesce = MIN_FREED_MEM_BEFORE_COALESCE_LARGE;
-		MinChunkMemBeforeUnmap = MIN_CHUNK_MEM_BEFORE_UNMAP_LARGE;
-		MinMemToKeepMapped = MIN_MEM_TO_KEEP_LARGE;
 	}
 
 	Hdr->State = FREE;
@@ -280,13 +268,37 @@ void	free_slot(t_header *Hdr) {
 
 	Zone->MemStatus.TotalFreedMemSize += RealSize;
 	Zone->MemStatus.FreedMemSinceLastCoalescion += RealSize;
-	
-	if (Zone->MemStatus.TotalMappedMemSize < MinMemToKeepMapped)
+}
+
+typedef struct	s_memparams {
+	size_t	MinMemToKeep;
+	size_t	MinFreedMemBeforeCoalesce;
+	size_t	MinChunkMemBeforeUnmap;
+}				t_memparams;
+
+void	unmap_free_zone_chunks(t_memzone *Zone) {
+	t_memparams MemParams;
+
+	if (Zone->ZoneType == TINY) {
+		MemParams = (t_memparams){ 	MIN_MEM_TO_KEEP_TINY,
+									MIN_FREED_MEM_BEFORE_COALESCE_TINY,
+									MIN_CHUNK_MEM_BEFORE_UNMAP_TINY };
+	} else if (Zone->ZoneType == SMALL) {
+		MemParams = (t_memparams){ 	MIN_MEM_TO_KEEP_SMALL,
+									MIN_FREED_MEM_BEFORE_COALESCE_SMALL,
+									MIN_CHUNK_MEM_BEFORE_UNMAP_SMALL };
+	} else {
+		MemParams = (t_memparams){ 	MIN_MEM_TO_KEEP_LARGE,
+									MIN_FREED_MEM_BEFORE_COALESCE_LARGE,
+									MIN_CHUNK_MEM_BEFORE_UNMAP_LARGE };
+	}
+
+	if (Zone->MemStatus.TotalMappedMemSize < MemParams.MinMemToKeep)
 		return;
 
-	if (Zone->MemStatus.FreedMemSinceLastCoalescion > MinFreedMemBeforeCoalesce) {
+	if (Zone->MemStatus.FreedMemSinceLastCoalescion > MemParams.MinFreedMemBeforeCoalesce) {
 		coalesce_slots(Zone);
-		t_unmapchunkargs UnmapChunkArgs = { Zone, 0, MinChunkMemBeforeUnmap };
+		t_unmapchunkargs UnmapChunkArgs = { Zone, 0, MemParams.MinChunkMemBeforeUnmap };
 		unmap_chunk_recurse(Zone->FirstChunk, &UnmapChunkArgs);
 		Zone->MemStatus.FreedMemSinceLastCoalescion = 0;
 	}
@@ -302,6 +314,10 @@ void	flush_unsorted_bin() {
 	}
 
 	MemoryLayout.UnsortedBin = NULL;
+	
+	unmap_free_zone_chunks(GET_LARGE_ZONE());
+	unmap_free_zone_chunks(GET_SMALL_ZONE());
+	unmap_free_zone_chunks(GET_TINY_ZONE());
 }
 
 void	add_to_unsorted_bin(t_header *Hdr) {
