@@ -329,8 +329,8 @@ t_header	*find_in_unsorted_bin(size_t RequestedSize) {
 	return Hdr;
 }
 
-void	*get_slot_of_size(size_t size) {
-	size_t RequestedSize = SIZE_ALIGN(size);
+void	*get_slot_for_size(size_t Size) {
+	size_t RequestedSize = SIZE_ALIGN(Size);
 
 	t_header *Hdr = find_in_unsorted_bin(RequestedSize);
 
@@ -349,12 +349,12 @@ void	*get_slot_of_size(size_t size) {
 	return AllocatedPtr;
 }
 
-void	*malloc(size_t size) {
+void	*malloc(size_t Size) {
 
-	if (size == 0)
+	if (Size == 0)
 		return NULL;
 
-	void *AllocatedPtr = get_slot_of_size(size);
+	void *AllocatedPtr = get_slot_for_size(Size);
 
 	return AllocatedPtr;
 }
