@@ -6,7 +6,6 @@ endif
 
 SRC =		malloc.c \
 		free.c \
-		realloc.c \
 		utils.c \
 		show_free_mem.c \
 		show_alloc_mem.c \

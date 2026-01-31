@@ -47,7 +47,7 @@ ${OBJ_DIR}:
 		@mkdir -p ${OBJ_DIR}
 
 std:		makelibft ${OBJ} ${INCLUDES} ${LIBFT}
-		${CC} ${FLAGS} ${OBJ} -lft -L${LIBFT_DIR}
+		${CC} ${FLAGS} ${OBJ} -lft -L${LIBFT_DIR} -D STDLIB
 
 makemalloc:
 		${MAKE} -C ${MALLOC_DIR}

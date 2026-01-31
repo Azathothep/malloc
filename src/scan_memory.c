@@ -9,8 +9,6 @@
 
 #define LINE_SIZE	2
 
-//TODO(felix): add chunk subdivision in zones
-
 void	show_bins(t_memzone *Zone) {
 	PRINT("BINS\n");
 
@@ -91,9 +89,6 @@ void	scan_hexdump(t_header *Hdr) {
 }
 
 void	scan_error(t_header *Hdr, t_header *Prev, char *errmsg) {
-
-	//show_alloc_mem();
-
 	PRINT(ANSI_COLOR_RED); PRINT("["); PRINT_ADDR(Hdr); PRINT("]: CORRUPTED MEMORY - "); PRINT(errmsg); PRINT(ANSI_COLOR_RESET); NL();
 
 	PRINT("\n----------------- HEXDUMP -----------------\n");

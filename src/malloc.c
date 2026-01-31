@@ -4,9 +4,6 @@
 #include "utils.h"
 #include "malloc.h"
 
-//#define PRINT_MALLOC
-#define SCAN_MEMORY_MALLOC
-
 t_memlayout MemoryLayout = {
 	TINY, NULL, NULL, { },  TINY_BINS_COUNT, { },
 
@@ -17,7 +14,6 @@ t_memlayout MemoryLayout = {
 	NULL
 };
 
-// TODO(felix): change this to support multithreaded programs
 void	*map_memory(int ChunkSize) {
 	void *ptrToMappedMemory = mmap(NULL,
 					ChunkSize,
@@ -30,12 +26,6 @@ void	*map_memory(int ChunkSize) {
 		PRINT_ERROR("Failed to map memory, errno = "); PRINT_UINT64(errno); NL();
 		return NULL;
 	}
-
-#ifdef PRINT_MALLOC
-	PRINT("Successfully mapped "); PRINT_UINT64(ChunkSize); 
-	PRINT("["); PRINT_UINT64(CHUNK_USABLE_SIZE(ChunkSize)); PRINT("]");
-	PRINT(" bytes of memory to addr "); PRINT_ADDR(ptrToMappedMemory); NL();
-#endif	
 
 	return ptrToMappedMemory;
 }
@@ -343,24 +333,15 @@ void	*malloc_block(size_t size) {
 
 	void *AllocatedPtr = GET_SLOT(Hdr);
 
-#ifdef PRINT_MALLOC
-	PRINT("Allocated "); PRINT_UINT64(AlignedSize); PRINT(" ["); PRINT_UINT64(AlignedSize + HEADER_SIZE); PRINT("] bytes at address "); PRINT_ADDR(AllocatedPtr); NL();
-#endif
-
 	return AllocatedPtr;
 }
 
 void	*malloc(size_t size) {
-	//PRINT("Malloc request of size "); PRINT_UINT64(size); NL();
 
 	if (size == 0)
 		return NULL;
 
 	void *AllocatedPtr = malloc_block(size);
-	
-#ifdef SCAN_MEMORY_MALLOC
-	scan_memory_integrity();
-#endif	
 
 	return AllocatedPtr;
 }

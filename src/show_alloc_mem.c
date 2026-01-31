@@ -6,8 +6,6 @@
 #define ANSI_COLOR_BLUE		"\x1b[34m"
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
-//TODO(felix): add chunk subdivision in zones
-
 void	print_block(t_header *Hdr) {
 	char *color = NULL;
 	
@@ -35,7 +33,7 @@ void	show_alloc_zone(t_memzone *Zone) {
 	while (Chunk != NULL) {
 		PRINT("CHUNK: "); PRINT_ADDR(Chunk); NL();	
 
-		t_header *Hdr = CHUNK_STARTING_ADDR(Chunk);//CHUNK_GET_POINTER_TO_FIRST_ALLOC(Chunk);
+		t_header *Hdr = CHUNK_STARTING_ADDR(Chunk);
 	
 		print_block(Hdr);
 		
@@ -51,25 +49,25 @@ void	show_alloc_zone(t_memzone *Zone) {
 			}
 		}
 		
-		Chunk = Chunk->Next; //GET_NEXT_CHUNK(Chunk);
+		Chunk = Chunk->Next;
 	}
 }
 
 void	show_alloc_mem() {
 	PRINT("\n---- full mem ----\n");
 
-	t_memzone *Zone = GET_TINY_ZONE();//&MemoryLayout.TinyZone;
-	PRINT("TINY ZONE\n"); // : "); PRINT_ADDR(Zone->FirstChunk); NL();
+	t_memzone *Zone = GET_TINY_ZONE();
+	PRINT("TINY ZONE\n");
 	show_alloc_zone(Zone);
 	NL();
 
-	Zone = GET_SMALL_ZONE(); //&MemoryLayout.SmallZone;
-	PRINT("SMALL ZONE\n"); // : "); PRINT_ADDR(Zone->FirstChunk); NL();
+	Zone = GET_SMALL_ZONE();
+	PRINT("SMALL ZONE\n");
 	show_alloc_zone(Zone);
 	NL();
 
-	Zone = GET_LARGE_ZONE(); //&MemoryLayout.LargeZone;
-	PRINT("LARGE ZONE\n"); // : "); PRINT_ADDR(Zone->FirstChunk); NL();
+	Zone = GET_LARGE_ZONE();
+	PRINT("LARGE ZONE\n");
 	show_alloc_zone(Zone);
 	NL();
 

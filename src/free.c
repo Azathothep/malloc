@@ -2,40 +2,50 @@
 #include <errno.h>
 #include "malloc.h"
 #include "utils.h"
-#include "../ft_malloc.h"
 
 #define ANSI_COLOR_RED		"\x1b[31m"
 #define	ANSI_COLOR_GREEN	"\x1b[32m"
 #define ANSI_COLOR_RESET	"\x1b[0m"
 
-//#define PRINT_FREE
-#define SCAN_MEMORY_FREE
-
 // --------- BINS ---------- //
 
+// Get the index of the large bin that can store the provided AlignedSize
 int get_large_bin_index(size_t AlignedSize) {
-	int segments[LARGE_BINS_SEGMENTS_COUNT] = LARGE_BINS_SEGMENTS;
-	//size_t FullSize = AlignedSize + HEADER_SIZE;
+	// Getting large bin index is a bit complicated, because these bins are not spaced regularly.
+	// Large bins are divided in segment. Every bin in the same segment is regularly spaced.
+	// We must first find the associated segment, then get the bin index inside that segment.
+
+	// This holds the max size of each segment
+	int max_segment_sizes[LARGE_BINS_SEGMENTS_COUNT] = LARGE_BINS_SEGMENTS;
 
 	// GET SEGMENT INDEX
 	int segment_index = 0;
-	while (segment_index < LARGE_BINS_SEGMENTS_COUNT && (int)AlignedSize > segments[segment_index]) 
+	while (segment_index < LARGE_BINS_SEGMENTS_COUNT && (int)AlignedSize > max_segment_sizes[segment_index]) 
 		segment_index++;
 
+	// If the size is higher than what the last segment can store, then return the bin dump's index
 	if (segment_index == LARGE_BINS_SEGMENTS_COUNT)
 		return LARGE_BINS_DUMP;
 
 	// GET BIN INDEX IN SEGMENT
+	// To get the bin index, we must first calculated the size relative to that segment
+	// (for example, if AlignedSize = 1000 and the segments are 500 and 2000, it will be stored in the second segment.
+	// Then, we substract the previous segment max size to the the size relative to that segment, which would be 1000 - 500 = 500
 	int SizeInSegment = AlignedSize;
 	if (segment_index == 0)
 		SizeInSegment -= SMALL_ALLOC_MAX;
 	else
-		SizeInSegment -= segments[segment_index - 1];
-	
+		SizeInSegment -= max_segment_sizes[segment_index - 1];
+
+	// This is the space between each bin of the target segment
 	int space_between = GET_LARGE_BINS_SEGMENTS_SPACE_BETWEEN(segment_index);
+	
+	// Then, we calculate the bin index relative to that segment
 	int index_in_segment = (SizeInSegment - 1) / space_between;
 
 	// GET SEGMENT STARTING BIN INDEX
+	// We must still get the starting index of the target segment in the whole array
+	// We loop through each segment and add the number of bins each one hold, until we reach the target one
 	int segment_starting_index = 0;
 	int number_of_bins_in_segment = 1 << 5;
 	while (segment_index > 0) {
@@ -44,6 +54,7 @@ int get_large_bin_index(size_t AlignedSize) {
 		segment_index--;
 	}
 
+	// Finally, we only need to add the segment's starting index to the index in that segment
 	int result = segment_starting_index + index_in_segment;
 
 	return result;
@@ -150,7 +161,7 @@ void	try_coalesce_slot(t_header *Hdr, t_header **NextHdrToCheck, t_memzone *Zone
 		Current = Next;
 		NewSize += Current->RealSize;
 		remove_slot_from_bin(Current, Zone);
-		Next = Current->Next; //UNFLAG(Current->Next);
+		Next = Current->Next; 
 	}
 
 	if (Base->RealSize != NewSize) { 
@@ -182,10 +193,6 @@ void	coalesce_slots(t_memzone *Zone) {
 }
 
 void	unmap_memory(t_memchunk *Chunk) {
-#ifdef PRINT_FREE
-	PRINT("UNMAPPING CHUNK: "); PRINT_ADDR(Chunk); PRINT(" ["); PRINT_UINT64(Chunk->FullSize); PRINT("]"); NL();
-#endif
-
 	int ret = munmap((void *)Chunk, Chunk->FullSize);
 
 	if (ret < 0) {
@@ -249,27 +256,6 @@ int		unmap_chunk_recurse(t_memchunk *Chunk, t_unmapchunkargs *UnmapChunkArgs) {
 	return 1;
 }
 
-void	free_slot(t_header *Hdr) {
-	size_t RealSize = Hdr->RealSize;
- 	size_t BlockSize = RealSize - HEADER_SIZE;
-	
-	t_memzone 	*Zone = NULL;
-
-	if (BlockSize > SMALL_ALLOC_MAX) {
-		Zone = GET_LARGE_ZONE();
-	} else if (BlockSize > TINY_ALLOC_MAX) {
-		Zone = GET_SMALL_ZONE();
-	} else {
-		Zone = GET_TINY_ZONE();
-	}
-
-	Hdr->State = FREE;
-	put_slot_in_bin(Hdr, Zone);
-
-	Zone->MemStatus.TotalFreedMemSize += RealSize;
-	Zone->MemStatus.FreedMemSinceLastCoalescion += RealSize;
-}
-
 typedef struct	s_memparams {
 	size_t	MinMemToKeep;
 	size_t	MinFreedMemBeforeCoalesce;
@@ -302,6 +288,27 @@ void	unmap_free_zone_chunks(t_memzone *Zone) {
 		unmap_chunk_recurse(Zone->FirstChunk, &UnmapChunkArgs);
 		Zone->MemStatus.FreedMemSinceLastCoalescion = 0;
 	}
+}
+
+void	free_slot(t_header *Hdr) {
+	size_t RealSize = Hdr->RealSize;
+ 	size_t BlockSize = RealSize - HEADER_SIZE;
+	
+	t_memzone 	*Zone = NULL;
+
+	if (BlockSize > SMALL_ALLOC_MAX) {
+		Zone = GET_LARGE_ZONE();
+	} else if (BlockSize > TINY_ALLOC_MAX) {
+		Zone = GET_SMALL_ZONE();
+	} else {
+		Zone = GET_TINY_ZONE();
+	}
+
+	Hdr->State = FREE;
+	put_slot_in_bin(Hdr, Zone);
+
+	Zone->MemStatus.TotalFreedMemSize += RealSize;
+	Zone->MemStatus.FreedMemSinceLastCoalescion += RealSize;
 }
 
 void	flush_unsorted_bin() {
@@ -343,8 +350,6 @@ void	add_to_unsorted_bin(t_header *Hdr) {
 
 void	free(void *Ptr) {
 
-	//TODO(felix): verify if block need to be freed beforehand !!!	
-
 	if (Ptr == NULL)
 		return;
 
@@ -353,13 +358,5 @@ void	free(void *Ptr) {
 	if (Hdr->State != INUSE)
 		return;
 
-#ifdef PRINT_FREE
-	PRINT("Freeing address "); PRINT_ADDR(Ptr); PRINT(", Header: "); PRINT_ADDR(Hdr); NL();
-#endif
-
 	add_to_unsorted_bin(Hdr);
-
-#ifdef SCAN_MEMORY_FREE
-	scan_memory_integrity();
-#endif
 }
