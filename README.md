@@ -121,7 +121,7 @@ LARGE zone bins are not equally spaced, but are divided into bins segments. Each
 - etc...
 - Until the last segment which contains only `1 bin` (2^0), apart from the previous segment's last bin by `2 097 152 bytes` (2^(3 + 3 * 6)).
 
-Additionally, each zone contains an additional *dump bin* storing all the other slots that belong to the associated zone, are too big to fit in one of the regular bins and are waiting to be broken in tinier slots.
+Additionally, each zone contains an additional *dump bin*, storing all the other slots that belong to the associated zone and are too big to fit in one of the regular bins (possibly waiting to be broken in tinier slots).
 
 ### Unsorted bin
 
