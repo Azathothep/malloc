@@ -42,7 +42,7 @@ The test will request and free a large number of allocations randomly. It can ta
 
 - 1: the maximum number of slots to allocate at the same time
 - 2: the maximum allocation size
-- 3: the number of times to run the whole allocation / freeing process
+- 3: the number of times to run the whole allocation - freeing process
 - 4: the seed to use for the randomization.
 
 It will print out some informations you can use to evaluate the performances, such as the average time each loop took to complete.
@@ -75,9 +75,9 @@ struct {
 ### Zones
 
 Allocations are distributed between three different memory zones:
-- the TINY zone for allocation between 16 and 64 bytes
-- the SMALL zone for allocations between 65 and 1024 bytes
-- the LARGE zone for allocations of more than 1024 bytes
+- the TINY zone for allocation between `16` and `64 bytes`
+- the SMALL zone for allocations between `65` and `1024 bytes`
+- the LARGE zone for allocations of more than `1024 bytes`
 
 Each zone manages its own memory pages, requested through `mmap` and chained together by using their first 32 bytes.
 
@@ -114,9 +114,12 @@ A bin stores a linked list of headers all sharing the same size.
 - The SMALL zone contains 121 regular bins going from 72 to 1024 bytes, 8-bytes spaced, stored in FIFO order
 - The LARGE zone contains 64 regular bins going from 1032 to 2 796 544 bytes, irregularly spaced. They are spaced by at least 64 bytes so they can store headers of slightly different size, from biggest to smallest.
 
-LARGE zone bins are note equally spaced, but are divided into bins segments. Each segment contains a different number of bins, but all bin in the same segment are equally spaced.
+LARGE zone bins are not equally spaced, but are divided into bins segments. Each segment contains a different number of bins, but all bin in the same segment are equally spaced.
 
-The first segment contains 32 (2^5) bins, apart by 64 (2^(3 + 1 * 3)) bytes. The second one contains 16 (2^(3 + 2 * 3)) bins, apart by 512 (2^9) bytes, etc... until the last segment which contains only one bin, apart from the previous segment's last bin by 2 097 152 (2^(3 + 6 * 3)) bytes.
+- The first segment contains `32 bins` (2^5), apart by `64 bytes` (2^(3 + 1 * 3))
+- The second one contains `16 bins` (2^(3 + 2 * 3)), apart by `512 bytes` (2^9)
+- etc...
+- Until the last segment which contains only `1 bin`, apart from the previous segment's last bin by `2 097 152 bytes` (2^(3 + 6 * 3)).
 
 Additionally, each zone contains an additional `dump bin` storing all the other slots that belong to the associated zone, are too big to fit in one of the regular bins and are waiting to be broken in tinier slots.
 
@@ -128,7 +131,7 @@ When memory slots are freed, they don't actually go in their bin right away. The
 
 Slots into the unsorted bin get exactly one chance of beeing re-allocated.
 
-When the program calls malloc, it first check into the unsorted bin for a perfect fit: if it doesn't find one, it send the entirety of the unsorted bin into regular bins.
+When the program calls malloc, it first check into the unsorted bin for a perfect fit: if it doesn't find one, it 'flushes' the entirety of the unsorted bin into regular bins.
 
 This comes from the known observation that frees are often grouped together, and followed by allocation requests of the same size.
 
