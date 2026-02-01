@@ -117,7 +117,7 @@ int main(int argc, char** argv)
 
 	int		MaxNumberOfAllocations = 10000; //100;
 	size_t 	MaxAllocationSize = 2048;
-	int 	Loops = 1;
+	int 	Loops = 10;
 	unsigned int Seed = time(NULL);
 
 	if (argc > 1)
