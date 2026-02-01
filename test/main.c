@@ -144,7 +144,7 @@ int main(int argc, char** argv)
 
 	int i = 0;
 	while (i < Loops) {
-		printf("Loops %d / %d...\r", i, Loops);
+		printf("Loop %d / %d...\r", i, Loops);
 		fflush(stdout);
 		gettimeofday(&t0, NULL);
 		test_malloc_and_free(MaxNumberOfAllocations, MaxAllocationSize);
