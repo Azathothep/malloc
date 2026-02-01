@@ -117,9 +117,9 @@ A bin stores a linked list of headers all sharing the same size.
 LARGE zone bins are not equally spaced, but are divided into bins segments. Each segment contains a different number of bins, but all bin in the same segment are equally spaced.
 
 - The first segment contains `32 bins` (2^5), apart by `64 bytes` (2^(3 + 1 * 3))
-- The second one contains `16 bins` (2^(3 + 2 * 3)), apart by `512 bytes` (2^9)
+- The second one contains `16 bins` (2^4), apart by `512 bytes` (2^(3 + 2 * 3))
 - etc...
-- Until the last segment which contains only `1 bin`, apart from the previous segment's last bin by `2 097 152 bytes` (2^(3 + 6 * 3)).
+- Until the last segment which contains only `1 bin` (2^0), apart from the previous segment's last bin by `2 097 152 bytes` (2^(3 + 6 * 3)).
 
 Additionally, each zone contains an additional `dump bin` storing all the other slots that belong to the associated zone, are too big to fit in one of the regular bins and are waiting to be broken in tinier slots.
 
