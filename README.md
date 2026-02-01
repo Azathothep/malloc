@@ -110,18 +110,18 @@ After this process, if it still doesn't find any big enough slot to fit the requ
 Each zone contains a fix number of **bins** providing a fast access to freed memory.
 
 A bin stores a linked list of headers all sharing the same size.
-- The TINY zone contains 8 regular bins of size going from 16 to 64 bytes, 8-bytes spaced (16, 24, 32, ..., 64), stored in FIFO order
-- The SMALL zone contains 121 regular bins going from 72 to 1024 bytes, 8-bytes spaced, stored in FIFO order
-- The LARGE zone contains 64 regular bins going from 1032 to 2 796 544 bytes, irregularly spaced. They are spaced by at least 64 bytes so they can store headers of slightly different size, from biggest to smallest.
+- The TINY zone contains `8 regular bins` of size going from `16 to 64 bytes`, `8-bytes` spaced (16, 24, 32, ..., 64), stored in FIFO order
+- The SMALL zone contains `121 regular bins` going from `72 to 1024 bytes`, `8-bytes` spaced, stored in FIFO order
+- The LARGE zone contains `64 regular bins` going from `1032 to 2 796 544 bytes`, irregularly spaced. They are spaced by at least 64 bytes so they can store headers of slightly different size, from biggest to smallest.
 
 LARGE zone bins are not equally spaced, but are divided into bins segments. Each segment contains a different number of bins, but all bin in the same segment are equally spaced.
 
-- The first segment contains `32 bins` (2^5), apart by `64 bytes` (2^(3 + 1 * 3))
-- The second one contains `16 bins` (2^4), apart by `512 bytes` (2^(3 + 2 * 3))
+- The first segment contains `32 bins` (2^5), apart by `64 bytes` (2^(3 + 3 * 1))
+- The second one contains `16 bins` (2^4), apart by `512 bytes` (2^(3 + 3 * 2))
 - etc...
-- Until the last segment which contains only `1 bin` (2^0), apart from the previous segment's last bin by `2 097 152 bytes` (2^(3 + 6 * 3)).
+- Until the last segment which contains only `1 bin` (2^0), apart from the previous segment's last bin by `2 097 152 bytes` (2^(3 + 3 * 6)).
 
-Additionally, each zone contains an additional `dump bin` storing all the other slots that belong to the associated zone, are too big to fit in one of the regular bins and are waiting to be broken in tinier slots.
+Additionally, each zone contains an additional *dump bin* storing all the other slots that belong to the associated zone, are too big to fit in one of the regular bins and are waiting to be broken in tinier slots.
 
 ### Unsorted bin
 
