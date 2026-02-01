@@ -103,14 +103,14 @@ typedef struct	s_memzone {
 # define MIN_MEM_BEFORE_UNMAP	(PAGE_SIZE * 50) // The minimum amount of memory to keep mapped while the application is active
 
 # define MIN_MEM_TO_KEEP_TINY					(TINY_CHUNK * 5) // The minimum memory to keep mapped in the TINY zone
-# define MIN_FREED_MEM_BEFORE_COALESCE_TINY		(TINY_CHUNK * 5) // The minimum memory to free before attempting to coalesce in the TINY zone
-# define MIN_CHUNK_MEM_BEFORE_UNMAP_TINY		(TINY_CHUNK * 5) // The minimum amount of unmappable memory to reach before unmapping
+# define MIN_FREED_MEM_BEFORE_COALESCE_TINY		(TINY_CHUNK * 2) // The minimum memory to free before attempting to coalesce in the TINY zone
+# define MIN_CHUNK_MEM_BEFORE_UNMAP_TINY		(TINY_CHUNK * 3) // The minimum amount of unmappable memory to reach before unmapping
 
 # define MIN_MEM_TO_KEEP_SMALL					(SMALL_CHUNK * 5)
-# define MIN_FREED_MEM_BEFORE_COALESCE_SMALL	(SMALL_CHUNK * 5)
-# define MIN_CHUNK_MEM_BEFORE_UNMAP_SMALL		(SMALL_CHUNK * 5)
+# define MIN_FREED_MEM_BEFORE_COALESCE_SMALL	(SMALL_CHUNK * 2)
+# define MIN_CHUNK_MEM_BEFORE_UNMAP_SMALL		(SMALL_CHUNK * 3)
 
-# define MIN_MEM_TO_KEEP_LARGE					(LARGE_PREALLOC * 2)
+# define MIN_MEM_TO_KEEP_LARGE					(LARGE_PREALLOC)
 # define MIN_FREED_MEM_BEFORE_COALESCE_LARGE	(LARGE_PREALLOC)
 # define MIN_CHUNK_MEM_BEFORE_UNMAP_LARGE		(LARGE_PREALLOC)
 
